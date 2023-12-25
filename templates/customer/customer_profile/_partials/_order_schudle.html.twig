@@ -1,0 +1,65 @@
+<div class="row gx-4 gy-6 g-xl-7 justify-content-sm-center justify-content-xl-start">
+    <div class="col-12 col-md-6">
+        <h3>{{ 'Échéancier' | trans }}</h3>
+        <div class="row-table-header row">
+            <div class="col-12 col-md-4">Montant</div>
+            <div class="col-12 col-md-4">Date</div>
+            <div class="col-12 col-md-4">Status</div>
+        </div>
+        {% if order.paiementSchudle is not empty %}
+            {% for installement in order.paiementSchudle.installments %}
+                <div class="row-table-data row">
+                    <div class="col-12 col-md-4">
+                        {{ installement.total | number_format(2, ',', ' ') }} DZD
+                    </div>
+                    <div class="col-12 col-md-4">
+
+                        {% if installement.dueDate|date('U') > 'now'|date('U') %}
+                            <span class="text-success">
+                                        {{ installement.dueDate | format_date('short',locale='fr') }}
+                                    </span>
+                        {% else %}
+                            <span class="text-danger">
+                                        {{ installement.dueDate | format_date('short',locale='fr') }}
+                                    </span>
+                        {% endif %}
+                    </div>
+                    <div class="col-12 col-md-4">
+                        {% if installement.isPayed %}
+                            <span class="badge bg-success">Payé</span>
+                        {% else %}
+                            <span class="badge bg-warning">en Attente</span>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="col-12 col-md-6">
+        <h3>
+            {{ 'Personnalisation' | trans }}
+        </h3>
+        <div class="row-table-header row">
+            <div class="col-12 col-md-4">Produit</div>
+            <div class="col-12 col-md-4">Prix</div>
+            <div class="col-12 col-md-4">Date de commande</div>
+        </div>
+
+        {% if order.orderDetails %}
+            {% for detail in order.orderDetails %}
+            <div class="row-table-data row">
+                <div class="col-12 col-md-4">
+                    {{ detail.additionalProduct }}
+                </div>
+                <div class="col-12 col-md-4">
+                    {{ detail.price | number_format(2, ',', ' ') }} DZD
+                </div>
+                <div class="col-12 col-md-4">
+                    {{ detail.dateAdd | date('d/m/Y') }}
+                </div>
+            </div>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+</div>

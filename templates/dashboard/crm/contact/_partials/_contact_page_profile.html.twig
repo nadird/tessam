@@ -1,0 +1,21 @@
+<div class="card mb-3">
+    <div class="card-body">
+        <div class="row align-items-center g-3 text-center text-xxl-start">
+            <div class="col-12 col-xxl-auto">
+                <div class="avatar avatar-5xl"><img class="rounded-circle" src="{{ asset('images/anon.png') }}" alt=""></div>
+            </div>
+            <div class="col-12 col-sm-auto flex-1">
+                <h3 class="fw-bolder mb-2">{{ contact.firstname }} {{ contact.lastname }}</h3>
+                <p class="mb-0"><span class="badge badge-phoenix" style="background-color: {{ contact.state.color }};">{{ contact.state.name}} </span></p>
+                {% if contact.isprocessed == true %}
+                    {% set lead = (contact.leads | first) %}
+                <a class="btn btn-soft-success  m-1" href="{{ path('app_dashboard_crm_leads_lead_page',{'id':lead.id}) }}">
+                    {{ 'Lead page' | trans }}</a>
+                {% else %}
+                <a class="btn btn-soft-success  m-1" href="{{ path('app_dashboard_crm_contact_contact_to_lead',{'id':contact.id}) }}">
+                transform to lead</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

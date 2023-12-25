@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CbienState{% endblock %}
+
+{% block body %}
+    <h1>CbienState</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cbien_state.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ cbien_state.name }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ cbien_state.code }}</td>
+            </tr>
+            <tr>
+                <th>Color</th>
+                <td>{{ cbien_state.color }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cbien_state_index') }}">back to list</a>
+
+    <a href="{{ path('app_cbien_state_edit', {'id': cbien_state.id}) }}">edit</a>
+
+    {{ include('cbien_state/_delete_form.html.twig') }}
+{% endblock %}

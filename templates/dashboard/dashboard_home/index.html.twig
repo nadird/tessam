@@ -1,0 +1,132 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block body %}
+
+
+
+    <div class="row gy-3 mb-4 justify-content-between">
+        <div class="col-xxl-6">
+            <h2 class="mb-2 text-1100">{{ 'Affinia Dashboard' | trans }}</h2>
+            <h5 class="text-700 fw-semi-bold mb-4">{{ 'Check your business growth in one place' | trans }}</h5>
+            <div class="row g-3 mb-3">
+                <div class="col-sm-6 col-md-4 col-xl-3 col-xxl-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex d-sm-block justify-content-between">
+                                <div class="border-bottom-sm mb-sm-4">
+                                    <div class="d-flex align-items-center">
+                                        <div class="d-flex align-items-center icon-wrapper-sm shadow-primary-100" style="transform: rotate(-7.45deg);">
+                                            <span class="fa-solid fa-phone-alt text-primary fs-1 z-index-1 ms-2"></span>
+                                        </div>
+                                        <p class="text-700 fs--1 mb-0 ms-2 mt-3">{{ 'Appels sortant' | trans }}</p>
+                                    </div>
+                                    <p class="text-primary mt-2 fs-2 fw-bold mb-0 mb-sm-4">3 <span class="fs-0 text-900 lh-lg">
+                                           {{"Prospects aujoutd'hui" | trans}}</span></p>
+                                </div>
+                                <div class="d-flex flex-column justify-content-center flex-between-end d-sm-block text-end text-sm-start">
+                                    <span class="badge badge-phoenix badge-phoenix-success fs--2 mb-2">+24.5%</span>
+                                    <p class="mb-0 fs--1 text-700">{{ "De plus qu'hier"}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl-3 col-xxl-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex d-sm-block justify-content-between">
+                                <div class="border-bottom-sm mb-sm-4">
+                                    <div class="d-flex align-items-center">
+                                        <div class="d-flex align-items-center icon-wrapper-sm shadow-info-100" style="transform: rotate(-7.45deg);">
+                                            <span class="fa-solid fa-calendar text-info fs-1 z-index-1 ms-2"></span></div>
+                                        <p class="text-700 fs--1 mb-0 ms-2 mt-3">{{ 'Rendez vous' | trans }} </p>
+                                    </div>
+                                    <p class="text-info mt-2 fs-2 fw-bold mb-0 mb-sm-4">12 <span class="fs-0 text-900 lh-lg">{{ 'Cette semaine' | trans }}</span></p>
+                                </div>
+                                <div class="d-flex flex-column justify-content-center flex-between-end d-sm-block text-end text-sm-start">
+                                    <span class="badge badge-phoenix badge-phoenix-warning fs--2 mb-2">+24.5%</span>
+                                    <p class="mb-0 fs--1 text-700">{{'de plus que la semaine derniére' | trans}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xl-6 col-xxl-4 gy-5 gy-md-3">
+                    <div class="border-bottom">
+                        <h5 class="pb-4 border-bottom">{{ 'Top 5 sources prospect' | trans }}</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-transparent list-group-crm fw-bold text-900 fs--1 py-2">
+                                <div class="d-flex justify-content-between"><span class="fw-normal fs--1 mx-1">
+                                        <span class="fw-bold">1. </span>Site web </span><span>(65)</span></div>
+                            </li>
+                            <li class="list-group-item bg-transparent list-group-crm fw-bold text-900 fs--1 py-2">
+                                <div class="d-flex justify-content-between">
+                                    <span class="fw-normal mx-1"><span class="fw-bold">2. </span>Pub facebook</span><span>(74)</span></div>
+                            </li>
+                            <li class="list-group-item bg-transparent list-group-crm fw-bold text-900 fs--1 py-2">
+                                <div class="d-flex justify-content-between">
+                                    <span class="fw-normal fs--1 mx-1"><span class="fw-bold">3.</span> Contacts personnel</span><span>(32)</span></div>
+                            </li>
+                            <li class="list-group-item bg-transparent list-group-crm fw-bold text-900 fs--1 py-2">
+                                <div class="d-flex justify-content-between">
+                                    <span class="fw-normal fs--1 mx-1"><span class="fw-bold">4.</span>Salons et foires</span><span>(25)</span></div>
+                            </li>
+                            <li class="list-group-item bg-transparent list-group-crm fw-bold text-900 fs--1 py-2">
+                                <div class="d-flex justify-content-between">
+                                    <span class="fw-normal fs--1 mx-1"> <span class="fw-bold">5.</span>Recommandation</span><span>(23)</span></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-6 mb-6">
+            <h3>Vos taches</h3>
+            <p class="text-700 mb-1">Vos todo lists en cours</p>
+
+
+        </div>
+        <div class="col-12 col-xxl-6 mb-3 mb-sm-0">
+            <div class="row">
+                <div class="col-sm-7 col-md-8 col-xxl-8 mb-md-3 mb-lg-0">
+                    <h3>Disponibilités par type</h3>
+                    <p class="text-700">Disponibilité par type de produits</p>
+                    <div class="row g-0">
+                        <div class="col-6 col-xl-4">
+                            {{ render_chart(apartementsChart) }}
+                        </div>
+                        <div class="col-6 col-xl-4">
+                            {{ render_chart(villasChart) }}
+                        </div>
+                        <div class="col-6 col-xl-4">
+                            {{ render_chart(duplexChart) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-5 col-md-4 col-xxl-4 my-3 my-sm-0">
+                    <div class="position-relative d-flex flex-center mb-sm-4 mb-xl-0 echart-contact-by-source-container mt-sm-7 mt-lg-4 mt-xl-0">
+                        <div class="echart-contact-by-source" style="min-height:245px;width:100%"></div>
+                        <div class="position-absolute rounded-circle bg-primary-100 top-50 start-50 translate-middle d-flex flex-center" style="height:100px; width:100px;">
+                            <h3 class="mb-0 text-primary-600 dark__text-primary-300 fw-bolder" data-label="data-label"></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-xxl-6 mb-8">
+            <div class="mb-3">
+                <h3>Ventes apartements et villas</h3>
+                <p class="text-700 mb-0">Indicateur des ventes</p>
+            </div>
+            <div class="row g-6">
+                <div style="height: 300px;">
+                    {{ render_chart(chart) }}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}
+

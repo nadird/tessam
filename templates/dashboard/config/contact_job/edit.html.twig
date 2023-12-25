@@ -1,0 +1,21 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+<div class="card">
+    <div class="card-header">
+        <h1>Edit Order State</h1>
+    </div>
+    <div class="card-body">
+    {{ include('dashboard/config/contact_job/_form.html.twig', {'button_label': 'Update'}) }}
+    </div>
+    <div class="card-footer">
+        <div class="btn-group">
+            <a href="{{ path('app_dashboard_config_contactJob_index') }}" class="btn btn-phoenix-primary">back to list</a>
+            {{ include('dashboard/config/contact_job/_delete_form.html.twig') }}
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

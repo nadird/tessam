@@ -1,0 +1,17 @@
+<div class="border-300">
+
+    {% for notification in notifications %}
+    <div class="px-2 px-sm-3 py-3 border-300 notification-card position-relative unread border-bottom">
+
+    {% include('dashboard/_partials/_navbar/_notification.html.twig') %}
+    </div>
+    {% endfor %}
+</div>
+<div class="border-300">
+    {% for notification in notificationsPast %}
+    <div class="px-2 px-sm-3 py-3 border-300 notification-card position-relative read ">
+        {% include('dashboard/_partials/_navbar/_notification.html.twig') %}
+    </div>
+    {% endfor %}
+
+</div>

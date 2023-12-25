@@ -1,0 +1,59 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/build/runtime.js",
+        "/build/app.js"
+      ],
+      "css": [
+        "/build/vendors-node_modules_swiper_swiper-bundle_css.css"
+      ]
+    },
+    "dashboard": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors-node_modules_core-js_internals_array-reduce_js-node_modules_core-js_modules_es_array--d73e5b.js",
+        "/build/vendors-node_modules_fortawesome_fontawesome-free_js_all_min_js-node_modules_symfony_stimulus-1e4af2.js",
+        "/build/dashboard.js"
+      ],
+      "css": [
+        "/build/vendors-node_modules_fortawesome_fontawesome-free_js_all_min_js-node_modules_symfony_stimulus-1e4af2.css"
+      ]
+    },
+    "albums": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors-node_modules_core-js_internals_array-reduce_js-node_modules_core-js_modules_es_array--d73e5b.js",
+        "/build/vendors-node_modules_core-js_modules_es_array_copy-within_js-node_modules_core-js_modules_es_-67e311.js",
+        "/build/albums.js"
+      ],
+      "css": [
+        "/build/albums.css"
+      ]
+    },
+    "dashboardStyle": {
+      "js": [
+        "/build/runtime.js"
+      ],
+      "css": [
+        "/build/dashboardStyle.css"
+      ]
+    },
+    "homePageWebStyle": {
+      "js": [
+        "/build/runtime.js"
+      ],
+      "css": [
+        "/build/homePageWebStyle.css"
+      ]
+    },
+    "themewebstyle": {
+      "js": [
+        "/build/runtime.js"
+      ],
+      "css": [
+        "/build/themewebstyle.css"
+      ]
+    }
+  }
+}

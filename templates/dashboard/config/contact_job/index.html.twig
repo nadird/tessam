@@ -1,0 +1,49 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="row-table-header row">
+                <div class="col-3 col-md-1 ">#</div>
+                <div class="col-3 col-md-2 ">Name</div>
+                <div class="col-3 col-md-2 ">Code</div>
+                <div class="col-3 col-md-2">Code</div>
+                <div class="col-12 col-md-4 ">Actions</div>
+            </div>
+            {% for contact_job in contact_jobs %}
+                <div class="row-table-data row">
+                    <div class="col-3 col-md-1 ">{{ contact_job.id }}</div>
+                    <div class="col-3 col-md-2 ">{{ contact_job.name }}</div>
+                    <div class="col-3 col-md-2 ">{{ contact_job.color }}</div>
+                    <div class="col-3 col-md-2 ">{{ contact_job.code }}</div>
+                    <div class="col-12 col-md-5 ">
+
+                        <div class="btn-group">
+                            <a href="{{ path('app_dashboard_config_contactJob_show', {'id': contact_job.id}) }}" class="btn btn-phoenix-primary">show</a>
+                            <a href="{{ path('app_dashboard_config_contactJob_edit', {'id': contact_job.id}) }}" class="btn btn-phoenix-primary">edit</a>
+                            <a href="{{ path('app_dashboard_config_contactJob_delete', {'id': contact_job.id}) }}" class="btn btn-phoenix-primary">delete</a>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="row-table-data row">
+                    <div class="col-12 ">No Records </div>
+                </div>
+            {% endfor %}
+
+        </div>
+        <div id="form" class="col-12 col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>New Paiement type</h5>
+                </div>
+                <div class="card-body">
+                    {{ include('dashboard/config/contact_job/_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+

@@ -1,0 +1,12 @@
+<div class="col-4">
+    <a class="btn  p-0 d-flex flex-center btn-wish z-index-2 d-toggle-container btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delte" data-bs-original-title="Delete"
+       href="{{path('dashboard_utils_album_delete_image_album',{'id':image.id})}}"
+    >
+        <span class="fas fa-close d-block-hover"></span>
+        <img class="w-100 rounded-3 img-fluid"
+             src="{{ asset('/uploads/albums/') }}{{ album.slug }}/{{ image.image }}"
+             alt=""/>
+    </a>
+
+
+</div>

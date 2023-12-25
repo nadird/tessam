@@ -1,0 +1,63 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+
+
+    <div class="row row-cards">
+        <div class="col-12 col-md-12  col-lg-8">
+
+                    <div class="row-table-header row">
+                        <div class="col-3 col-md-1">#</div>
+                        <div class="col-3 col-md-1">{{ 'Name' |trans }}</div>
+                        <div class="col-3 col-md-1">{{ 'Email' | trans }}</div>
+                        <div class="col-3 col-md-1">{{ 'Object' | trans }}</div>
+                        <div class="col-12 col-md-2">{{ 'Actions' | trans }}</div>
+                    </div>
+                            {% for contact in contacts %}
+                                <div class="row-table-data row" style="border: 1px solid {{ contact.state.colorBorder }} ">
+                                    <div class="col-2 col-md-1 col-lg-1">{{ contact.id }}</div>
+                                    <div class="col-5 col-md-4 col-lg-3"><b>
+                                            <a href="{{ path('app_dashboard_crm_contact_contact_page',{'id':contact.id}) }}">{{ contact.firstname }} {{contact.lastname }}</a>
+                                        </b>
+
+                                    </div>
+                                    <div class="col-5 col-md-4 col-lg-2">{{ contact.phone1 }}</div>
+                                    <div class="col-8 col-md-3 col-lg-3">
+                                        <p class=" white-space-nowrap fw-thin"> {{ contact.dateUpdated | format_datetime('short', 'short', locale='fr') }}
+                                        </p>
+                                    </div>
+                                    <div class="col-4 col-md-5 col-lg-1">
+                                        <div class=" align-middle">
+                                            <span class="badge badge-phoenix" style="background-color: {{ contact.state.color }}; border: 1px solid {{ contact.state.colorBorder }}; color: {{ contact.state.colorText }}"> {{ contact.state.name}} </span>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-5 col-lg-1">{{ contact.isValid?'Oui':'Non' }}</div>
+                                    <div class="col-6 col-md-2 col-lg-1">
+                                        <div class="avatar avatar-m me-3 flex-shrink-0"><img class="rounded-circle" src="{{ asset('uploads/employee') }}/{{ contact.employee.picture }}" alt=""></div>
+                                    </div>
+
+                                </div>
+
+                            {% endfor %}
+
+            </div>
+
+        <div class="col-12 col-md-12 col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">
+                        {{ 'New Contact' | trans }}
+                    </h4>
+                </div>
+                <div class="card-body">
+                    {{ form(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

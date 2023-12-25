@@ -1,0 +1,14 @@
+<div class="px-xl-4 mb-7 " id="orders">
+    <h2 class="mb-4">{{ 'Orders' | trans }}</h2>
+    <div class="mb-8">
+        <hr>
+        <div class="scrollbar deals-items-container">
+            <div class="w-100" data-sortable="data-sortable">
+        {% for order in orders %}
+            {% include('dashboard/crm/customer/_partials/_order.html.twig') %}
+        {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+

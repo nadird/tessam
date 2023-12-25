@@ -1,0 +1,40 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block title %}Hello DashboardHomeController!{% endblock %}
+
+{% block body %}
+
+    <div class="page-header">
+        <h1 class="page-title">{{ controller_name }}</h1>
+        <div>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">{{ 'HR' | trans }}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ controller_name }}</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row row-cards">
+        <div class="col-lg-12 col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        {% if job is defined %}
+                        {{ 'Editing' | trans }} {{ job.name }}
+                        {% else %}
+                        {{ 'Create New Job' | trans }}
+                        {% endif %}
+                        </h3>
+                    <div class="card-options">
+                        <a href="#" class="btn btn-primary btn-sm"><i class="fe fe-user-plus"></i> {{ 'Edit Privileges' | trans }}</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    {{ form(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+
+
+    <div class="row row-cards">
+        <div id="filter-zone">
+            {% include('dashboard/crm/customer/_partials/_customer_index_filters.html.twig') %}
+        </div>
+        <div class="col-12">
+
+            <div class="d-none d-md-block">
+                <div class="row-table-header row ">
+
+                    <div class="col-12 col-md-2 col-lg-2  ">{{ 'Name' | trans }}</div>
+                    <div class="col-6 col-md-2 col-lg-2 ">{{ 'Total' | trans }}</div>
+                    <div class="col-6 col-md-2 col-lg-2 ">{{ 'Payé' | trans }}</div>
+                    <div class="col-12 col-md-1 col-lg-1">%</div>
+                    <div class="col-6 col-md-2 col-lg-2">{{ 'Date upd' | trans }}</div>
+                    <div class="col-6 col-md-1 col-lg-1">{{ 'State' | trans }}</div>
+                    <div class="col-12 col-md-1 col-lg-1 ">{{ 'User' | trans }}</div>
+                </div>
+            </div>
+            {% for customer in customers %}
+                <div class="row-table-data row" style="border: 1px solid {{ customer.state.colorBorder }} ">
+
+                    <div class="col-12 col-md-4 col-lg-2 col-xl-2"><b>
+                            <a href="{{ path('app_dashboard_crm_customer_customer_page',{'id':customer.id}) }}">{{ customer.firstname }} {{customer.lastname }}</a>
+                        </b>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 col-xl-2 ">
+                        {% set totalOrder = 0  %}
+                            {% for order in customer.orders %}
+                                {% set totalOrder = totalOrder + order.totalHt %}
+                            {% endfor %}
+                        <div class="overflow-hidden">
+                        <p class=" white-space-nowrap fw-thick fs--1"> {{ totalOrder | format_currency('dzd') }}
+                        </p>
+                        </div>
+
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 col-xl-2">
+                        {% set totalPaiement = 0 %}
+                        {% for paiement in customer.paiementHistories %}
+                            {% set totalPaiement = totalPaiement + paiement.total %}
+                        {% endfor %}
+                        <div class="overflow-hidden">
+                            <p class=" white-space-nowrap fw-thick fs--1"> {{ totalPaiement | format_currency('dzd') }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-1 col-xl-1">
+                        {% if totalOrder > 0  %}
+                            {% set percentage = ((totalPaiement/totalOrder)*100) |round %}
+                        {% else %}
+                            {% set percentage = 0 %}
+                        {% endif %}
+
+                        <div class="progress mb-2 bg-light" style="height:15px">
+                            <div class="progress-bar rounded-3 bg-warning" role="progressbar" style="width: {{ percentage }}%" aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100">{{ percentage }}%</div>
+                        </div>
+                    </div>
+                    <div class="col-7 col-md-3 col-lg-2 col-xl-2">
+                        <div class="overflow-hidden">
+                            <p class=" white-space-nowrap fw-thin fs--1"> {{ customer.dateUpdated | format_datetime('short', 'short', locale='fr') }}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-5 col-md-3 col-lg-2 col-xl-1">
+                        <div class=" align-middle">
+                            <span class="badge badge-phoenix" style="background-color: {{ customer.state.color }}; border: 1px solid {{ customer.state.colorBorder }}; color: {{ customer.state.colorText }}"> {{ customer.state.name}} </span>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-2 col-lg-1 col-xl-1">
+                        {% if customer.employee %}
+                        <div class="avatar avatar-m me-3 flex-shrink-0">
+                            <img class="rounded-circle" src="{{ asset('uploads/employee') }}/{{ customer.employee.picture }}" alt="">
+                        </div>
+                        {% endif %}
+                    </div>
+
+                </div>
+
+            {% endfor %}
+            <div class="navigation">
+                {{ knp_pagination_render(customers) }}
+            </div>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}

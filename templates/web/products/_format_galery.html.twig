@@ -1,0 +1,18 @@
+{% for album in format.albums %}
+    <div class="swiper-mega-container">
+        <div data-controller="carousel" class="swiper-container" {{ stimulus_controller('carousel') }}>
+            <div class="swiper-wrapper">
+                {% for image in album.albumImages %}
+                    <div class="swiper-slide">
+                        <img src="{{ asset('/uploads/albums/') }}{{ album.slug }}/{{ image.image }}" alt="Album Image"/>
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- Add navigation arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <!-- Add pagination dots -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+{% endfor %}

@@ -1,0 +1,46 @@
+<div id="filtration">
+    <div class="row">
+
+        <div class="col-auto border-sm-0 border-end-md">
+
+            {{ form_start(filtersForm) }}
+            <div class="row gx-3 align-items-center">
+                <h4 class="col-auto">Filtrer par :</h4>
+                <div class="col-auto">
+                    {{ form_row(filtersForm.state) }}
+                </div>
+                <div class="col-auto">
+                    {{ form_row(filtersForm.employee) }}
+                </div>
+                <div class="col-auto">
+                    {{ form_row(filtersForm.project) }}
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-phoenix btn-phoenix-secondary" type="submit">
+                        <span class="fa fa-filter"></span>
+                    </button>
+                </div>
+                {{ form_end(filtersForm) }}
+            </div>
+        </div>
+        <div class="col-auto">
+            <form target="#" class="row gx-3 align-items-center" method="GET">
+                <div class="d-flex mb-4 g-3">
+
+                    <input
+                            type="search"
+                            name="q"
+                            placeholder="Recherche..."
+                            class="form-control mx-3"
+                            aria-label="Search"
+                    >
+                    <button class="btn px-3 btn-phoenix-secondary mx-2" type="submit">
+                        <span class="fa fa-search"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>

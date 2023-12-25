@@ -1,0 +1,88 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+    <div class="row">
+        <div class="col-12 col-md-8">
+            <div class="mx-n4 mx-lg-n6 mb-5 border-bottom border-300">
+                {% for todoList in todoLists %}
+                    <div class="d-flex align-items-center justify-content-between py-3 border-300 px-lg-6 px-4 notification-card border-top ">
+                        <div class="d-flex">
+                            <div class="avatar avatar-xl me-3"><img class="rounded-circle" src="{{asset('/uploads/employee')}}/{{ todoList.employee.picture }}" alt="" />
+                            </div>
+                            <div class="me-3 flex-1 mt-2">
+                                <h4 class="fs--1 text-black">{{ todoList.name}} </h4>
+                                <p class="fs--1 text-1000"><span class='me-1'>💬</span>Affecté à {{ todoList.employee.lastname }} {{ todoList.employee.firstname }}</p>
+                                <p class="text-800 fs--1 mb-0"><span class="me-1 fas fa-clock"></span>{{ todoList.dateAdd | format_datetime(pattern="hh:mm d/MMM") }}</p>
+                            </div>
+
+                        </div>
+
+                        <div class="font-sans-serif">
+                            <a
+                                    class="btn btn-phoenix-secondary mt-2"
+                                    data-bs-toggle="collapse"
+                                    href="#collapsetasks-{{ todoList.id }}"
+                                    role="button"
+                                    aria-expanded="false"
+                                    aria-controls="collapsetasks-{{ todoList.id }}">
+                                Voir les taches</a>
+                        </div>
+                    </div>
+                    <div id="todoLists" class="container ">
+
+
+                        <div class="collapse"
+                             id="collapsetasks-{{ todoList.id }}"
+                             style="">
+                            {% set numberdone = 0 %}
+                            {% set numberwaiting = 0 %}
+                            {% for todo in todoList.todos %}
+                                {% if todo.isDone == true %}
+                                    {% set numberdone = numberdone + 1 %}
+                                {% endif %}
+                                {% if todo.isDone == false %}
+                                    {% set numberwaiting = numberwaiting + 1 %}
+                                {% endif %}
+                                {% include('dashboard/_partials/_todo.html.twig') %}
+                            {% endfor %}
+                        </div>
+                        <div class="mt-3 todo-list state {{ todoList.id }}">
+                           Total Todos :{{ numberdone }}/{{ numberwaiting + numberdone }}
+                            {% set percentage = (numberdone/(numberwaiting + numberdone)*100) %}
+                            <div class="progress m-3" style="height:15px; background-color: #ededed;">
+                                {% if percentage == 0 %}
+                                    <span class="">0%</span>
+                                {% endif %}
+
+                                <div
+                                        class="progress-bar"
+                                        role="progressbar"
+                                        style="width: {{ percentage }}%" aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100">
+                                    {{ percentage }}%
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">{{ 'Nouvelle todo liste' | trans }}</h5>
+                </div>
+
+                <div class=" card-body border-300 shadow-sm mt-2">
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

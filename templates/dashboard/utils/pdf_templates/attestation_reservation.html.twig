@@ -1,0 +1,191 @@
+<style>
+    @page {
+        margin: 5px;
+    }
+    body {
+        margin: 5px;
+    }
+    * {
+        font-family: 'Arial',serif;
+    }
+    table {
+        border-collapse: collapse;
+    }
+    table, th, td {
+        //border: 1px solid black;
+    }
+    .page_break { page-break-before: always; }
+    .page-number:before {
+        content: "Page " counter(page);
+    }
+    .page_break { page-break-before: always; }
+    .page-number:before {
+        content: "Page " counter(page);
+    }
+    .page_break { page-break-before: always; }
+    .page-number:before {
+        content: "Page " counter(page);
+    }
+    .page_break { page-break-before: always; }
+    .page-number:before {
+        content: "Page " counter(page);
+    }
+    .page_break { page-break-before: always; }
+    .page-number:before {
+        content: "Page " counter(page);
+    }
+    .page_break { page-break-before: always; }
+    .page-number:before {
+        content: "Page " counter(page);
+    }
+    .page_break { page-break-before: always; }
+    .page-number:before {
+        content: "Page " counter(page);
+    }
+    .page_break { page-break-before: always; }
+    .page-number:before {
+        content: "Page " counter(page);
+
+    }
+    .logo-container {
+        text-align: center;
+        padding-bottom: 35px;
+    }
+    .logo-container img {
+        width: 150px;
+        display: block;
+        margin: auto;
+    }
+    .title-container {
+        background: #d3d3d3;
+        text-align: center;
+    }
+
+    .title-container h3 {
+        font-family: 'Arial Black', serif;
+        font-weight: bold;
+        color: #ffffff;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    .footer {
+        margin-top: 25px;
+        border: 3px solid #000;
+        padding: 12px;
+        position: absolute;
+        bottom: 0;
+        width: 95%;
+    }
+</style>
+<div>
+    <div class="logo-container">
+          <img style="" src="{{ data.logo }}" alt="">
+    </div>
+    <div class="title-container">
+        <h3>
+            ATTESTATION DE RESERVATION N°{{ data.order.id }} /{{ data.order.dateAdd|date('Y') }}
+        </h3>
+    </div>
+    <div>
+        <div style="margin-top: 10px; padding: 12px; ">
+            <p style="font-size: 12px">Conformément au décret exécutif n°13-431 du 18 décembre 2013 définissant les modèles types des
+                contrats de réservation et de vente sur plans des biens immobiliers ainsi que les limites du paiement du
+                prix du bien objet du contrat de vente sur plans et le montant et l’échéance de la pénalité de retard
+                ainsi que les modalités de son paiement.
+            </p>
+            <p style="font-size: 12px">
+            1°) Le promoteur immobilier  {{ globalVariables.TheCompany.RaisonSocial }}
+            Dont le siège est situé à (adresse) {{ globalVariables.TheCompany.address }}
+            Titulaire de l’agrément n° {{ globalVariables.TheCompany.agrement }} du {{ globalVariables.TheCompany.agrementDate | format_date }}
+            Inscrit au tableau national des promoteurs immobiliers sous le n° {{ globalVariables.TheCompany.ntnpi }} en date du {{ globalVariables.TheCompany.ntnpiDate | format_date }}
+            Affilié au fonds de garantie sous le n° {{ globalVariables.TheCompany.nfgcmpi }},
+            Représenté par {{ globalVariables.TheCompany.legalRep }}, Agissant en qualité de {{ globalVariables.TheCompany.legalRep.job.name }}.
+            Ayant tous pouvoirs pour agir en ce sens, ci-après désigné "le promoteur immobilier", d’une part,
+            </p>
+            <p style="font-size: 12px">
+            Et :
+
+            2°) Le réservataire
+            Nom: {{ data.customer.lastname }} Prénom: {{ data.customer.firstname }}
+            Acte de naissance n° {{ data.customer.actNaissance }} pièce d’identité n°{{ data.customer.pi }}
+            Domicilié à {{ data.customer.address }}
+            Ci-après désigné "le réservataire" d’autre part,
+            </p>
+            <h3 style="font-size: 16px">OBJET DU CONTRAT</h3>
+            <p style="font-size: 12px">
+            Le présent contrat a pour objet la réservation par le réservataire auprès du promoteur immobilier
+                d’un bien immobilier à usage d’habitation, identifié comme suit :
+                Wilaya: {{ data.order.bien.format.project.wilaya.name }}.
+                Commune: {{ data.order.bien.format.project.commune.name }}
+                Adresse: {{ data.order.bien.format.project.address }}
+                Bloc: {{ data.Bien.building }}
+                Étage: {{ data.Bien.floor }}
+                Format: {{ data.Bien.format }}
+                Superficie totale: {{ data.Bien.exactArea }}M<sup>2</sup>
+                Superficie habitable: {{ data.Bien.utileArea }}M<sup>2</sup>
+            </p>
+            <p style="font-size: 12px">
+            Le réservataire déclare avoir pris connaissance des caractéristiques du bien immobilier objet de la
+                présente réservation et des conditions de vente et de paiement du prix du bien immobilier objet de la
+                présente réservation.
+            </p><p style="font-size: 12px">
+                Par le présent contrat de réservation, le promoteur immobilier s’engage à réserver au réservataire
+                identifié ci-dessus, le bien immobilier à construire ou en cours de construction décrit ci-dessous, en vue
+                de son acquisition à son achèvement en contrepartie du versement par le réservataire d’une avance à
+                verser dans le compte n° .......................ouvert au nom du réservataire auprès du fonds de garantie
+                et de caution mutuelle.
+            </p>
+            <p style="font-size: 12px">
+    PRIX PREVISIONNEL DE VENTE
+    Le prix prévisionnel de vente du bien objet du présent contrat de réservation, est fixé en toutes taxes
+    comprises, à {{ data.order.totalHt | number_format(2, ',', ' ') }} dinars algériens.
+    Ce prix est le montant que le réservataire doit verser au promoteur immobilier en contrepartie de la
+    livraison de l’immeuble ou de la fraction d’immeuble achevé, conformément à la législation et la
+    réglementation en vigueur objet du présent contrat de réservation.
+    Le réservataire est tenu au versement d’une avance d’un montant de {{ (data.order.totalHt/10) | number_format(2, ',', ' ')}} DA qui ne saurait excéder 20% selon l’ordre de versement établi par le promoteur immobilier le
+     et le récépissé N° .................. du fonds de garantie et de caution mutuelle de la
+    promotion immobilière
+            </p>
+
+            <table style="font-size: 12px; width: 100%;">
+                <tr>
+                    <td style="width: 50%">
+                        <ul>
+                            <li>Wilaya: {{ data.order.bien.format.project.wilaya.name }}.</li>
+                            <li>Commune: {{ data.order.bien.format.project.commune.name }}</li>
+                            <li>Adresse: {{ data.order.bien.format.project.address }}</li>
+                            <li>Bloc: {{ data.Bien.building }}</li>
+                            <li>Étage: {{ data.Bien.floor }}</li>
+                            <li>Format: {{ data.Bien.format }}</li>
+                            <li>Superficie totale: {{ data.Bien.exactArea }}M<sup>2</sup></li>
+                            <li>Superficie habitable: {{ data.Bien.utileArea }}M<sup>2</sup></li>
+                        </ul>
+                    </td>
+                    <td style="width: 50%">
+                        <img style="width:240px; margin: 5px ; right: 0px ; top:0px" src="{{ data.plan }}" alt="">
+                    </td>
+                </tr>
+            </table>
+
+
+
+
+        </div>
+
+        <div class="footer">
+            <table style="width: 100%;">
+                <tr>
+                    <td style=" width:50%">
+                        Fait à ................, le ..........................................................
+                        Le réservataire Le promoteur immobilier
+                    </td>
+                    <td style="width: 50%;text-align: right;">
+                        <div style="">
+                            <img style=" width: 150px; display: block; margin: auto;" src="{{ data.qr }}" alt="">
+                        </div>
+                       </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

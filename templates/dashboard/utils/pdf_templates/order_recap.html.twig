@@ -1,0 +1,177 @@
+<style>
+    @page {
+        margin: 5px;
+    }
+    body {
+        margin: 25px;
+    }
+    * {
+        font-family: 'Arial',serif;
+    }
+    table {
+        border-collapse: collapse;
+    }
+    table, th, td {
+    //border: 1px solid black;
+    }
+    .page_break { page-break-before: always; }
+    .page-number:before {
+        content: "Page " counter(page);
+    }
+    .page_break { page-break-before: always; }
+    .page-number:before {
+        content: "Page " counter(page);
+    }
+    .page_break { page-break-before: always; }
+    .page-number:before {
+        content: "Page " counter(page);
+    }
+    .page_break { page-break-before: always; }
+    .page-number:before {
+        content: "Page " counter(page);
+    }
+    .page_break { page-break-before: always; }
+    .page-number:before {
+        content: "Page " counter(page);
+    }
+    .page_break { page-break-before: always; }
+    .page-number:before {
+        content: "Page " counter(page);
+    }
+    .page_break { page-break-before: always; }
+    .page-number:before {
+        content: "Page " counter(page);
+    }
+    .page_break { page-break-before: always; }
+    .page-number:before {
+        content: "Page " counter(page);
+
+    }
+    .logo-container {
+        text-align: center;
+        padding-bottom: 35px;
+    }
+    .logo-container img {
+        width: 150px;
+        display: block;
+        margin: auto;
+    }
+    .title-container {
+        background: #d3d3d3;
+        text-align: center;
+    }
+
+    .title-container h3 {
+        font-family: 'Arial Black', serif;
+        font-weight: bold;
+        color: #000000;
+        font-size: 24px;
+        margin-top: 10px;
+    }
+    .footer {
+        margin-top: 25px;
+        /*border: 3px solid rgba(141, 141, 141, 0.94);*/
+        padding: 12px;
+        position: absolute;
+        bottom: 25px;
+        width: 90%;
+        background-color: rgba(236, 236, 236, 0.73);
+    }
+</style>
+<div class="logo-container">
+    <img style="" src="{{ data.logo }}" alt="">
+</div>
+<div>
+    <div class="title-container">
+        <h3>
+            RECAPITULATIF COMMANDE N°{{ data.order.id }}/{{ "now"|date('d-m-Y') }}
+        </h3>
+    </div>
+    <p style="font-size: 16px; margin-top:25px ">
+        Ce document est un recapitulatif de l'acquisition d'un bien immobilier par {{ data.order.customer.firstname }} {{ data.order.customer.lastname }}, Né le {{ data.order.customer.dob | date('d-m-Y')}}, portant la piéce d'identité N° {{ data.order.customer.pi}}
+        En vue de l'acquisition d'un bien immobilier, au titre de la commande N°{{ data.order.id}} en vue de l'acquisition du bien immobilier N° {{ data.order.bien.numerotation }} de type {{ data.order.bien.type }} du projet {{ data.order.bien.project.publicName }} sis à l'adresse :{{ data.order.bien.project.address }}, {{ data.order.bien.project.wilaya }} .
+    </p>
+    <div>
+        <div style="padding: 6px; ">
+            <h3 style="font-size: 14px">Details de la commande</h3>
+            <ul style="font-size: 10px">
+                <li>Prix du bien : {{ data.order.bienPrice | number_format(2, ',', ' ')}}</li>
+                <li>Frais de notaire : {{ data.order.notaireFees| number_format(2, ',', ' ') }}</li>
+                <li>Frais de gestion de la cité (2ans) : {{ data.order.coProprityFees | number_format(2, ',', ' ') }}</li>
+                <li class="list-group-item">{{ 'Personnalisations' |trans }} :
+                    <ul>
+                    {% for presonalisation in data.order.orderDetails %}
+                      <li> <span style="font-weight: bold">{{ presonalisation.additionalProduct.category }} </span>: {{ presonalisation.name }} : {{ presonalisation.price | number_format(2, ',', ' ')}}</li>
+                    {% endfor %}
+                    </ul>
+                </li>
+                {% for add in data.order.bien.bienAdditionals %}
+                    <li class="list-group-item">{{ 'Additionnel' |trans }} : {{ add.name }} {% if add.price ==0 %} (inclus) {% else %} : {{ add.price | number_format(2, ',', ' ') }} {% endif %}
+                    </li>
+                {% endfor %}
+                {% for add in data.order.bienAdditionals %}
+                    <li class="list-group-item">{{ 'Additionnel' |trans }} : {{ add.name }} {% if add.price ==0 %} (inclus) {% else %} : {{ add.price | number_format(2, ',', ' ') }} {% endif %}
+                    </li>
+                {% endfor %}
+                {% if data.order.bankCredits is not empty %}
+                    {% for credit in data.order.bankCredits  %}
+                        <li class="list-group-item">{{ 'Crédit' |trans }} : {{ credit.total |  number_format(2, ',', ' ') }} <span>{{ credit.state }}</span> {{ credit.bank }}</li>
+                    {% endfor %}
+                {% endif %}
+                {% if data.order.reduction is not null and data.order.reduction.total >0 %}
+                    <li> Reduction :
+                        {% if data.order.reduction.isApproved %}
+                            <span> {{ data.order.reduction.total | number_format(2, ',', ' ') }} | {{ 'Apprové' | trans }}</span>
+                        {% else %}
+                            <span>{{ data.order.reduction.total | number_format(2, ',', ' ') }} | {{ 'En attente' |trans }}</span>
+                        {% endif %}
+                    </li>
+                {% endif %}
+
+            </ul>
+
+        </div>
+        <div style=" padding: 6px; ">
+            <h3 style="font-size: 14px">Paiements :</h3>
+            <ul style="font-size: 10px">
+                {% for paiement in data.order.paiementHistories %}
+                    <li>{{ paiement.type }} : {{ paiement.total | number_format(2, ',', ' ') }} | {{ paiement.dateAdd | date('d-m-Y') }} {{ paiement.isValid?'Valide':'En attente' }}</li>
+                {% else %}
+                {% endfor %}
+            </ul>
+        </div>
+        <div style="  padding: 6px;">
+            <h3 style="font-size: 14px">Écheances</h3>
+            <ul style="font-size: 10px">
+            {% for echeance in data.order.paiementSchudle.installments %}
+                    <li>{{ echeance.total | number_format(2, ',', ' ') }} DA, Du le {{ echeance.dueDate | date('d-m-Y') }}, {{ echeance.isPayed?'Payé':'En attente' }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+    <div class="footer">
+        <table style="width: 100%;">
+            <tr>
+                <td style=" width:70%">
+                    Document produit le : {{ "now" | date('d-m-Y H:i:s')}} <br>
+                    Signature : {{ data.order.uuid }} <br>
+                    Commande N° {{ data.order.id }} / Acquéreur N° {{ data.order.customer.id}} <br>
+                    Projet : {{ data.order.bien.project.publicName }} <br>
+                    <hr>
+                    <p style="font-size: 9px">
+                        <strong>{{ globalVariables.TheCompany.raisonSocial }} :</strong> {{ globalVariables.TheCompany.address }},RC N° {{ globalVariables.TheCompany.nfgcmpi}}, Tel :{{globalVariables.TheCompany.phone1 }} , Email : {{globalVariables.TheCompany.email1 }} <br>
+
+                    </p>
+
+
+                </td>
+                <td style="width: 30%;text-align: right;">
+                    <div style="">
+                        <img style=" width: 150px; display: block; margin: auto;" src="{{ data.qr }}" alt="">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

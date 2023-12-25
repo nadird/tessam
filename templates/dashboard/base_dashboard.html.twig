@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}CRM | {{ controller_name }} {% endblock %}</title>
+    {% block javascripts %}
+        {{ encore_entry_script_tags('dashboard') }}
+
+    {% endblock %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('dashboardStyle') }}
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicons') }}/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicons') }}/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicons') }}/favicon-16x16.png">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+
+    {% endblock %}
+    {% block head %}
+       {#  {% include '_partials_global/_favicons.html.twig' %}#}
+       {#  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">#}
+        {# <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"> #}
+    {% endblock %}
+
+    {% block scripts %}
+    {% endblock %}
+</head>
+<body class="app sidebar-mini ltr light-mode">
+{% include('dashboard/_partials/_toasts.html.twig') %}
+
+<!-- GLOBAL-LOADER
+<div id="global-loader">
+    {# <img src="{{absolute_url(asset('build/images/loader.svg'))}}" class="loader-img" alt="Loader"> #}
+</div>
+ /GLOBAL-LOADER -->
+
+<!-- PAGE -->
+<main class="page">
+
+{% block header %}
+
+
+    {{ include('dashboard/_partials/_navbar/_navbar_vertical.html.twig') }}
+    {{ include('dashboard/_partials/_navbar/_navbar_horizontal.html.twig') }}
+
+{% endblock %}
+
+{% block contextnavbar %}
+
+{% endblock %}
+
+{% block topwarper %}
+{%  endblock %}
+{% block dashboard %}
+{% endblock %}
+        <div class="content">
+            {% block hero %}
+
+            {% endblock %}
+
+    {% block body %}
+
+    {% endblock %}
+
+
+
+
+
+{% block footer %}
+    {{ include('dashboard/_partials/footer.html.twig') }}
+{% endblock %}
+
+</div>
+</main>
+{% block footersctipts %}
+    {#   {{ include('dashboard/_partials/modals.html.twig') }} #}
+    <!-- END COUNTRY-SELECTOR-MODAL -->
+
+    <script>
+        var navbarTopStyle = window.config.config.phoenixNavbarTopStyle;
+        var navbarTop = document.querySelector('.navbar-top');
+        if (navbarTopStyle === 'darker') {
+            navbarTop.classList.add('navbar-darker');
+        }
+
+        var navbarVerticalStyle = window.config.config.phoenixNavbarVerticalStyle;
+        var navbarVertical = document.querySelector('.navbar-vertical');
+        if (navbarVertical && navbarVerticalStyle === 'darker') {
+            navbarVertical.classList.add('navbar-darker');
+        }
+    </script>
+    <!-- FOOTER -->
+    {#  {{ include('dashboard/_partials/sidebar-right.html.twig') }}#}
+    <!-- FOOTER CLOSED-->
+
+    <!-- FOOTER -->
+
+{% endblock %}
+</body>
+</html>
+
+

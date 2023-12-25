@@ -1,0 +1,48 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block title %}CRM | {{ 'Web form submissions' }}{% endblock %}
+
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+    <div class="row row-cards">
+        <div class="col-lg-12 col-xl-12">
+            <div class="card">
+                <div class="e-table p-2">
+                    <div class="table-responsive table-lg">
+                        <table class="table border-top table-bordered mb-0">
+                            <thead>
+                            <tr>
+                                <th class="align-middle text-center"><span class="text-muted">#</span></th>
+                                <th class="align-middle text-center"><span class="text-muted">{{ 'Name' | trans }}</span></th>
+                                <th class="align-middle text-center"><span class="text-muted">{{ 'email' | trans }}</span></th>
+                                <th class="align-middle text-center"><span class="text-muted">{{ 'object' | trans }}</span></th>
+                                <th class="align-middle text-center"><span class="text-muted">{{ 'actions' | trans }}</span></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for contact in contacts %}
+                                <tr>
+                                    <td class="align-middle text-center">{{ contact.id }}</td>
+                                    <td class="align-middle text-center">{{ contact.name }}</td>
+                                    <td class="align-middle text-center">{{ contact.email }}</td>
+                                    <td class="align-middle text-center">{{ contact.subject }}</td>
+                                    <td class="align-middle text-center">
+                                        <div class="btn-group">
+                                            <a class="btn btn-outline-phoenix-warning btn-sm" href="{{ path('app_dashboard_webform_contact_contact_message',{'id':contact.id}) }}">
+                                                <i class="fa fa-eye"></i>
+                                                {{ 'see' | trans }}</a>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

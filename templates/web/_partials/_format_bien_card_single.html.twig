@@ -1,0 +1,37 @@
+<div class="card-warper">
+    <div class="type-img-warper">
+        <a href="{{ path('app_product_format_page',{'slug':format.slug}) }}">
+            <img src="{{ asset('uploads/public/') }}{{ format.thumb }}" alt="" class="w-100">
+        </a>
+        <!-- Added Property Details Here -->
+        <div class="property-details">
+            <a href="{{ path('app_product_format_page',{'slug':format.slug}) }}">
+                <h4 class="text-white">{{ format.name }}</h4>
+            </a>
+            <p>{{ format.project.publicName }}</p>
+            <div class="d-flex flex-between-center">
+                <span><b>Details : </b></span>
+                <span>{{ format.nbrbedrooms }} <span class="fa fa-bed"></span></span>
+                <span>{{ format.nbrbathrooms }} <span class="fa fa-bath"></span></span>
+                <span>{{ format.area }} M<sup>2</sup> </span>
+                {% if format.isPiscine %}
+                    <span class="fa fa-swimming-pool"></span>
+                {% endif %}
+                {% if format.isGarage %}
+                    <span class="fa fa-parking"></span>
+                {% endif %}
+                {% if format.isGarden %}
+                    <span class="fa fa-tree"></span>
+                {% endif %}
+
+            </div>
+            {% if  globalVariables.TheCompany.diplayPrices == 'true' %}
+                {% if format.project.isProjectPricePublished == 'true' %}
+                    <p class="price"><strong>{{ 'Starts at' | trans }}</strong> :  {{ format.price | format_currency('DZD') }}</p>
+                {% endif %}
+            {% endif %}
+
+
+        </div>
+    </div>
+</div>

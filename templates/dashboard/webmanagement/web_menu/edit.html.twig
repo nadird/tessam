@@ -1,0 +1,13 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block title %}Edit WebMenu{% endblock %}
+
+{% block body %}
+    <h1>Edit WebMenu</h1>
+
+    {{ include('dashboard/webmanagement/web_menu/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_dashboard_web_menu_index') }}">back to list</a>
+
+    {{ include('dashboard/webmanagement/web_menu/_delete_form.html.twig') }}
+{% endblock %}

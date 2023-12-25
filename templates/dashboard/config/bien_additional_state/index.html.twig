@@ -1,0 +1,66 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block title %}BienAdditionalState index{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="d-flex">
+            <h1>{{ controller_name }}</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <div class="row row-table-header">
+                    <div class="col-4 col-md-3">{{ 'Name' | trans }}</div>
+                    <div class="col-4 col-md-3">{{ 'Code' | trans }}</div>
+                    <div class=" col-4 col-md-3">{{ 'Color' | trans }}</div>
+                    <div class="col-12 col-md-3">{{ 'Opt' | trans }}</div>
+                </div>
+                {% for bien_additional_state in bien_additional_states %}
+                    <div class="row row-table-data">
+                        <div class="col-4 col-md-3">
+                            <span class="badge" style="background-color: {{ bien_additional_state.color }}">
+                                {{ bien_additional_state.name }}
+                            </span>
+                        </div>
+                        <div class="col-4 col-md-3">{{ bien_additional_state.code }}</div>
+                        <div class=" col-4 col-md-3">{{ bien_additional_state.color }}</div>
+                        <div class="col-12 col-md-3">
+                            <div class="btn-group btn-group-sm">
+                                <a href="{{ path('app_dashboard_config_bien_additional_state_show', {'id': bien_additional_state.id}) }}" class="btn btn-outline-primary">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a href="{{ path('app_dashboard_config_bien_additional_state_edit', {'id': bien_additional_state.id}) }}" class="btn btn-outline-secondary">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="alert alert-warning" role="alert">
+                                {{ 'no records found' | trans }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col-md-5">
+                {{ form_start(form) }}
+                <div class="card">
+                    <div class="card-header">{{ 'New State' | trans }}</div>
+                    <div class="card-body">
+                        {{ form_widget(form) }}
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" name="submit" role="button" class="btn btn-outline-primary btn-sm btn-block">{{ 'Enregistrer' | trans }}</button>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+{% endblock %}

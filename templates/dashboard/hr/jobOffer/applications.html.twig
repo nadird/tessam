@@ -1,0 +1,50 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block title %}WebJobOffer index{% endblock %}
+
+{% block body %}
+    <h1>WebJobOffer index</h1>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">{{ 'Job Applications' | trans }} </h3>
+            </div>
+
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>CreatedAt</th>
+                        <th>Resume</th>
+                        <th>Phone</th>
+                        <th>actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for application in applications %}
+                        <tr>
+                            <td>{{ application.id }}</td>
+                            <td>{{ application.firstname }} {{ application.lastname }}</td>
+                            <td>{{ application.createdAt ? application.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                            <td>{{ application.resume }}</td>
+                            <td>{{ application.phone }}</td>
+                            <td>
+                                <a href="{{ path('app_dashboard_hr_job_offer_single_application', {'id': application.id}) }}">show</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="8">{{ 'no records found' | trans }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                <a class="btn btn-primary-light" href="{{ path('app_dashboard_hr_job_offer_new') }}">{{ 'Create new' | trans }}</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends '/web/base_web.html.twig' %}
+
+{%block body%}
+    <div class="container mt-md-4">
+        <div class="row">
+            <div class="col-12 col-md-4 ">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Simulateur</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form" {{ stimulus_controller('creditSimulatorForm') }}>
+                            {{ form_start(form) }}
+                            {{ form_errors(form) }}
+                                <div class="row mt-3">
+                                    <div class="col-6">{{ form_row(form.firstname) }}</div>
+                                    <div class="col-6">{{  form_row(form.lastname) }}</div>
+                                </div>
+                                <div class="row mt-3">
+                                    {{  form_row(form.dob) }}
+                                </div>
+                                <div class="row mt-3">
+                                    {{  form_row(form.job) }}
+                                </div>
+                                <div class="row mt-3">
+                                    {{  form_row(form.revenueFrist) }}
+                                </div>
+                                <div class="row mt-3">
+                                   <div class="col-5 form-check form-switch">
+                                       {{  form_row(form.second) }}
+                                   </div>
+                                   <div class="col-7"> {{  form_row(form.revenueSecond) }}</div>
+                                </div>
+                            <div class="row mt-3 form-check form-switch">
+                                {{  form_row(form.isBonified) }}
+                            </div>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-12 col-md-8 ">
+
+                <h1>Découvrez les Opportunités de Votre Prochain Investissement Immobilier avec le Simulateur de Crédit de Grand Bridge</h1>
+
+                <p>
+                    La recherche de votre maison de rêve ou de votre prochain investissement immobilier ne doit pas être entravée par des incertitudes financières. Chez Grand Bridge Promotion Immobilière, nous comprenons l'importance d'une planification financière claire et précise. C'est pourquoi nous avons développé un simulateur de crédit immobilier convivial, conçu pour vous offrir une transparence totale et une compréhension approfondie de vos options de financement.
+                </p>
+
+                <img src="{{ asset('images/simulateur_credit-min.png') }}" alt="Illustration simulateur de crédit" style="max-width: 100%">
+
+                <p>
+                    Notre simulateur de crédit est un outil puissant qui vous permet d'explorer divers scénarios de financement en fonction de vos besoins et capacités. En entrant quelques détails clés, comme le montant du prêt souhaité, la durée du prêt et votre taux d'intérêt prévu, vous obtiendrez une estimation claire de vos mensualités de remboursement. Cette visibilité instantanée vous aide à prendre des décisions éclairées, en alignant vos aspirations immobilières avec votre réalité financière.
+                </p>
+                <h2>Facilité d'Utilisation :</h2>
+                <p>
+                    Conçu avec l'utilisateur à l'esprit, notre simulateur est simple et intuitif. Vous n'avez pas besoin d'être un expert en finance pour l'utiliser ; quelques clics suffisent pour obtenir des estimations précises et utiles. Que vous soyez à la recherche d'une première maison, d'un investissement locatif, ou d'une résidence secondaire, cet outil s'adapte à toutes vos exigences.                </p>
+
+                <h2>Personnalisation :</h2>
+                <p>
+                    Chaque utilisateur a des besoins uniques, et notre simulateur reflète cette diversité. Vous pouvez ajuster les variables pour refléter votre situation personnelle, qu'il s'agisse de votre apport personnel, de la durée du prêt, ou des taux d'intérêt actuels. Cette personnalisation vous permet de créer un plan de financement sur mesure qui correspond à votre budget et à vos objectifs d'investissement.
+
+                </p>
+
+
+                <h2>Préparation à l'Achat :</h2>
+                <p>
+                    En utilisant le simulateur, vous vous préparez mieux pour l'achat. Vous aurez une idée claire de ce que vous pouvez vous permettre, ce qui facilite la recherche de propriétés dans votre budget. Cette préparation peut également renforcer votre position lors des négociations, vous donnant un avantage dans le processus d'achat.
+                </p>
+
+                <h2>Une Étape Vers Votre Maison de Rêve :</h2>
+                <p>
+                    Notre simulateur de crédit est plus qu'un simple outil de calcul ; c'est une étape vers la réalisation de votre rêve immobilier. En vous offrant des informations précises et pertinentes, nous vous aidons à faire un pas de plus vers la propriété qui répond à toutes vos attentes.
+                </p>
+
+
+
+            </div>
+        </div>
+    </div>
+
+{%endblock%}

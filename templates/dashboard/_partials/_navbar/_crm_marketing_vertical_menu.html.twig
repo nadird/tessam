@@ -1,0 +1,31 @@
+<div class="nav-item-wrapper">
+    <a class="nav-link dropdown-indicator label-1" href="#nv-marketing" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="nv-e-commerce">
+        <div class="d-flex align-items-center">
+            <div class="dropdown-indicator-icon">
+                <span class="fas fa-caret-right"></span>
+            </div>
+            <span class="nav-link-icon">
+                <span class="fa-solid fa-chart-simple">
+
+                </span></span><span class="nav-link-text">{{ 'Marketing'| trans }}</span>
+        </div>
+    </a>
+    <div class="parent-wrapper label-1">
+        <ul class="nav collapse parent" data-bs-parent="#navbarVerticalCollapse" id="nv-marketing">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_dashboard_crm_marketing_statistics_index') }}" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center">
+                        <span class="nav-link-text">{{ 'Statistiques' | trans }}</span>
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_dashboard_crm_compaigns_index') }}" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center">
+                        <span class="nav-link-text">{{ 'Compagnes' | trans }}</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

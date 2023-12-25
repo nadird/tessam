@@ -1,0 +1,22 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">New Configuration Key</h3>
+        </div>
+        <div class="card-body">
+            {{ include('dashboard/config/configuration_keys/_form.html.twig', {'button_label': 'Update'}) }}
+        </div>
+        <div class="card-footer">
+            <div class="btn-group btn-group-sm">
+                <a href="{{ path('app_dashboard_config_configurationKeys_index') }}" class="btn btn-sm btn-phoenix-secondary">back to list</a>
+
+                {{ include('dashboard/config/configuration_keys/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

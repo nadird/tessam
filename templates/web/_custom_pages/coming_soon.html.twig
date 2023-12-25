@@ -1,0 +1,151 @@
+{% extends 'custom-base.html.twig' %}
+{% block body %}
+<style>
+    @media (min-width: 1280px){
+    .container {
+        max-width: 1140px;
+    }
+        @media (min-width: 992px){
+            .container {
+                max-width: 960px;
+            }
+            .col-lg-8 {
+                -ms-flex: 0 0 66.66666667%;
+                flex: 0 0 66.66666667%;
+                max-width: 66.66666667%;
+            }
+        }
+        @media (min-width: 768px){
+            .container {
+                max-width: 720px;
+            }
+        }
+        @media (min-width: 576px){
+            .container {
+                max-width: 540px;
+            }
+            .col-sm-12 {
+                -ms-flex: 0 0 100%;
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+        .container {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+            padding-right: 0.75rem;
+            padding-left: 0.75rem;
+        }
+        .text-center {
+            text-align: center !important;
+        }
+        .ms-auto, .mx-auto {
+            margin-left: auto !important;
+        }
+        .row {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            margin-right: -0.75rem;
+            margin-left: -0.75rem;
+        }
+        .text-center {
+            text-align: center!important;
+        }
+        .mx-auto {
+            margin-right: auto!important;
+            margin-left: auto!important;
+        }
+        .row {
+            --bs-gutter-x: 1.5rem;
+            --bs-gutter-y: 0;
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: calc(-1 * var(--bs-gutter-y));
+            margin-right: calc(-.5 * var(--bs-gutter-x));
+            margin-left: calc(-.5 * var(--bs-gutter-x));
+        }
+        .align-items-center {
+            -ms-flex-align: center !important;
+            align-items: center !important;
+        }
+        .center-block {
+            margin-right: auto;
+            margin-left: auto;
+            float: inherit !important;
+        }
+        .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {
+            position: relative;
+            width: 100%;
+            min-height: 1px;
+            padding-right: 0.75rem;
+            padding-left: 0.75rem;
+        }
+        .text-white {
+            color: #fff !important;
+        }
+        .p-0 {
+            padding: 0 !important;
+        }
+        .card-body {
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+            padding: 25px;
+            margin: 0;
+            position: relative;
+        }
+        .p-0 {
+            padding: 0!important;
+        }
+        .card-body {
+            flex: 1 1 auto;
+            padding: 1rem 1rem;
+        }
+        .mb-0, .my-0 {
+            margin-bottom: 0 !important;
+        }
+        .display-2 {
+            font-size: 4rem;
+            font-weight: 300;
+            line-height: 1.1;
+        }
+        .fw-semibold {
+            font-weight: 500 !important;
+        }
+        .mb-0 {
+            margin-bottom: 0!important;
+        }
+        .card-body> :last-child {
+            margin-bottom: 0;
+        }
+        .mt-5, .my-5 {
+            margin-top: 1.5rem !important;
+        }
+        .mt-5 {
+            margin-top: 3rem!important;
+        }
+    }
+    </style>
+    <!-- CONTAINER OPEN -->
+    <div class="container">
+        <div class="row text-center mx-auto">
+            <div class="col-lg-8 col-sm-12 center-block align-items-center construction  ">
+                <div class="text-white">
+                    <div class="card-body p-0">
+                        <h1 class="display-2 mb-0 fw-semibold">{{ 'En Maintenance' | trans }}</h1>
+                        <div id="launch_date"></div>
+                        <p>{{'Nous nous excusons du désagrément, Site web en maintenance,' | trans}}  </p>
+                        <h4><strong>{{ 'Contact:' | trans}}</strong> {{ globalVariables.theCompany.email }}</h4>
+                        <div class="mt-5">
+                            {#  <a href="#" class="btn btn-primary btn-lg">Back to Home</a>#}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CONTAINER CLOSED -->
+
+{% endblock %}

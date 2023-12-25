@@ -1,0 +1,13 @@
+{% extends 'customer/base_customer.html.twig' %}
+
+{% block body %}
+    {% include('customer/_partials/_customer_page_header.html.twig') %}
+    <div class="container">
+        <section>
+            {% include('customer/customer_profile/_partials/_order_details.html.twig') %}
+        </section>
+        <section>
+            {% include('customer/customer_profile/_partials/_order_schudle.html.twig') %}
+        </section>
+    </div>
+{% endblock %}

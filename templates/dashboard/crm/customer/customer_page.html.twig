@@ -1,0 +1,25 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+    <div class="pb-9">
+        {#     {% include('dashboard/crm/customer/_partials/_customer_deal_top_menu.html.twig') %}#}
+        <div class="row g-4 g-xl-6">
+            <div class="col-xl-5 col-xxl-4">
+                <div class="sticky-leads-sidebar">
+                    {% include('dashboard/crm/customer/_partials/_customer_deal_profile.html.twig') %}
+                    {% include('dashboard/crm/customer/_partials/_customer_deal_add_product_form.html.twig') %}
+                    {% include('dashboard/crm/customer/_partials/_details_attachements.html.twig') %}
+                </div>
+            </div>
+            <div class="col-xl-7 col-xxl-8">
+                {% include('dashboard/crm/customer/_partials/_customer_deal_overview.html.twig') %}
+                {% include('dashboard/crm/customer/_partials/_details_orders.html.twig') %}
+                {% include('dashboard/crm/customer/_partials/_customer_deal_nav.html.twig') %}
+                {% include('dashboard/crm/customer/_partials/_customer_deal_details.html.twig') %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

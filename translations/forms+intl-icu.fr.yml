@@ -1,0 +1,396 @@
+'First Name': Prénom
+'Last Name': Nom
+'Phone 1': 'Téléphone 1'
+'Phone 2': 'Téléphone 2'
+'Email 1': 'Email 1'
+'Email 2': 'Email 2'
+Address: Adresse
+Lead:
+    state: État
+    source: Source
+Job: Travail
+'Create Lead': 'Créer prospect'
+firstname: Prénom
+lastname: Nom
+phone1: 'Téléphone 1'
+phone2: 'Téléphone 2'
+email1: 'Email 1'
+email2: 'Email 2'
+address: Address
+employee: 'En Charge'
+job: Job
+source: Source
+'Update Lead': 'Mettre à jour'
+app:
+    form:
+        customer:
+            email: Email
+            firstname: Prénom
+            lastname: Nom
+            phone: Téléphone
+            address: Adresse
+            picture: Photo
+            agreeTermsMessage: 'Vous devez accepter les conditions générales'
+            agreeTerms: "J'accepte les conditions générales"
+            passwordBlankMessage: 'Vous devez renseigner un mot de passe'
+            passwordLengthMessage: 'Votre mot de passe doit contenir au moins 6 caractères'
+            submit: Envoyer
+            email_placeholder: 'Entrez votre email'
+            password_placeholder: 'Entrez le mot de passe'
+            firstname_placeholder: 'Entrez votre prénom'
+            lastname_placeholder: 'Entrez votre nom'
+            phone_placeholder: 'Entrez votre téléphone Ex(0661234567)'
+            address_placeholder: 'Entrez votre adresse'
+            password: 'Mot de passe'
+            password_blank: 'Vous devez renseigner un mot de passe'
+            repeat_password: 'Répéter le mot de passe'
+        webjobapplication:
+            firstname: Prénom
+            lastname: Nom
+            email: Email
+            phone: Téléphone
+            job: 'Poste recherché'
+            dob: 'Date de naissance'
+            resume: CV
+            linkedin: Linkedin
+            additionalInfos: 'Informations complémentaires'
+        webcontact:
+            name: Nom
+            email: Email
+            phone: Téléphone
+            message: Message
+            subject: Sujet
+            submit: Envoyer
+        chargehistory:
+            label: Libéllé
+            note: Note
+            total: Montant
+            compte: Compte
+            type: Type
+            submit: Enregistrer
+            typeplaceholder: 'Choisir type charges'
+            compteplaceholder: 'Choisir compte'
+        documentpaiement:
+            url: Document
+            submit: Enregistrer
+        mouvementcompte:
+            label: Libéllé
+            note: Note
+            total: Montant
+            compte: Compte
+            type: Type
+            submit: Enregistrer
+            typeplaceholder: 'Choisir type mouvement'
+            compteplaceholder: 'Choisir compte'
+            choosetype: 'Choisir type'
+            compteFrom: 'Compte debit'
+            choosecompteFrom: 'Choisir compte debit'
+            compteTo: 'Compte credit'
+            choosecompteTo: 'Choisir compte credit'
+        interaction:
+            text: "Résumé de l'interaction"
+            source: Source
+            type: Type
+            customer_state: État
+            submit: Enregistrer
+            lead_state: État
+            format: Format
+            firstname: Prénom
+            lastname: Nom
+            phone1: Téléphone
+            phone2: 'Téléphone 2'
+            email1: Email
+            email2: 'Email 2'
+            address: Adresse
+            job: Travail
+            total_ht: 'Total HT'
+            additionnal_product: 'Produit additionnel'
+            note: Note
+            text_comment: 'Votre commentaire ici...'
+        interest:
+            format: Format
+            submit: Enregistrer
+        order:
+            type: 'Type de commande'
+            submit: Enregistrer
+            bien: Bien
+            is_valid: Validé
+            is_completed: Complété
+            total_ht: 'Total HT'
+            is_deleted: Supprimé
+            bien_price: 'Prix du bien'
+            order_state: 'État de la commande'
+            order_type: 'Modalité de paiement'
+            employee: Commercial
+            reduction: Réduction
+            reduction_placeholder: 'Entrez la réduction en chiffre Ex.(230000)'
+            final_price: 'Prix final'
+            final_price_placeholder: 'Calculé automatiquement'
+        orderhistory:
+            submit: Enregistrer
+        interactiontype:
+            text: "Type d'interaction"
+            source: Source
+            type: Type
+            order_state: 'État de la commande'
+            submit: Enregistrer
+        product_bien:
+            text: "Résumé de l'interaction"
+            state: État
+            submit: Enregistrer
+        product_category:
+            name: Nom
+            public_title: 'Titre public'
+            thumb: Miniature
+            image: Image
+            submit: Enregistrer
+            is_active: Publié
+        product:
+            name: Nom
+            public_title: 'Titre public'
+            short_description: 'Description courte'
+            text: Description
+            image: Image
+            thumb: Miniature
+            price: Prix
+            is_active: Actif
+            submit: Enregistrer
+            type: Type
+            format: Format
+            building: Immeuble
+            floor: Étage
+            project: Projet
+            is_sold: Vendu
+            exact_area: 'Surface exacte'
+            state: État
+            final_price: 'Prix final'
+            choose_project: 'Choisir projet'
+            nbrbedrooms: Chambres
+            nbrbathrooms: 'Salles de bain'
+            is_piscine: Piscine
+            is_garage: Garage
+            is_garden: Jardin
+            is_terrace: Terrasse
+            floor_plan: Plan
+            area: Surface
+            public_name: 'Nom public'
+            prestations: Commodités
+            cover_brochure: 'Couverture brochure'
+            brochure: Brochure
+            video: Vidéo
+            address: Adresse
+            address_placeholder: 'Entrez l adresse'
+            date_livraison: 'Date de livraison'
+            gps: GPS
+            gps_placeholder: 'Entrez le lien GPS'
+            choose_type: 'Choisir type'
+            price_placeholder: 'Entrez le prix'
+            area_placeholder: 'Entrez la surface totale'
+            nbrbedrooms_placeholder: 'Entrez le nombre de chambres'
+            nbrbathrooms_placeholder: 'Entrez le nombre de salles de bain'
+            project_manager_placeholder: 'Choisir chef de projet'
+            project_manager: 'Chef de projet'
+            is_published: Publié
+            is_project_price_published: 'Afficher le prix'
+            is_project_price_published_placeholder: 'Afficher le prix'
+            project_state: "État d'avancement du projet"
+            co_proprity_fees: 'Frais de copropriété'
+            wilaya: Wilaya
+            commune: Commune
+            project_state_placeholder: 'Controlé par le chef de projet'
+            numerotation: Numérotation
+            price_tt: 'Prix TTC'
+            is_holding: 'En attente'
+            total_area: 'Surface totale'
+            util_area: 'Surface utile'
+            email: Email
+            email_placeholder: 'Entrez l email'
+            is_verified: Vérifié
+            is_verified_true: Oui
+            is_verified_false: Non
+            firstname: Prénom
+            firstname_placeholder: 'Entrez le prénom'
+            lastname: Nom
+            lastname_placeholder: 'Entrez le nom'
+            phone: Téléphone
+            phone_placeholder: 'Entrez le téléphone'
+            picture: Photo
+            picture_placeholder: 'Choisir photo'
+            dob: 'Date de naissance'
+            is_active_true: Oui
+            is_active_false: Non
+            is_deleted: Supprimé
+            is_deleted_true: Oui
+            is_deleted_false: Non
+            act_naissance: 'Acte de naissance'
+            act_naissance_placeholder: 'Choisir acte de naissance'
+            pi: 'Pièce d identité'
+            pi_placeholder: 'Choisir pièce d identité'
+            employee: 'En charge'
+            employee_placeholder: 'Choisir commercial'
+            job: Profession
+            password: 'Mot de passe'
+            password_placeholder: 'Entrez le mot de passe'
+            password_blank: 'Vous devez renseigner un mot de passe'
+            repeat_password: 'Répéter le mot de passe'
+        team:
+            name: Nom
+            manager: Manager
+        employee:
+            email: Email
+            firstname: Prénom
+            lastname: Nom
+            dob: 'Date de naissance'
+            picture: Photo
+            job: Poste
+            is_active: Actif
+            submit: Enregistrer
+            current_password: 'Mot de passe actuel'
+            new_password: 'Nouveau mot de passe'
+            password_mismatch: 'Les mots de passe ne correspondent pas'
+            password_blank: 'Vous devez renseigner un mot de passe'
+            password_length: 'Votre mot de passe doit contenir au moins 6 caractères'
+            repeat_password: 'Répéter le mot de passe'
+            password: 'Mot de passe'
+        todo:
+            text: Tâche
+            submit: Enregistrer
+        todotemplate:
+            name: 'Nom du template'
+            submit: Enregistrer
+        album:
+            name: Nom
+            project_placeholder: 'Choisir projet'
+            format: Format
+            additionalProduct: 'Produit additionnel'
+            submit: Enregistrer
+        document:
+            name: Nom
+            url: Document
+            type: Type
+            submit: Enregistrer
+        blogcategory:
+            description: Description
+            slug: Slug
+            thumbnail: Miniature
+            image: Image
+            is_active: Publié
+            parentCategories: 'Catégories parentes'
+            parentBlogCategories: 'Catégories parentes'
+            blogPosts: Articles
+            submit: Enregistrer
+            name: 'Nom de la catégorie'
+        blogpost:
+            publicTitle: 'Titre public'
+            slug: Slug
+            seoTitle: 'Titre SEO'
+            body: Contenu
+            thumbnail: Miniature
+            image: Image
+            imgOg: 'Image Open Graph'
+            seoDescription: 'Description SEO'
+            is_active: Publié
+            blogCategories: Catégories
+            categories: Catégories
+            relatedPosts: 'Articles liés'
+            author_placeholder: 'Choisir auteur'
+            author: Auteur
+            imgOg_placeholder: 'Choisir image Open Graph'
+            submit: Enregistrer
+            isFeatured_label: 'Article à la une'
+            isFeatured_placeholder: 'Article à la une'
+            isFeatured_yes: Oui
+            isFeatured_no: Non
+            isActive_label: Publié
+            isActive_placeholder: Publié
+            isActive_no: Non
+            isActive_yes: Oui
+        webjoboffer:
+            name: Nom
+            publicTitle: 'Titre public'
+            text: Description
+            enddate: 'Date de fin'
+            isActive: Publié
+            submit: Enregistrer
+        webmenuitem:
+            name: Titre
+            url: url
+            sort_order: Ordre
+            is_active: Publié
+            menu: Menu
+            parent: Parent
+            submit: Enregistrer
+        webmenu:
+            name: Nom
+            is_active: Publié
+            submit: Enregistrer
+        schudle:
+            ajouterEcheance: 'Ajouter échéance'
+        webpage:
+            name: Nom
+            title: 'Titre public'
+            content: Contenu
+            is_active: Publié
+            thumbnail: Miniature
+            heroImage: Image
+            seoDescription: 'Description SEO'
+            author: Auteur
+            submit: Enregistrer
+        comment_placeholder: 'Votre commentaire ici...'
+        the_company_config:
+            facebook_pixel: 'Facebook Pixel'
+            google_analytics: 'Google Analytics'
+            google_tag_manager: 'Google Tag Manager'
+            display_prices: 'Afficher les prix'
+            display_prices_placeholder: 'Afficher les prix'
+            display_prices_true: Oui
+            display_prices_false: Non
+            submit: Enregistrer
+            phone2: 'Téléphone 2'
+            email2: 'Email 2'
+            address: Adresse
+            phone1: 'Téléphone 1'
+            email1: 'Email 1'
+            viber: Viber
+            whatsapp: Whatsapp
+            facebook: Facebook
+            instagram: Instagram
+            twitter: Twitter
+            linkedin: Linkedin
+            youtube: Youtube
+            tiktok: Tiktok
+            messenger: Messenger
+            facebook_link: Facebook
+            second_image: 'Image 2'
+            second_text: 'Texte 2'
+            video_home: Vidéo
+            image_home: Image
+            og_image: 'Image Open Graph'
+            favicon: Favicon
+            logo_mobile_dark: 'Logo mobile dark'
+            logo_mobile_light: 'Logo mobile light'
+            logo_main_dark: 'Logo principal dark'
+            logo_main_light: 'Logo principal light'
+            localisation: Localisation
+            address_placeholder: "Entrez l'adresse"
+            raison_sociale: 'Raison sociale'
+            index_subtitle: Sous-titre
+            index_title: Titre
+            long_description: 'Description longue'
+            short_description: 'Description courte'
+            name: Nom
+        date_delivery: 'Date de livraison'
+        total_ht_placholder: 'Entrez le total HT'
+        total_ht: 'Entrez le total HT'
+        note: Note
+        submit: Enregistrer
+        provider_order_name: Nom
+        provider_order_name_placeholder: 'Entrez le nom'
+        provider_order_state_history:
+            choose_state_placeholder: 'Choisir nouvel état'
+            text: "Résumé de l'interaction"
+        select_project_placeholder: 'Choisir projet'
+        project: Projet
+    web:
+        credit_simulator:
+            form: { firstname: Prénom, lastname: Nom, email: Email, phone: Téléphone, amount: Montant, revenue_frist: 'Revenu mensuel', revenue_second: 'Revenu mensuel conjoint', dob: 'Date de naissance', submit: Envoyer, first_down_paiement: 'Apport initial', first_down_paiement_placeholder: 'Entrez l apport initial', second: Co-emprunteur, is_bonified: Bonifié, job: Profession, format_bien: 'Format du bien' }

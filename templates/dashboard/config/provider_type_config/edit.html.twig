@@ -1,0 +1,27 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+    <div class="card">
+
+        <div class="card-body">
+            {{ include('dashboard/config/provider_type_config/_form.html.twig', {'button_label': 'Update'}) }}
+        </div>
+        <div class="card-footer">
+            <div class="btn-group">
+                <a href="{{ path('app_dashboard_config_provider_type_config_index') }}" class="btn btn-phoenix-success">
+                    <i class="fa fa-arrow-left"></i>
+                    {{ 'back to list' | trans }}
+                </a>
+                <a href="{{ path('app_dashboard_config_provider_type_config_delete') }}" class="btn btn-phoenix-danger">
+                    <i class="fa fa-trash"></i>
+                    {{ 'Delete' | trans }}
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+
+
+{% endblock %}

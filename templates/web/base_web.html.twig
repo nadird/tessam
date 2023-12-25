@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr_FR" >
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{{website_name }} | {{ controller_name }}{% endblock %}</title>
+    {# <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>"> #}
+    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+    {% block stylesheets %}
+
+        {{ encore_entry_link_tags('dashboardStyle') }}
+        {{ encore_entry_link_tags('themewebstyle') }}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicons') }}/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicons') }}/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicons') }}/favicon-16x16.png">
+        <link rel="manifest" href="{{ asset('images/favicons') }}/manifest.json">
+        <link rel="mask-icon" href="{{ asset('images/favicons') }}/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        {#   <script src="https://cdn.jsdelivr.net/gh/xcash/bootstrap-autocomplete@v2.3.7/dist/latest/bootstrap-autocomplete.min.js"></script> #}
+        {{ encore_entry_link_tags('app') }}
+        {# <link rel="stylesheet" href="assets/styles/custom.css"> #}
+    {% endblock %}
+    {% block head %}
+        {% include '_partials_global/_favicons.html.twig' %}
+
+    {% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('dashboard') }}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+    {% block scripts %}
+        <script>
+
+        </script>
+    {% endblock %}
+</head>
+<body data-controller="document" data-cookies-value="{{ app.request.cookies.all|json_encode()}}" data-url-value="{{ app.request.getSchemeAndHttpHost() }}">
+{% block header %}
+<div class="hidden" id="cookies">
+
+</div>
+
+    {#   {% include 'partials/_menu.html.twig' %}
+    {% include 'partials/_context-menu.html.twig' %}
+    {% include 'partials/_toast.html.twig' %}
+    #}
+    <div {{ stimulus_controller('utmsExtract') }}></div>
+
+
+<main class="main" id="top">
+    {% include 'web/_partials/_topbar.html.twig' %}
+    {% include 'web/_partials/_menuweb.html.twig' %}
+    {#  {% include 'web/_partials/_header/_header.html.twig' %}#}
+
+{% endblock %}
+
+{% block contextnavbar %}
+
+{% endblock %}
+{% block hero %}
+{% endblock %}
+{% block topwarper %}
+{%  endblock %}
+{% block dashboard %}
+{% endblock %}
+<div class="">
+    {% block body %}
+    {% endblock %}
+</div>
+
+{% block footer %}
+     {% include 'web/_partials/_footerlinks.html.twig' %}
+     {% include 'web/_partials/_footer.html.twig' %}
+{% endblock %}
+</main>
+{% block footersctipts %}
+    <!-- COUNTRY-SELECTOR-MODAL -->
+
+    <!-- FOOTER CLOSED-->
+{% endblock %}
+</body>
+</html>

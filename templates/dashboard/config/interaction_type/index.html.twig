@@ -1,0 +1,63 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+
+    <div class="row">
+        <div class="col-12 col-md-8">
+            <div class="row-table-header row">
+                <div class="col-3 col-md-1 ">#</div>
+                <div class="col-3 col-md-3 ">Color</div>
+                <div class="col-3 col-md-2 ">Code</div>
+                <div class="col-3 col-md-2">Icone</div>
+                <div class="col-12 col-md-4 ">Actions</div>
+            </div>
+            {% for interaction_type in interaction_types %}
+                <div class="row-table-data row">
+                    <div class="col-3 col-md-1 ">{{ interaction_type.id }}</div>
+                    <div class="col-3 col-md-3 ">
+                        <span class="badge badge-phoenix" style="background-color:{{ interaction_type.color }} ">
+                            {{ interaction_type.name }}
+                        </span>
+                    </div>
+                    <div class="col-3 col-md-2 ">{{ interaction_type.code }}</div>
+                    <div class="col-3 col-md-2 ">
+                        <i class="{{ interaction_type.icone }}">
+
+                        </i>
+                    </div>
+
+                    <div class="col-12 col-md-4 ">
+
+                        <div class="btn-group">
+                            <a href="{{ path('app_dashboard_config_interactionType_show', {'id': interaction_type.id}) }}" class="btn btn-phoenix-primary">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                            <a href="{{ path('app_dashboard_config_interactionType_edit', {'id': interaction_type.id}) }}" class="btn btn-phoenix-primary">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a href="{{ path('app_dashboard_config_interactionType_delete', {'id': interaction_type.id}) }}" class="btn btn-phoenix-primary">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="row-table-data row">
+                    <div class="col-12 ">No Records </div>
+                </div>
+            {% endfor %}
+
+        </div>
+        <div id="form" class="col-12 col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>New Paiement type</h5>
+                </div>
+                <div class="card-body">
+                    {{ include('dashboard/config/interaction_type/_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

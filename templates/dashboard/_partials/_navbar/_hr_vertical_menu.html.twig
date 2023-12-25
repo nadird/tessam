@@ -1,0 +1,92 @@
+{% if is_granted('ROLE_RH') %}
+
+
+<li class="nav-item">
+    <!-- label-->
+    <p class="navbar-vertical-label">{{ 'Hr' | trans }}
+    </p>
+    <hr class="navbar-vertical-line" />
+    <!-- parent pages-->
+    <div class="nav-item-wrapper">
+        <a class="nav-link label-1" href="{{ path('app_dashboard_hr_employees') }}" role="button" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center">
+                <span class="nav-link-icon">
+                    <span class="fa-solid fa-user-group"></span>
+                </span>
+                <span class="nav-link-text-wrapper">
+                    <span class="nav-link-text">
+                        {{ 'Employees' | trans }}
+                    </span>
+                </span>
+            </div>
+        </a>
+    </div>
+    {#
+        Jobs
+    <div class="nav-item-wrapper">
+        <a class="nav-link label-1" href="{{ path('app_dashboard_hr_jobs_index') }}" role="button" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center">
+                <span class="nav-link-icon">
+                    <span class="fa-solid fa-briefcase"></span>
+                </span>
+                <span class="nav-link-text-wrapper">
+                    <span class="nav-link-text">
+                        {{ 'Jobs' | trans }}
+                    </span>
+                </span>
+            </div>
+        </a>
+    </div>
+
+    #}
+    <div class="nav-item-wrapper">
+        <a class="nav-link label-1" href="{{ path('app_dashboard_hr_job_offer_index') }}" role="button" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center">
+                <span class="nav-link-icon">
+                    <span class="fa-solid fa-bullhorn">
+
+                    </span>
+                </span>
+                <span class="nav-link-text-wrapper">
+                    <span class="nav-link-text">
+                        Jobs Offers
+                    </span>
+                </span>
+            </div>
+        </a>
+    </div>
+    <div class="nav-item-wrapper">
+        <a class="nav-link label-1" href="#" role="button" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center">
+                <span class="nav-link-icon">
+                    <span class="fa-regular fa-calendar-days">
+
+                    </span>
+                </span>
+                <span class="nav-link-text-wrapper">
+                    <span class="nav-link-text">
+                        Salaires
+                    </span>
+                </span>
+            </div>
+        </a>
+    </div>
+    <div class="nav-item-wrapper">
+        {#
+        <a class="nav-link label-1" href="{{ path('app_dashboard_hr_teams_index') }}" role="button" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center">
+                <span class="nav-link-icon">
+                    <i class="fa-solid fa-sitemap"></i>
+                </span>
+                <span class="nav-link-text-wrapper">
+                    <span class="nav-link-text">
+                        {{ 'Teams' | trans }}
+                    </span>
+                </span>
+            </div>
+        </a>
+        #}
+    </div>
+</li>
+{% endif %}
+

@@ -1,0 +1,18 @@
+<li class="nav-item">
+    <!-- label-->
+    <p class="navbar-vertical-label">CRM</p>
+    <hr class="navbar-vertical-line" />
+    <!-- parent pages-->
+    {% include('dashboard/_partials/_navbar/_crm_prospection_vertical_menu.html.twig') %}
+    {% include('dashboard/_partials/_navbar/_crm_vente_vertical_menu.html.twig') %}
+   {#  {% include('dashboard/_partials/_navbar/_crm_products_vertical_menu.html.twig') %}#}
+    {% include('dashboard/_partials/_navbar/_crm_marketing_vertical_menu.html.twig') %}
+
+    <div class="nav-item-wrapper"><a class="nav-link label-1" href="{{ path('app_dashboard_webform_contact_index') }}" role="button" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center"><span class="nav-link-icon">
+                    <span class="fa-regular fa-message"></span>
+                </span><span class="nav-link-text-wrapper"><span class="nav-link-text">{{ 'Web form contact'|trans }}</span></span>
+            </div>
+        </a>
+    </div>
+</li>

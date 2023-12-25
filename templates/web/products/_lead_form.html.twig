@@ -1,0 +1,10 @@
+<div class="card mt-3">
+    <div class="card-header">{{ 'Lead form title' | trans }}</div>
+    <div class="card-body">
+        {{ form_start(form) }}
+        <div {{ stimulus_controller('analyticsDataToForm') }}>
+
+        </div>
+        {{ form_end(form) }}
+    </div>
+</div>

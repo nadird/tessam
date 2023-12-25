@@ -1,0 +1,11 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block title %}New WebMenu{% endblock %}
+
+{% block body %}
+    <h1>Create new WebMenu</h1>
+
+    {{ include('dashboard/webmanagement/web_menu/_form.html.twig') }}
+
+    <a href="{{ path('app_dashboard_web_menu_index') }}">back to list</a>
+{% endblock %}

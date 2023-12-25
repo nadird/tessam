@@ -1,0 +1,25 @@
+{% if is_granted('ROLE_ADMIN') %}
+<li class="nav-item">
+    <!-- label-->
+    <p class="navbar-vertical-label">{{ 'Parametres' | trans }}
+    </p>
+    <hr class="navbar-vertical-line" />
+    <!-- parent pages-->
+    <div class="nav-item-wrapper">
+        <a class="nav-link label-1" href="#" role="button" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center">
+                <span class="nav-link-icon">
+                    <span class="fa-solid fa-gear"></span>
+                </span><span class="nav-link-text-wrapper">
+                    <span class="nav-link-text">{{ 'General Settings' | trans }}</span></span>
+            </div>
+        </a>
+    </div>
+    {% include('dashboard/_partials/_navbar/_params_types_states_config_vertical_menu.html.twig') %}
+    {% include('dashboard/_partials/_navbar/_params_website_setings_vertical_menu.html.twig') %}
+    {% include('dashboard/_partials/_navbar/_params_crm_config_vertical_menu.html.twig') %}
+    {% include('dashboard/_partials/_navbar/_params_users_config_vertical_menu.html.twig') %}
+
+
+</li>
+{% endif %}

@@ -1,0 +1,148 @@
+<style>
+    @page {
+        margin: 5px;
+    }
+    body {
+        margin: 25px;
+    }
+    * {
+        font-family: 'Arial',serif;
+    }
+    table {
+        border-collapse: collapse;
+    }
+    table, th, td {
+    //border: 1px solid black;
+    }
+    .page_break { page-break-before: always; }
+    .page-number:before {
+        content: "Page " counter(page);
+    }
+    .page_break { page-break-before: always; }
+    .page-number:before {
+        content: "Page " counter(page);
+    }
+    .page_break { page-break-before: always; }
+    .page-number:before {
+        content: "Page " counter(page);
+    }
+    .page_break { page-break-before: always; }
+    .page-number:before {
+        content: "Page " counter(page);
+    }
+    .page_break { page-break-before: always; }
+    .page-number:before {
+        content: "Page " counter(page);
+    }
+    .page_break { page-break-before: always; }
+    .page-number:before {
+        content: "Page " counter(page);
+    }
+    .page_break { page-break-before: always; }
+    .page-number:before {
+        content: "Page " counter(page);
+    }
+    .page_break { page-break-before: always; }
+    .page-number:before {
+        content: "Page " counter(page);
+
+    }
+    .logo-container {
+        text-align: center;
+        padding-bottom: 35px;
+    }
+    .logo-container img {
+        width: 150px;
+        display: block;
+        margin: auto;
+    }
+    .title-container {
+        background: #d3d3d3;
+        text-align: center;
+    }
+
+    .title-container h3 {
+        font-family: 'Arial Black', serif;
+        font-weight: bold;
+        color: #000000;
+        font-size: 24px;
+        margin-top: 10px;
+    }
+    .footer {
+        margin-top: 25px;
+        /*border: 3px solid rgba(141, 141, 141, 0.94);*/
+        padding: 12px;
+        position: absolute;
+        bottom: 25px;
+        width: 90%;
+        background-color: rgba(236, 236, 236, 0.73);
+    }
+</style>
+<div class="logo-container">
+    <img style="" src="{{ data.logo }}" alt="">
+</div>
+<div>
+    <div class="title-container">
+        <h3>
+            RÉCÉPISSÉ N°{{ data.PaiementId }} /{{ "now"|date('Y') }}        </h3>
+    </div>
+    <p style="font-size: 16px; margin-top:25px ">
+        Le promoteur immobilier  {{ globalVariables.TheCompany.RaisonSocial }}
+        Dont le siège est situé à {{ globalVariables.TheCompany.address }}
+        Titulaire de l’agrément n° {{ globalVariables.TheCompany.agrement }} du {{ globalVariables.TheCompany.agrementDate | format_date }}
+        Inscrit au tableau national des promoteurs immobiliers sous le n° {{ globalVariables.TheCompany.ntnpi }} en date du {{ globalVariables.TheCompany.ntnpiDate | format_date }}
+        Affilié au fonds de garantie sous le n° {{ globalVariables.TheCompany.nfgcmpi }},
+    </p>
+    <p style="font-size: 16px">
+        Certifie avoir reçu de la part de {{ data.customer.firstname }} {{ data.customer.lastname }}, Né le {{ data.customer.dob | date('d-m-Y')}}, portant la piéce d'identité N° {{ data.customer.pi}} la somme de {{ data.amount | number_format(2, ',', ' ') }} Da
+        En vue de l'acquisition d'un bien immobilier, au titre de la commande N°{{ data.orderId}} en vue de l'acquisition du bien immobilier N° {{ data.order.bien.numerotation }} de type {{ data.order.bien.type }} du projet {{ data.order.bien.project.publicName }} sis à l'adresse :{{ data.order.bien.project.address }}, {{ data.order.bien.project.wilaya }} .
+    </p>
+    <div>
+        <div style="margin-top: 25px; border: 3px solid #000; padding: 12px; ">
+            <h2>Recapitulatif du paiement</h2>
+            <ul>
+                <li>Montant payé : {{ data.amount | number_format(2, ',', ' ') }} Da</li>
+                <li>Mode de paiement : {{ data.paiementMethod }}</li>
+                {% if data.paiementHistory.compte.bank %}
+                    <li>RIB : {{ data.paiementHistory.compte.rib }}</li>
+                    <li>Banque : {{ data.paiementHistory.compte.bank.name }}</li>
+                    <li>Agence : {{ data.paiementHistory.compte.agence }}</li>
+                    <li>Address : {{ data.paiementHistory.compte.address }}</li>
+                {% endif %}
+                <li>Libéllé de la transaction : {{ data.order.bien.project.id}}-{{ data.order.id }}-{{ data.order.bien.id }}-{{ data.paiementHistory.id }}</li>
+            </ul>
+        </div>
+        <div style=" padding: 12px ">
+
+        </div>
+        <div style=" padding: 12px; ">
+            Fait à  {{ data.order.bien.project.wilaya }}, le {{ data.paiementHistory.mouvementComptes.dateAdd |date('d-m-Y') }} <br>
+            Par : {{ data.employee.firstname }} {{ data.employee.lastname}}, {{ data.employee.job}} <br>
+        </div>
+
+    </div>
+    <div class="footer">
+        <table style="width: 100%;">
+            <tr>
+                <td style=" width:70%">
+                    Document produit le : {{ data.paiementHistory.mouvementComptes.dateAdd | date('d-m-Y H:i:s')}} <br>
+                    Signature : {{ data.paiementHistory.uid }} <br>
+                    Paiement N° {{ data.paiementHistory.id }} / Commande N° {{ data.orderId }} / Acquéreur N° {{ data.customer.id}} <br>
+                    Projet : {{ data.order.bien.project.publicName }} <br>
+                    <hr>
+                    <p style="font-size: 9px">
+                        <strong>{{ globalVariables.TheCompany.raisonSocial }} :</strong> {{ globalVariables.TheCompany.address }},RC N° {{ globalVariables.TheCompany.nfgcmpi}}, Tel :{{globalVariables.TheCompany.phone1 }} , Email : {{globalVariables.TheCompany.email1 }} <br>
+
+                    </p>
+
+
+                </td>
+                <td style="width: 30%;text-align: right;">
+                    <div style="">
+                        <img style=" width: 150px; display: block; margin: auto;" src="{{ data.qr }}" alt="">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

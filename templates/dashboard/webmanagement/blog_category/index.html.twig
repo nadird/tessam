@@ -1,0 +1,54 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="d-flex flex-between-center mb-3 pb-3 border-bottom">
+            <h1>Category index</h1>
+            <a href="{{ path('app_dashboard_web_blog_category_new') }}" class="btn btn-primary">Create new</a>
+        </div>
+
+    <div class="row-table-header row ">
+        <div class="col-md-4">Id | Title</div>
+        <div class="col-md-2">Created at</div>
+        <div class="col-md-2">Parents</div>
+        <div class="col-md-1">Is active</div>
+        <div class="col-md-3">Actions</div>
+    </div>
+    {% for blog_category in blog_categories %}
+        <div class="row-table-data row">
+            <div class="col-md-4">{{ blog_category.id }} | {{ blog_category.name }}</div>
+            <div class="col-md-2">{{ blog_category.createdAt ? blog_category.createdAt|date('Y-m-d H:i:s') : '' }}</div>
+            <div class="col-md-2">
+                {% for parent in blog_category.parentCategories %}
+                    {{ parent.name }}{% if not loop.last %}, {% endif %}
+                {% else %}
+                    -
+                {% endfor %}
+            </div>
+            <div class=" col-md-1">{{ blog_category.isActive ? 'Yes' : 'No' }}</div>
+            <div class="col-md-3">
+                <div class="btn-group btn-group-sm">
+                    <a href="{{ path('app_dashboard_web_blog_category_show', {'id': blog_category.id}) }}"
+                       class="btn btn-outline-phoenix-secondary btn-sm">
+                        <i class="fa fa-eye"></i>
+                    </a>
+                    <a href="{{ path('app_dashboard_web_blog_category_edit', {'id': blog_category.id}) }}"
+                       class="btn btn-outline-phoenix-danger btn-sm">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="row-table-data">
+            <div class="col-md-12">
+                <div class="alert alert-warning">
+                    No blog posts found.
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}
+

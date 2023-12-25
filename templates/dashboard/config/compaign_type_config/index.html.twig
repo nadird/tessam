@@ -1,0 +1,58 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+
+<div class="row">
+    <div class="col-12 col-md-6">
+        <div class="row-table-header row">
+            <div class="col-3 col-md-1 ">#</div>
+            <div class="col-3 col-md-2 ">Name</div>
+            <div class="col-3 col-md-2 ">Code</div>
+            <div class="col-3 col-md-2">Color</div>
+            <div class="col-3 col-md-2">Icone</div>
+            <div class="col-12 col-md-3 ">Actions</div>
+        </div>
+        {% for compaign_type in compaign_types %}
+            <div class="row-table-data row">
+                <div class="col-3 col-md-1 ">{{ compaign_type.id }}</div>
+                <div class="col-3 col-md-2 ">{{ compaign_type.name }}</div>
+                <div class="col-3 col-md-2 ">{{ compaign_type.code }}</div>
+                <div class="col-3 col-md-2 ">
+                    <span class="badge badge-phoenix" style="background-color:{{ compaign_type.color }} ">
+                        {{ compaign_type.code }}
+                    </span>
+                </div>
+                <div class="col-3 col-md-2 ">
+                    <img src="{{ asset('uploads/public/') }}{{ compaign_type.logo }}" alt="" style="height: 30px">
+                </div>
+                <div class="col-12 col-md-3 ">
+
+                    <div class="btn-group btn-group-sm">
+                        <a href="{{ path('app_dashboard_config_compaignType_edit', {'id': compaign_type.id}) }}" class="btn btn-phoenix-primary">
+                            <i class="fa fa-eye"></i>
+                        </a>
+                        <a href="{{ path('app_dashboard_config_compaignType_delete', {'id': compaign_type.id}) }}" class="btn btn-phoenix-primary">
+                            <i class="fa fa-trash-can"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="row-table-data row">
+                <div class="col-12 ">No Records </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div id="form" class="col-12 col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>New compaign type</h5>
+            </div>
+            <div class="card-body">
+                {{ include('dashboard/config/compaign_type_config/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

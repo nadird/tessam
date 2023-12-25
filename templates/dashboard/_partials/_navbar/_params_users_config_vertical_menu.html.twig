@@ -1,0 +1,44 @@
+<div class="nav-item-wrapper"><a class="nav-link dropdown-indicator label-1" href="#nv-layouts-users" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="nv-layouts-doc">
+        <div class="d-flex align-items-center">
+            <div class="dropdown-indicator-icon">
+                <span class="fas fa-caret-right"></span>
+            </div>
+            <span class="nav-link-icon">
+                <span class="fa-solid fa-user-tie"></span>
+            </span>
+            <span class="nav-link-text">
+                {{ 'Users Config' | trans }}
+            </span>
+        </div>
+    </a>
+    <div class="parent-wrapper label-1">
+        <ul class="nav collapse parent" data-bs-parent="#navbarVerticalCollapse" id="nv-layouts-users">
+            <li class="collapsed-nav-item-title d-none">{{ 'Users Config' | trans }}
+            </li>
+            <li class="nav-item"><a class="nav-link" href="{{ path('dashboard_config_users_roles_index') }}" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center">
+                        <i class="fa-solid fa-network-wired"></i>
+                        <span class="nav-link-text">{{ 'User roles' | trans }}</span>
+                    </div>
+                </a>
+                <!-- more inner pages-->
+            </li>
+            <li class="nav-item"><a class="nav-link" href="{{ path('app_dashboard_hr_jobs_index') }}" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center">
+                        <span class="fa-solid fa-briefcase"></span>
+                        <span class="nav-link-text">{{ 'User Jobs' | trans }}</span>
+                    </div>
+                </a>
+                <!-- more inner pages-->
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center">
+                        <i class="fa-regular fa-eye"></i>
+                        <span class="nav-link-text">{{ 'User Logs' }}</span>
+                    </div>
+                </a>
+                <!-- more inner pages-->
+            </li>
+        </ul>
+    </div>
+</div>

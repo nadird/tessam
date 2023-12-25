@@ -1,0 +1,63 @@
+{% extends '/web/base_web.html.twig' %}
+
+{% block body %}
+    <!-- preloader -->
+
+    <!-- .end preloader -->
+    <!-- navbar -->
+    {% include('/web/_partials/_header/_header.html.twig') %}
+    <!-- .end navbar -->
+    <!-- header -->
+    <header class="header-bg header-bg-one position-relative">
+        <div class="bottom-frame"></div>
+        <div class="header-carousel owl-carousel owl-theme">
+            <div class="item">
+                <div class="container-fluid d-flex align-items-center justify-content-center">
+                    <div class="header-content header-content-white">
+                        <h1>Contact Us</h1>
+                        <p>Send contact request and we will reach you back  </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+        <section>
+            <h3>
+                Blog Posts
+            </h3>
+            <div class="row">
+                {% for post in blogPosts %}
+                    <div class="col-12 col-md-2 col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>{{ post.title }}</h4>
+                            </div>
+                            <div class="card-body">
+                                <a href="#">
+                                    <img src="#" alt="{{ post.title }}" class="img-fluid">
+                                </a>
+                                <p>
+                                    {{ post.author }} Le {{ post.createdAt|date('d-m-Y') }}
+                                </p>
+                                <a href="#" class="btn btn-primary">View</a>
+                            </div>
+
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+
+
+    </div>
+
+
+    {% include('/web/_partials/_footer.html.twig') %}
+
+
+{% endblock %}
+
+{% block footerscripts %}
+
+{% endblock %}

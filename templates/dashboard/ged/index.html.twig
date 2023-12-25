@@ -1,0 +1,121 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+
+
+    <div class="row row-cards">
+
+
+
+        <div id="filter-zone" >
+            <div class="row">
+             <div id="search" class="col-12 col-md-6">
+                 {{ form_start(searchForm) }}
+                 <div class="d-flex">
+                 <div class="form-group mt-3">
+                     {{ form_row(searchForm.q) }}
+                 </div>
+                    <div class="form-group mt-3">
+                        {{ form_row(searchForm.submit) }}
+                    </div>
+                 </div>
+
+                 {{ form_end(searchForm) }}
+
+             </div>
+            <div class="datefilter col-12 col-md-6">
+                <form>
+                    <div class="hstack gap-3 mt-3">
+                        <input class="form-controlme-auto " type="date" name="start" value="{{ 'now' | date }}">
+                        <input class="form-controlme-auto " type="date" name="end">
+                        <button type="submit" class="btn btn-outline-primary btn-sm">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        <div class="vr bg-200"></div>
+                        <a href="{{ path('app_dashboard_ged_index') }}" class="btn btn-outline-danger" type="button">{{ 'Reset' | trans }}</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+            {% for type in documentTypes %}
+                <a href="{{ path('app_dashboard_ged_documents_by_type', {'id': type.id}) }}" class="btn btn-outline-primary btn-sm">{{ type.name }}</a>
+            {% endfor %}
+        </div>
+        <div class="col-12">
+
+            <div class="d-none d-md-block">
+                <div class="row-table-header row ">
+
+                    <div class="col-12 col-md-2 col-lg-3  ">{{ 'Name' | trans }}</div>
+                    <div class="col-6 col-md-2 col-lg-2 ">{{ 'type' | trans }}</div>
+                    <div class="col-6 col-md-2 col-lg-2 ">{{ 'url' | trans }}</div>
+                    <div class="col-6 col-md-2 col-lg-2 ">{{ 'Customer' | trans }}</div>
+                    <div class="col-12 col-md-1 col-lg-2">{{ 'Date' }}</div>
+                    <div class="col-6 col-md-2 col-lg-1">{{ 'Employee' | trans }}</div>
+                </div>
+            </div>
+
+            {% for document in documents %}
+                <div class="row-table-data row ">
+                        <div class="col-12 col-md-2 col-lg-3  ">{{ document.name }}</div>
+                        <div class="col-12 col-md-2 col-lg-2  ">{{ document.type.name }}</div>
+                        <div class="col-6 col-md-2 col-lg-2 ">
+                            <div class="btn-group btn-group-sm">
+                                {% if document.customer %}
+                                <a href="{{ asset('uploads/documents/') }}/{{ document.customer.lead.slug }}/{{ document.url }}"
+                                   target="_blank" class="btn btn-outline-phoenix-secondary">
+                                    <i class="fa fa-download"></i>
+                                </a>
+                                {% elseif document.lead %}
+                                    <a href="{{ asset('uploads/documents/') }}/{{ document.lead.slug }}/{{ document.url }}"
+                                       target="_blank"
+                                       class="btn btn-outline-phoenix-danger"
+                                    >
+                                        <i class="fa fa-download"></i>
+                                    </a>
+                                {% endif %}
+                                <a href="#" class="btn btn-outline-phoenix-danger">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </div>
+
+
+                        </div>
+                        <div class="col-12 col-md-1 col-lg-2">
+                            {% if document.customer %}
+                                <a href="{{ path('app_dashboard_crm_customer_customer_page',{'id':document.customer.id}) }}">
+                                    {{ document.customer }}
+                                </a>
+
+                            {% elseif document.lead %}
+                                <a href="{{ path('app_dashboard_crm_leads_lead_page',{'id':document.lead.id}) }}">
+                                    {{ document.lead }}
+                                </a>
+
+
+                                {% endif %}
+                        </div>
+                    <div class="col-6 col-md-2 col-lg-2 ">{{ document.dateAdd |format_date }}</div>
+                    <div class="col-6 col-md-2 col-lg-1">
+                        <div class="avatar avatar-m me-3 flex-shrink-0">
+                            <img class="rounded-circle" src="{{ asset('uploads/employee') }}/{{ document.employee.picture }}" alt="">
+                        </div>
+
+                    </div>
+                </div>
+
+            {% else %}
+                {{ 'No Docs here !' }}
+            {% endfor %}
+            <div class="navigation">
+                {{ knp_pagination_render(documents) }}
+            </div>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}

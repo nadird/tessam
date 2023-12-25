@@ -1,0 +1,43 @@
+<div id="sticky-wrapper" class="sticky-wrapper menu-web container-fluid" style="">
+    <nav id="navbar-web" class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="{{ path('app_web_index') }}">
+                {% include('web/_partials/_logo.html.twig') %}
+            </a>
+
+          {#   <a href="#" class="btn custom-btn btn-sm d-lg-none ms-auto me-4 ">{{ 'Contact' | trans }}</a>#}
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icone-menu-burger-black"></span>
+            </button>
+
+            <div class="collapse navbar-collapse container" id="navbarNav">
+                <ul class="navbar-nav align-items-lg-center ms-auto me-lg-5">
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll active" href="{{ path('app_web_index') }}">{{ 'Accueil' | trans }}</a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll inactive" href="{{
+                            path('app_web_page_about')
+                        }}"><span class="white-space-nowrap">{{ 'About' | trans }}</span></a>
+                    </li>
+                    {{ render(controller('App\\Controller\\Web\\UtilsController::menuWebRendrer')) }}
+
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll inactive" href="{{ path('app_web_credit_simulator') }}">{{ 'Cérdit' | trans }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll inactive" href="{{ path('app_web_blog_index') }}">{{ 'Blog' | trans }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link click-scroll inactive" href="{{ path('app_web_page_contact_index') }}">{{ 'Contact' | trans }}</a>
+                    </li>
+                </ul>
+
+                <a href="#" class="btn custom-btn d-lg-block d-none">{{ "Plus d'informations" | trans }}</a>
+            </div>
+        </div>
+    </nav>
+</div>

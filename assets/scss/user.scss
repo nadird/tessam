@@ -1,0 +1,213 @@
+@import '../../node_modules/bootstrap/scss/_functions';
+@import 'theme/functions';
+@import '../../node_modules/tom-select/src/scss/tom-select.scss';
+
+@import '../../node_modules/bootstrap/scss/mixins';
+@import 'theme/mixins';
+
+@import 'user-variables';
+@import 'theme/variables';
+@import '../../node_modules/bootstrap/scss/variables';
+
+$primary: $blue !default;
+$secondary: $gray-600 !default;
+$success: $green !default;
+$info: $cyan !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$light: $gray-100 !default;
+$dark: $gray-1100 !default;
+
+$theme-colors: (
+  'primary': $primary,
+  'secondary': $secondary,
+  'success': $success,
+  'info': $info,
+  'warning': $warning,
+  'danger': $danger,
+  'light': $light,
+  'dark': $dark
+) !default;
+$dark-theme-colors: (
+        'primary': $blue-300,
+        'secondary': $secondary,
+        'success': $green-300,
+        'info': $cyan-300,
+        'warning': $orange-300,
+        'danger': $red-300,
+        'light': rgba(map-get($dark-grays, '200'), 0.25),
+        'dark': $light
+) !default;
+
+$dark-grays: (
+        'black': $white,
+        '100': $gray-1100,
+        '200': $gray-1000,
+        '300': $gray-900,
+        '400': $gray-800,
+        '500': $gray-700,
+        '600': $gray-600,
+        '700': $gray-500,
+        '800': $gray-400,
+        '900': $gray-300,
+        '1000': $gray-200,
+        '1100': $gray-100,
+        'white': $black,
+) !default;
+$theme-used-colors: (
+        'primary-soft': $blue-soft,
+        'primary-100': $blue-100,
+        'primary-200': $blue-200,
+        'primary-300': $blue-300,
+        'primary-500': $blue-500,
+        'primary-600': $blue-600,
+        'warning-soft': $orange-soft,
+        'warning-100': $orange-100,
+        'warning-200': $orange-200,
+        'warning-300': $orange-300,
+        'warning-500': $orange-500,
+        'info-100': $cyan-100,
+        'danger-300': $red-300,
+        'danger-100': $red-100,
+        'danger-500': $red-500,
+        'success-100': $green-100,
+        'success-300': $green-300,
+        'success-500': $green-500,
+        'info-200': $cyan-200,
+        'info-300': $cyan-300,
+        'info-500': $cyan-500,
+        'info-600': $cyan-600
+
+  // Add color variable here to generate bg/text utility class
+
+) !default;
+:root, :root.light, :root .light {
+  --phoenix-gray-100: #eff2f6;
+  --phoenix-gray-100-rgb: 239, 242, 246;
+
+  --phoenix-gray-200: #e3e6ed;
+  --phoenix-gray-200-rgb: 227, 230, 237;
+
+  --phoenix-gray-300: #cbd0dd;
+  --phoenix-gray-300-rgb: 203, 208, 221;
+  --ts-pr-caret: 1em;
+}
+.dark {
+  --phoenix-gray-100: #222834;
+  --phoenix-gray-100-rgb: 34, 40, 52;
+
+  --phoenix-gray-200: #31374a;
+  --phoenix-gray-200-rgb: 49, 55, 74;
+
+  --phoenix-gray-300: #373e53;
+  --phoenix-gray-300-rgb: 55, 62, 83;
+}
+//
+//
+// user.scss
+//
+// Place your own theme CSS or SCSS rules below this line, these rules will override any Bootstrap and theme variables.
+$blue-100: #ebf8ff !default;
+$blue-200: #bee3f8 !default;
+$blue-300: #90cdf4 !default;
+$blue-400: #63b3ed !default;
+$blue-500: #4299e1 !default;
+$blue-600: #3182ce !default;
+$blue-700: #2c5282 !default;
+$blue-800: #2a4365 !default;
+$blue-900: #1A365D !default;
+
+.row-table-header{
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  padding: 0.3em;
+  margin: 0.3em;
+  color: #ffffff;
+  background-color: $blue-900
+}
+.row-table-header a{
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.row-table-data{
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  padding: 0.3em;
+  margin: 0.3em;
+  background-color: #ffffff;
+}
+.dark .row-table-data{
+  background-color: $blue-900;
+  color: #ffffff;
+
+}
+.btn-block{
+  display: block;
+  width: 100%;
+}
+.date-time-data{
+  font-size: 0.8em;
+  color: #6c757d;
+  font-style: italic;
+}
+.custom-btn{
+  background-color: #0093E9;
+  background: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#logo-pages{
+  display: block;
+}
+#logo-home{
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /*Mobile CSS */
+  #navbar-web{
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    .container{
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .navbar-nav{
+      padding: 7px;
+    }
+  }
+#sticky-wrapper{
+  padding:  0;
+}
+  .nav-item a {
+    font-family: Montserrat,sans-serif;
+    font-size: 1.3em;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #fff;
+  }
+
+}
+.menu-web{
+  background-color: #ededed;
+  border-bottom: 1px solid #e3e2e2;
+}
+.card-warper {
+  border-radius: 15px;
+}
+.clear-button{
+  font-size: 1.8em;
+  color: #e03e2d;
+  top: 34%!important;
+  font-weight: 600;
+}
+.clear-button:hover{
+  color: #e03e2d;
+}
+

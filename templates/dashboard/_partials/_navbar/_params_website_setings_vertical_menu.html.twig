@@ -1,0 +1,38 @@
+<div class="nav-item-wrapper"><a class="nav-link dropdown-indicator label-1" href="#nv-customization" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="nv-customization">
+        <div class="d-flex align-items-center">
+            <div class="dropdown-indicator-icon"><span class="fas fa-caret-right"></span></div><span class="nav-link-icon">
+                    <span class="fa-brands fa-internet-explorer" ></span>
+            </span><span class="nav-link-text">{{ 'Website Settings' | trans }}</span>
+        </div>
+    </a>
+    <div class="parent-wrapper label-1">
+        <ul class="nav collapse parent" data-bs-parent="#navbarVerticalCollapse" id="nv-customization">
+            <li class="collapsed-nav-item-title d-none">{{ 'Website Settings' | trans }}
+            </li>
+            <li class="nav-item"><a class="nav-link" href="{{ path('app_dashboard_web_page_index') }}" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center"><span class="nav-link-text">{{ 'Pages' | trans }}</span>
+                    </div>
+                </a>
+                <!-- more inner pages-->
+            </li>
+            <li class="nav-item"><a class="nav-link" href="{{ path('app_dashboard_web_blog_category_index') }}" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center"><span class="nav-link-text">{{ 'Blog Categories' | trans }}</span>
+                    </div>
+                </a>
+                <!-- more inner pages-->
+            </li>
+            <li class="nav-item"><a class="nav-link" href="{{ path('app_dashboard_web_blog_post_index') }}" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center"><span class="nav-link-text">{{ 'Posts' | trans }}</span>
+                </div>
+                </a>
+                <!-- more inner pages-->
+            </li>
+            <li class="nav-item"><a class="nav-link" href="{{ path('app_dashboard_web_menu_index') }}" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center"><span class="nav-link-text">{{ 'Menu' | trans }}</span>
+                    </div>
+                </a>
+                <!-- more inner pages-->
+            </li>
+        </ul>
+    </div>
+</div>

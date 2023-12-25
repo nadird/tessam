@@ -1,0 +1,73 @@
+<div style="border-bottom: solid 5px #333333; display: block; width:100%; padding-bottom: 35px ;margin:30px 0px">
+    <div>
+       {#  <img style="width:150px; top:0px; margin-left: 280px" src="data:image/png;base64,{{ img }}" alt="">#}
+    </div>
+    <div style="background:#d3d3d3; width:100% ;  ">
+        <h3 style="font-family: 'Arial Black'; font-weight: bold; color:#ffffff; display: block;  font-size: 29px; margin: 10px 64px;"> BON DE VERSEMENT N°{{ data.PaiementId }} /{{ "now"|date('Y') }}</h3>
+    </div>
+    <div>
+        <table style="  table-layout: fixed; width: 100%;">
+            <tr>
+                <td style="padding: 10px">
+                    <div >
+                        <p> Date: <strong>{{ data.paiementDate | format_datetime(locale='fr')}} </strong></p>
+                        <p> Commande: <strong>{{ data.orderId}} </strong></p>
+                        <p> Paiement: <strong> {{ data.PaiementId }} </strong></p>
+                        <p> Operateur: <strong> {{data.employee}} </strong></p>
+                    </div></td>
+                <td style="border-left: solid 3px #000000; padding:10px;">
+                    <div>
+                        <p> Client : <strong> {{ data.firstname }} {{ data.lastname }}</strong> </p>
+                        <p> Address : {{ data.address}}</p>
+                        <p> Tel : {{ data.phone}}</p>
+                        <p> Email : {{ data.email}}</p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div>
+            <h2>Recapitulatif de la commande</h2>
+        </div>
+        <table style="table-layout: fixed; width: 100%; border-collapse: collapse; margin-top:25px;">
+            <!-- Table Headers -->
+            <thead>
+            <tr style="background-color: #d3d3d3;">
+                <th style="padding: 10px; border: 1px solid #000;">N°</th>
+                <th style="padding: 10px; border: 1px solid #000;">Order Details</th>
+                <th style="padding: 10px; border: 1px solid #000;">Total HT</th>
+            </tr>
+            </thead>
+            <!-- Table Body -->
+
+            <tbody>
+           {#  Refactored
+           {% set totalOrder =0 %}
+            {% for orderHistory in data.orderHistories %}
+           #}
+               {#  Refactored {% set totalOrder = totalOrder + orderHistory[1]%}#}
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #000; width: 10%;"></td>
+                    <td style="padding: 10px; border: 1px solid #000;  width: 60%;">{{ data.order.bien }}</td>
+                    <!-- Display the TotalHt -->
+                    <td style="padding: 10px; border: 1px solid #000;  width: 30%;">{{ data.order.totalHt | number_format(2, ',', ' ') }} Da</td>
+                </tr>
+
+            </tbody>
+            <!-- Table Footer -->
+            <tfoot>
+            <tr>
+                <td colspan="" style="padding: 10px; border: none; text-align: right;"></td>
+                <td colspan="" style="padding: 10px; border: none; text-align: right;">Total:</td>
+                <td style="padding: 10px; border: 1px solid #000;">{{ data.order.totalHt |number_format(2, ',', ' ') }} Da</td>
+            </tr>
+            </tfoot>
+        </table>
+        <div style="margin-top: 25px; border: 3px solid #000; padding: 12px; ">
+            <h2>Recapitulatif du versement</h2>
+            <ul>
+            <li>Montant du versement: {{ data.amount | number_format(2, ',', ' ') }} Da</li>
+            <li>Mode de paiement : {{ data.paiementMethod }}</li>
+            </ul>
+        </div>
+    </div>
+</div>

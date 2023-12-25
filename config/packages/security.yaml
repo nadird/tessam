@@ -1,0 +1,84 @@
+security:
+    # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
+    password_hashers:
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+
+    providers:
+        admin_users:
+            entity:
+                class: App\Entity\Employee
+                property: email
+        customer_users:
+            entity:
+                class: App\Entity\Customer
+                property: email
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        dashboard:
+            pattern: ^/dashboard/
+            provider: admin_users
+            custom_authenticator: App\Security\EmployeeLoginFormAuthenticator
+            logout:
+                path: app_dashboard_logout
+                target: app_dashboard_login
+            entry_point: App\Security\EmployeeLoginFormAuthenticator
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 604800 # 1 week in seconds
+                always_remember_me: true
+                signature_properties: [password]
+        customer:
+            pattern: ^/customer/
+            provider: customer_users
+            custom_authenticator: App\Security\CustomerLoginFormAuthenticator
+            logout:
+                path: app_customer_logout
+                target: app_customer_login
+            entry_point: App\Security\CustomerLoginFormAuthenticator
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 604800 # 1 week in seconds
+                always_remember_me: true
+                signature_properties: [ password ]
+
+
+
+        public_area:
+            #entry_point: App\Security\CustomAuthenticationEntryPoint
+        # Default firewall for public access
+        # ...
+
+    access_control:
+        - { path: ^/dashboard/login, roles: PUBLIC_ACCESS }
+        - { path: ^/dashboard, roles: ROLE_DASHBOARD }
+        - { path: ^/customer/login, roles: PUBLIC_ACCESS }
+        - { path: ^/customer/register, roles: PUBLIC_ACCESS }
+        - { path: ^/customer, roles: ROLE_CUSTOMER }
+        # Add any additional access controls for specific paths and roles as needed
+
+    role_hierarchy:
+        ROLE_CUSTOMER:         ROLE_USER
+        ROLE_COMMERCIAL:       [ROLE_USER,ROLE_CUSTOMER,ROLE_DASHBOARD]
+        ROLE_DC:               [ROLE_USER,ROLE_COMMERCIAL,ROLE_CAN_VIEW_ALL_LEADS,ROLE_CAN_VIEW_ALL_ORDERS]
+        ROLE_FINANCE:          [ROLE_USER,ROLE_DASHBOARD,ROLE_CAN_VIEW_ALL_ORDERS,ROLE_CAN_VIEW_ALL_INVOICES,ROLE_CAN_VIEW_ALL_PAYMENTS,ROLE_CAN_EDIT_PAYMENTS,ROLE_CAN_ADD_BILLS,ROLE_CAN_MANAGE_PROVIDERS]
+        ROLE_RH:               [ROLE_USER,ROLE_DASHBOARD,ROLE_CAN_ADD_EMPLOYEE,ROLE_CAN_EDIT_EMPLOYEE,ROLE_CAN_DELETE_EMPLOYEE,ROLE_CAN_VIEW_ALL_EMPLOYEE]
+        ROLE_DAG:              [ROLE_USER,ROLE_DASHBOARD,ROLE_DC,ROLE_RH,ROLE_CAN_ADD_BILLS,ROLE_CAN_MANAGE_PROVIDERS]
+        ROLE_DG:               [ROLE_USER,ROLE_DC,ROLE_DAG,ROLE_FINANCE,ROLE_CAN_DELETE_LEADS,ROLE_CAN_DELETE_ORDER,ROLE_CAN_UPDATE_ORDER]
+        ROLE_ADMIN:            [ROLE_USER,ROLE_DG,ROLE_DAG,ROLE_DC]
+        ROLE_SUPER_ADMIN:      [ROLE_USER, ROLE_ADMIN]
+
+
+#web_profiler:
+    #intercept_redirects: false
+
+    #toolbar:
+        #enabled: true
+        #ips: ['127.0.0.1', '::1']
+
+    #profiler:
+        #enabled: true
+        #only_exceptions: false
+        #only_master_requests: false

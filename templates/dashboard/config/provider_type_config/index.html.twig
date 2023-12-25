@@ -1,0 +1,52 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+
+    <div class="row">
+        <div class="col-12 col-md-8">
+            <div class="row-table-header row">
+                <div class="col-3 col-md-1 ">#</div>
+                <div class="col-3 col-md-3 ">Name</div>
+                <div class="col-3 col-md-2 ">Code</div>
+                <div class="col-3 col-md-2">Code</div>
+                <div class="col-12 col-md-4 ">Actions</div>
+            </div>
+            {% for provider_type in provider_types %}
+                <div class="row-table-data row">
+                    <div class="col-3 col-md-1 ">{{ provider_type.id }}</div>
+                    <div class="col-3 col-md-3 ">{{ provider_type.name }}</div>
+                    <div class="col-3 col-md-2 ">{{ provider_type.color }}</div>
+                    <div class="col-3 col-md-2 ">{{ provider_type.code }}</div>
+                    <div class="col-12 col-md-4 ">
+
+                        <div class="btn-group">
+                            <a href="{{ path('app_dashboard_config_provider_type_config_edit', {'id': provider_type.id}) }}" class="btn btn-phoenix-primary">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a href="{{ path('app_dashboard_config_provider_type_config_delete', {'id': provider_type.id}) }}" class="btn btn-phoenix-danger">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="row-table-data row">
+                    <div class="col-12 ">No Records </div>
+                </div>
+            {% endfor %}
+
+        </div>
+        <div id="form" class="col-12 col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>New Provider type</h5>
+                </div>
+                <div class="card-body">
+                    {{ include('dashboard/config/provider_type_config/_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

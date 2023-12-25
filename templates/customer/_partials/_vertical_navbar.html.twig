@@ -1,0 +1,119 @@
+<nav class="navbar navbar-vertical navbar-expand-lg">
+    <script>
+        var navbarStyle = window.config.config.phoenixNavbarStyle;
+        if (navbarStyle && navbarStyle !== 'transparent') {
+            document.querySelector('body').classList.add(`navbar-${navbarStyle}`);
+        }
+    </script>
+    <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+        <!-- scrollbar removed-->
+        <div class="navbar-vertical-content">
+            <ul class="navbar-nav flex-column" id="navbarVerticalNav">
+                <li class="nav-item">
+                    <!-- parent pages-->
+                    <div class="nav-item-wrapper">
+                        <a class="nav-link  label-1" href="{{ path('app_customer_index') }}" >
+                            <div class="d-flex align-items-center">
+                                <span class="nav-link-icon">
+                                    <span class="fa-solid fa-house"></span>
+                                </span>
+                                <span class="nav-link-text">
+                                    {{ 'Customer dashboard' | trans }}
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <!-- parent pages-->
+                    <div class="nav-item-wrapper">
+                        <a class="nav-link  label-1" href="{{ path('app_customer_index') }}" >
+                            <div class="d-flex align-items-center">
+                                <span class="nav-link-icon">
+                                    <span class="fa-solid fa-file-signature"></span>
+                                </span>
+                                <span class="nav-link-text">
+                                    {{ 'Orders' | trans }}
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <!-- parent pages-->
+                    <div class="nav-item-wrapper">
+                        <a class="nav-link  label-1" href="{{ path('app_customer_index') }}" >
+                            <div class="d-flex align-items-center">
+                                <span class="nav-link-icon">
+                                    <span class="fa-solid fa-file-invoice-dollar"></span>
+                                </span>
+                                <span class="nav-link-text">
+                                    {{ 'Paiements' | trans }}
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <!-- parent pages-->
+                    <div class="nav-item-wrapper">
+                        <a class="nav-link  label-1" href="{{ path('app_customer_index') }}" >
+                            <div class="d-flex align-items-center">
+                                <span class="nav-link-icon">
+                                    <span class="fa-solid fa-list-check"></span>
+                                </span>
+                                <span class="nav-link-text">
+                                    {{ 'Écheances' | trans }}
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <!-- parent pages-->
+                    <div class="nav-item-wrapper">
+                        <a class="nav-link  label-1" href="{{ path('app_customer_index') }}" >
+                            <div class="d-flex align-items-center">
+                                <span class="nav-link-icon">
+                                    <span class="fa-solid fa-comments"></span>
+                                </span>
+                                <span class="nav-link-text">
+                                    {{ 'Messages' | trans }}
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <!-- parent pages-->
+                    <div class="nav-item-wrapper">
+                        <a class="nav-link  label-1" href="{{ path('app_customer_index') }}" >
+                            <div class="d-flex align-items-center">
+                                <span class="nav-link-icon">
+                                    <span class="fa-solid fa-folder-open"></span>
+                                </span>
+                                <span class="nav-link-text">
+                                    {{ 'Documents' | trans }}
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+
+             {#  {% include('customer/_partials/_customer_orders_vertical_menu.html.twig') %} #}
+
+
+
+
+
+            </ul>
+        </div>
+    </div>
+    <div class="navbar-vertical-footer">
+        <button class="btn navbar-vertical-toggle border-0 fw-semi-bold w-100 white-space-nowrap d-flex align-items-center">
+            <span class="fa fa-arrow-left fs-0"></span>
+            <span class="fa fa-arrow-right fs-0"></span>
+            <span class="navbar-vertical-footer-text ms-2">{{ 'Collapsed View' | trans }}</span></button>
+    </div>
+</nav>

@@ -1,0 +1,43 @@
+<div class="tab-pane fade" id="tab-interests" role="tabpanel" aria-labelledby="interests-tab">
+    <h2 class="mb-4">{{'Interests & Reservations' | trans}}</h2>
+    <div class="mb-8">
+        <div class="d-flex justify-content-between align-items-center mb-4" id="scrollspyInterest">
+            <h4 class="mb-0">New Interest</h4>
+        </div>
+        {{ form(interestForm) }}
+        <h4 class="mb-2">{{ 'All Interests' | trans }}</h4>
+        <div class="border-top border-bottom border-200" id="leadDetailsTable" data-list="{&quot;valueNames&quot;:[&quot;dealName&quot;,&quot;amount&quot;,&quot;stage&quot;,&quot;probability&quot;,&quot;date&quot;,&quot;type&quot;],&quot;page&quot;:5,&quot;pagination&quot;:true}">
+            <div>
+
+                {# Redendence
+                {% for interest in lead.formatBienInterest %}
+                <div class="row row-table-data">
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3">{{ interest.name }}</div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3">{{ interest.project }}</div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3">{{ interest.type }}</div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3">{{ interest.price | format_currency("DZD") }}</div>
+                </div>
+
+                {% endfor %}
+                #}
+                {% for interest in customer.formatInterest %}
+                <div class="row row-table-data">
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3">{{ interest.name }}</div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3">{{ interest.project }}</div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3">{{ interest.type }}</div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3">{{ interest.price | format_currency("DZD") }}</div>
+                </div>
+                {% else %}
+
+
+
+
+                <div class="text-center py-4">
+                    <p class="mb-2">{{ 'No Interests Found' | trans }}</p>
+                    <button class="btn btn-primary btn-sm">{{ 'Add Interest' | trans }}</button>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

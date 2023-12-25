@@ -1,0 +1,4 @@
+framework:
+    mailer:
+        dsn: '%env(MAILER_DSN)%'
+        # See https://symfony.com/doc/current/mailer.html#transport-setup

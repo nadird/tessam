@@ -1,0 +1,34 @@
+{% set lowestprice = 0 %}
+{% for format in type.cFormatBiens %}
+
+    {% if lowestprice >= format.price or lowestprice == 0 %}
+    {% if format.project.isProjectPricePublished == 'true' %}
+        {% set lowestprice = format.price %}
+    {% endif %}
+    {% endif %}
+{% endfor %}
+
+
+    <div class="card-warper">
+        <div class="type-img-warper">
+            <a href="{{ path('app_product_type_page',{'slug':type.slug}) }}">
+                <img src="{{ asset('uploads/public/') }}{{ type.thumb }}" alt="" class="w-100">
+            </a>
+            <!-- Added Property Details Here -->
+            <div class="property-details">
+                <a href="{{ path('app_product_type_page',{'slug':type.slug}) }}">
+                    <h4 class="text-white ">{{ type.publicTitle }}</h4>
+                </a>
+                    <p>{{ type.name }}</p>
+                    <p>{{ type.cFormatBiens | length }} formats </p>
+                {% if  globalVariables.TheCompany.diplayPrices == 'true' %}
+                    <p class="price">{{ 'Starts at' | trans}} {{ lowestprice | format_currency('DZD') }}</p>
+                {% endif %}
+                {# Refactoring Temporaire
+                    <p class="price">{{ 'Starts at' | trans}} {{ lowestprice | format_currency('DZD') }}</p>
+                #}
+
+            </div>
+        </div>
+    </div>
+

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New BienAdditionalType{% endblock %}
+
+{% block body %}
+    <h1>Create new BienAdditionalType</h1>
+
+    {{ include('bien_additional_type/_form.html.twig') }}
+
+    <a href="{{ path('app_bien_additional_type_index') }}">back to list</a>
+{% endblock %}

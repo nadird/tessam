@@ -1,0 +1,661 @@
+Rooms: Chambres
+Bathrooms: 'Salles de bain'
+Area: Supérficie
+'Starting at:': 'À partir de:'
+'Lead form title': "Demander plus d'information"
+Discover: Decouvrir
+'floor plans': Plans
+'THE HEAVEN BENI HAOUA': 'THE HEAVEN BENI HAOUA'
+'Le paradis au coeur de la méditéranée': 'Le paradis au coeur de la méditéranée'
+'PROMOTION IMMOBILIÈRE THE HEAVEN': 'PROMOTION IMMOBILIÈRE THE HEAVEN'
+'En Savoir plus': 'En Savoir plus'
+Contact: Contact
+Accueil: Accueil
+About: 'À propos'
+'Le projet': 'Le projet'
+Appartements: Appartements
+Villas: Villas
+"Plus d'informations": "Plus d'informations"
+'Ajouter une charge': 'Ajouter une charge'
+Name: Nom
+Category: Catégorie
+Price: Prix
+isActive: Actif
+Options: Opt
+'Aucun charge pour le moment': 'Aucun charge pour le moment'
+'Aucun paiement pour le moment': 'Aucun paiement pour le moment'
+'New Mouvement': 'Nouveau mouvement'
+'Aucun mouvement pour le moment': 'Aucun mouvement pour le moment'
+'Add Config': 'Ajouter configuration'
+'New Task': 'Ajouter une tache'
+Text: Text
+Actions: Act
+Delete: Supprimer
+up: Monter
+down: Descendre
+Tasks: Tache
+'No templates found': 'Pas de template'
+'Nouveau Template': 'Nouveau template'
+'Edit Role': 'Modifier role'
+'back to list': 'Retours a la liste'
+'Create new Role': 'Créer un role'
+'Contact Details': 'Details contact'
+'Lead Details': 'Détails prospec'
+Email: Email
+Object: Objet
+'New Contact': 'Nouveau contact'
+Interactions: Interactions
+'New Interaction': 'Nouvelle Interaction'
+'Interaction Histories': 'Historique des interactions'
+'Lead page': 'Page prospect'
+Reponses: Reponses
+Comment: Commentaires
+'About lead': 'À propos du prospect'
+Phone: Téléphone
+Source: Source
+Address: Addresse
+'Last contacted': 'Dernier contact'
+'First Contact': 'Premier contact'
+Todo: Tâches
+Attachments: 'Piéces jointes'
+'Edit Form': Formulaire
+'New Building': 'Nouveau immeuble'
+show: Afficher
+edit: Modifier
+'No Building found':
+    '': 'Aucun immeuble trouvé.'
+'Create new': 'Créer nouveau'
+'Edit Project': 'Modifier projet'
+'Drop your files here': 'Déposez vos fichiers ici'
+'no albums create one ?': 'Aucun album créer un ?'
+'New Project': 'Nouveau projet'
+'no records found': 'Aucun enregistrement trouvé'
+'Informations about thumb': 'Informations sur la miniature'
+'Image size is 300x300': "La taille de l'image est 300x300"
+'Image format is jpg or png or webp': "Le format de l'image est jpg ou png ou webp"
+'200 Ko Max size': '200 Ko Max size'
+'Edit Type de bien': 'Modifier type de bien'
+album: Album
+Type: Type
+Album: Album
+'New Category': 'Nouvelle catégorie'
+'No Categtory found':
+    '': 'Aucune catégorie trouvée.'
+'New Bien': 'Nouveau bien'
+Format: Format
+Project: Projet
+Building: Immeuble
+IsSold: Vendu
+State: Etat
+Edit: Modifier
+'See All': 'Voir tout'
+'Edit Format': 'Modifier format'
+'Album images': "Images de l'album"
+'New Format': 'Nouveau format'
+delete: Supprimer
+'Thumb is the small image presented in home page': 'Thumb est la petite image présentée dans la page d\accueil'
+'This is image is the big image presented in Type page': 'Cette image est la grande image presentée dans la page Type'
+'This is the floor plan presented in Type page': 'Ceci est le plan d\étage présenté dans la page Type'
+"Drop\n                        your files here": 'Déposez vos fichiers ici'
+'No product found':
+    '': 'Aucun produit trouvé.'
+Update: Modifier
+User: Utilisateur
+Interests: Interets
+'No Interests Found': 'Aucun interet trouvé'
+'Add Interest': 'Ajouter interet'
+'Customer page': 'Page client'
+'Transform to Customer': 'Transformer en client'
+Download: Télécharger
+'Lead State': 'Etat prospect'
+'Edit Lead': 'Modifier prospect'
+'Return to lead page': 'Retour à la page prospect'
+HR: RH
+'Customer State': 'Etat client'
+'Order State': 'Etat commande'
+Amount: Montant
+Details: Détails
+Infos: Infos
+Compte: Compte
+N°: N°
+Valid: Valide
+Total: Total
+'Total Amount': 'Montant total'
+'Payed Amount': 'Montant payé'
+'Left Amount': 'Montant restant'
+'New Paiement': 'Nouveau paiement'
+'Order Details': 'Détails commande'
+'Paiement Type': 'Type paiement'
+'Paiement compte': 'Compte paiement'
+'#Order': '#Commande'
+isValid: Valide
+Reserver: Réserver
+Todos: Todos
+'Add products to this order': 'Ajouter des produits à cette commande'
+Customer: Client
+'New Customer ?': 'Nouveau client ?'
+'Interests & Reservations': 'Interets & Reservations'
+'All Interests': 'Tous les interets'
+'Change owner': "Changer l'agent"
+'Last Interaction': 'Dernière interaction'
+details: Détails
+'Expected Revenue': 'Revenu attendu'
+'Order Type': 'Type commande'
+'Date Updated': 'Date mise à jour'
+'Assigned Agent': 'Agent en charge'
+'Probability:': 'Probabilité:'
+'Customer Code': 'Code client'
+'New Order': 'Nouvelle commande'
+'No documents': 'Aucun document'
+Orders: Commandes
+'Sign in': 'Se connecter'
+Logout: Déconnexion
+Password: 'Mot de passe'
+'Remember me': 'Se souvenir de moi'
+'No images found': 'Aucune image trouvée'
+'No Records': 'Aucun enregistrement'
+'Remove File': 'Supprimer fichier'
+'Mark as not done': 'Marquer comme non fait'
+'Mark as done': 'Marquer comme fait'
+'CRM Config': 'Config CRM'
+'Layouts doc': 'Doc Layouts'
+'Todo lists Templates': 'Templates Todo lists'
+'Horizontal navbar': 'Navbar horizontale'
+'Combo navbar': 'Navbar combo'
+'Dual nav': 'Dual nav'
+'Web form contact': 'Formulaire contact'
+'Mark as unread': 'Marquer comme non lu'
+'Users Config': 'Config utilisateurs'
+'User roles': 'Roles utilisateurs'
+'User Jobs': 'Jobs utilisateurs'
+'Recently Searched': 'Recherches récentes'
+Products: Produits
+Notificatons: Notifications
+'Mark all as read': 'Tout marquer comme lu'
+'Notification history': 'Historique notifications'
+Parametres: Parametres
+'General Settings': 'Paramètres généraux'
+Accounting: Comptabilité
+Paiements: Paiements
+Charges: Charges
+Hr: RH
+Employees: Employés
+Teams: Equipes
+Dashboard: 'Tableau de bord'
+'Posts &amp; Activity': 'Posts &amp; Activité'
+'Settings &amp; Privacy': 'Paramètres &amp; Confidentialité'
+'Help Center': 'Centre d\aide'
+'Add another account': 'Ajouter un autre compte'
+'Sign out': 'Se déconnecter'
+'Privacy policy': 'Politique de confidentialité'
+Cookies: Cookies
+E-commerce: E-commerce
+Projects: Projets
+Immeuble: Immeuble
+Bien: Bien
+Additionnel: Additionnel
+'Category Additionnel': 'Catégorie additionnel'
+Dossiers: Dossiers
+Factures: Factures
+'Website Settings': 'Paramètres site web'
+Pages: Pages
+'Blog Categories': 'Catégories blog'
+Posts: Posts
+Menu: Menu
+'Types & States': 'Types & Etats'
+'Charge Type': 'Type charge'
+'Account Mouvement Type': 'Type mouvement compte'
+'Order States': 'Etats commande'
+Accounts: Comptes
+'Contact Source': 'Source contact'
+'Contact States': 'Etats contact'
+'Contact Job': 'Job contact'
+Wilayas: Wilayas
+'Lead States': 'Etats prospect'
+'Interaction Type': 'Type interaction'
+'Interaction Source': 'Source interaction'
+'Bien State': 'Etat bien'
+'Project State': 'Etat projet'
+'Document type': 'Type document'
+'Tasks Status': 'Status tache'
+'Config Keys': 'Clés config'
+'Order Types': 'Types commande'
+Prospection: Prospection
+'My Leads': 'Mes prospects'
+'My customers': 'Mes clients'
+Ventes: Ventes
+Sales: Ventes
+Availabilites: Disponibilités
+Add: Ajouter
+'Edit WebJobOffer': 'Modifier Offre d emploi'
+Offers: Offres
+CreatedAt: 'Créé le'
+Enddate: 'Date fin'
+IsActive: Actif
+actions: Actions
+'WebJobOffer index': "Index Offre d'emploi"
+'Job Applicant': Candidat
+Resume: CV
+'Job Applications': Candidatures
+Editing: Edition
+'Create New Job': 'Créer un nouveau job'
+'Edit Privileges': 'Modifier privilèges'
+Employee: Employé
+'New employee': 'Nouvel employé'
+Role: Role
+'No members in this team': 'Aucun membre dans cette équipe'
+'New Employee Form': 'Formulaire nouvel employé'
+Hello: Bonjour
+'Change password for': 'Changer le mot de passe pour'
+'Update My Profile': 'Mettre à jour mon profil'
+'Change Password': 'Changer le mot de passe'
+'New Job': 'Nouveau job'
+ID: ID
+Register: "S'inscrire"
+'Hi! Please confirm your email!': 'Salut! Veuillez confirmer votre email!'
+'Please confirm your email address by clicking the following link:': 'Veuillez confirmer votre adresse email en cliquant sur le lien suivant:'
+'Confirm my Email': 'Confirmer mon email'
+'This link will expire in': 'Ce lien expirera dans'
+Cheers!: Merci!
+'You are logged in as': 'Vous êtes connecté en tant que'
+"Don't have an account yet ?": "Vous n'avez pas encore de compte ?"
+'Create an account': 'Créer un compte'
+'Avec The Heaven, découvrez une vie où chaque jour est un pas de plus vers le paradis sur terre':
+    '': 'Avec The Heaven, découvrez une vie où chaque jour est un pas de plus vers le paradis sur terre.'
+Contactez-nous: Contactez-nous
+'Starts at': 'à partir de'
+'En Maintenance': 'En Maintenance'
+Montant: Montant
+Date: Date
+Opt: Opt
+Direction: Direction
+From: De
+to: à
+'Public Name': 'Nom public'
+Actif: Actif
+"back to\n                list": 'Retours à la liste'
+"back\n            to list": 'Retours à la liste'
+"Create\n    new": Nouveau
+Show: Afficher
+"back\n                    to list": 'Retours à la liste'
+"Remove\n                                        File": 'Supprimer fichier'
+name: Nom
+'New Lead': 'Nouveau prospect'
+'there is no leads for this search': "Il n'y a pas de prospects pour cette recherche"
+Payé: Payé
+'Date upd': 'Date mise a jour'
+'Select Employee': 'Choisir un employé'
+'Interaction Histories lead': 'Historique des interactions prospect'
+"Remove\n                                File": 'Supprimer Fichier'
+'Mes Todo': 'Mes Todo'
+'Mes notifications': 'Mes notifications'
+web:
+    home:
+        index:
+            title: 'Le paradis au coeur de la méditéranée'
+'Date de livraison prévue': 'Date de livraison prévue'
+Nos: Nos
+'Nos Projets': 'Nos Projets'
+'Nos biens immobilier par type': 'Nos biens immobilier par type'
+Nom: Nom
+Prenom: Prénom
+Téléphone: Téléphone
+Submit: Envoyer
+Cérdit: Crédit
+'Paiement N°': 'Paiement N°'
+Client: Client
+Commande: Commande
+'Mouvement Compte': 'Mouvement Compte'
+Note: Note
+'Suivis par': 'Suivis par'
+Statut: Statut
+Invalider: Invalider
+Valider: Valider
+'LOGO MAIN LIGHT': 'LOGO MAIN LIGHT'
+'Aspect Ratio': 'Aspect Ratio'
+'min height': 'min hauteur'
+'max height': 'max hauteur'
+'Formats Accepted': 'Formats Acceptés'
+Recommended: Recommendé
+'Not Recommended': 'Non Recommendé'
+'Image preview': 'Image preview'
+'LOGO MAIN DARK': 'LOGO MAIN DARK'
+'LOGO MOBILE LIGHT': 'LOGO MOBILE LIGHT'
+'LOGO MOBILE DARK': 'LOGO MOBILE DARK'
+FAVICON: FAVICON
+'OPENGRAPH IMAGE': 'OPENGRAPH IMAGE'
+'HOME IMAGE': 'HOME IMAGE'
+'SECOND HOME IMAGE': 'SECOND HOME IMAGE'
+'Video preview': 'Video preview'
+État: État
+Étage: Étage
+'Informations Cover Brochure': 'Couverture Brochure'
+'Informations  Brochure': Brochure
+'État:': 'État:'
+'Id:': 'Id:'
+'Nom:': 'Nom:'
+'Project:': 'Projet:'
+'Batiment:': 'Batiment:'
+'Format:': 'Format:'
+'Type:': 'Type:'
+'Étage:': 'Étage:'
+'Surface:': 'Surface:'
+'Prix:': 'Prix:'
+"Date d'ajout:": "Date d'ajout:"
+'Command N°': 'Command N°'
+'Client :': 'Client :'
+'Historique des états': 'Historique des états'
+Projet: Projet
+'Interested Leads': 'Prospects intéressés'
+'Modalité de paiement': 'Modalité de paiement'
+'Date Add': 'Date ajout'
+'Is Valid': Valide
+Annuler: Annuler
+'Attestation de reservation': 'Attestation de reservation'
+'Cahier des charges': 'Cahier des charges'
+'Ajouter écheancier': 'Ajouter écheancier'
+Écheances: Écheances
+'Choisir un compte': 'Choisir un compte'
+Payer: Payer
+'Voir le paiement N°': 'Voir le paiement N°'
+'Ajouter écheance': 'Ajouter écheance'
+Ajouter: Ajouter
+Marketing: Marketing
+Statistiques: Statistiques
+Compagnes: Compagnes
+'Tous les documents': 'Tous les documents'
+'The Company Config': 'Configuration entreprise'
+type: type
+url: url
+'Customer value': 'Valeur client'
+'Total Paiements': 'Total Paiements'
+Save: Enregistrer
+'Back to list': 'Retour à la liste'
+'Todo list': 'Liste des taches'
+'No interactions yet': 'Aucune interaction pour le moment'
+Providers: 'Fournisseurs & Sous-traitants'
+'Add new provider': 'Ajouter nouveau fournisseur'
+'No providers found': 'Aucun fournisseur trouvé'
+'Provider page': 'Page fournisseur'
+'Provider Details': 'Détails fournisseur'
+'Provider Histories': 'Historique fournisseur'
+'Provider State': 'Etat fournisseur'
+'Provider Type': 'Type fournisseur'
+'Providers Orders': 'Commandes fournisseur'
+app:
+    dashboard:
+        crm:
+            customer: { interaction: { added_successfully: 'Interaction ajoutée avec succès' }, document: { added_successfully: 'Document ajouté avec succès' }, interest: { added_successfully: 'Intérêt ajouté avec succès' }, order: { added_successfully: 'Commande ajoutée avec succès' }, employee_changed_successfully: 'Employé changé avec succès', index: { filtred: { controller_name: Filtre, parent_controller_name: Clients } }, controller_name: Client, sales_controller_name: Ventes }
+    product:
+        type:
+            controller_name: 'Type de logements'
+        format:
+            controller_name: 'Format de logement'
+            thankyou: { controller_name: Merci }
+'Provider Order': 'Commande fournisseur'
+'Contact Messages': 'Messages de contact'
+'Contact Message': 'Messages de contact'
+'Voir les types disponibles': 'Voir les types disponibles'
+Localisation: Localisation
+'etre rappelé': 'étre rappelé'
+'prendre un rendez-vous': 'prendre un rendez-vous'
+'Voir le projet': 'Voir le projet'
+'Voir tous les biens': 'Voir tous les biens'
+'étre rappelé': 'étre rappelé'
+formats: formats
+'Nous nous excusons du désagrément, Site web en maintenance,': 'Nous nous excusons du désagrément, Site web en maintenance,'
+'Contact:': 'Contact:'
+Charge: Charge
+libéllé: libéllé
+'Montant total': 'Montant total'
+Validation: Validation
+'Validé le :': 'Validé le :'
+'Modifié le :': 'Modifié le :'
+Fournisseur: Fournisseur
+Order: Commande
+Mouvement: Mouvement
+'Provider orders histories': 'Provider orders histories'
+'Add document': 'Ajouter Document'
+Documents: Documents
+'Add a document': 'Ajouter document'
+'Provider order histories': 'Historique des commandes fournisseur'
+'Add New Interaction': 'Ajouter une nouvelle interaction'
+Provider: Fournisseur
+'No Orders yet': 'Aucune commande pour le moment'
+'Add paiement': 'Ajouter paiement'
+'Provider Order N°': 'Commande fournisseur N°'
+'Provider :': 'Fournisseur:'
+'Order :': 'Commande :'
+'State :': 'État :'
+'Project :': 'Projet :'
+'Note :': 'Note :'
+'Date order :': 'Date de la commande :'
+'Date delivery :': 'Date de livraison :'
+'Total :': 'Total :'
+'Payé :': 'Payé :'
+'Rest à payer :': 'Reste à payer :'
+'Is Valid :': 'Valide :'
+'No Paiements yet': 'Aucun paiement pour le moment'
+'Provider orders': 'Commandes fournisseur'
+'New Provider Order': 'Nouvelle commande fournisseur'
+'No orders yet': 'Aucune commande pour le moment'
+'New Provider': 'Nouveau fournisseur'
+Active: Actif
+'No Providers yet': 'Aucun fournisseur pour le moment'
+RIB: RIB
+NIF: NIF
+NIS: NIS
+RC: RC
+Art: Art
+'Nouvelle todo liste': 'Nouvelle liste de taches'
+'Back to templates': 'Retour aux templates'
+Albums: Albums
+'Image size is 800x800': '__Image size is 800x800'
+'Image size is': '__Image size is'
+'Video format': '__Video format'
+'MP4 h':
+    264: '__MP4 h.264'
+'4 Mo Max size': '__4 Mo Max size'
+'Image size is height: 300px; width: 274px;': '__Image size is height: 300px; width: 274px;'
+'80 Ko Max size': '__80 Ko Max size'
+'PDF Document': '__PDF Document'
+'1 Mo Max size': '__1 Mo Max size'
+'New Type': 'Nouveau type'
+'Types de biens': 'Types de biens'
+'Big image hero Image in the Type page': '__Big image hero Image in the Type page'
+Filtres: Filtres
+'Format de bien :': 'Format de bien :'
+Bedrooms: Chambres
+'Choose employee': 'Choisir employé'
+'Deleted Leads': 'Prospects supprimés'
+Job: Job
+'Date added': 'Date ajout'
+'Valider ?': 'Valider ?'
+'Compaign ID': 'N° Compaign'
+'Compaign Name': 'Nom Compaign'
+'Compaign date Add': 'Date ajout Compaign'
+'Compaign Active': 'Compaign Active'
+'Compaign Final URL': 'Compaign Final URL'
+'Qr Code': 'Qr Code'
+'Compaign Description': 'Compaign Description'
+'Compaign Video': 'Compaign Video'
+'Compaign Image': 'Compaign Image'
+'No compaign yet': 'Aucune compaign pour le moment'
+'New Compaign': 'Nouvelle compaign'
+email: email
+object: objet
+see: voir
+'Number Stats Charts': 'Number Stats Charts'
+'Per state': 'Par état'
+'Per Source': 'Par source'
+'Per job': 'Par job'
+'Per Interest': 'Par interet'
+'Last 30 Days new leads': 'Nouveaux prospects 30 derniers jours'
+'Per Compaign': 'Par compaign'
+'Website Visitors 30 Last Days': 'Visiteurs site web 30 derniers jours'
+'Customer Stats': 'États clients'
+'Ordders Stats': 'États commandes'
+'Prix de base': 'Prix de base'
+'Delete Order': 'Supprimer commande'
+'Update Order': 'Modifier commande'
+Échéancier: Échéancier
+'Total:': 'Total:'
+'Le:': 'Le:'
+'Payé:': 'Payé:'
+'Choisir Type': 'Choisir Type'
+'Affinia Dashboard': 'Affinia Dashboard'
+'Check your business growth in one place': 'Check your business growth in one place'
+'Appels sortant': 'Appels sortant'
+"Prospects aujoutd'hui": "Prospects aujoutd'hui"
+'Rendez vous': 'Rendez vous'
+'Cette semaine': 'Cette semaine'
+'de plus que la semaine derniére': 'de plus que la semaine derniére'
+'Top 5 sources prospect': 'Top 5 sources prospect'
+'New Album': 'Nouvel album'
+'New WebPage': 'Nouvelle page web'
+'Create new WebPage': 'Créer nouvelle page web'
+Id: Id
+Title: Titre
+Slug: Slug
+Content: Contenu
+LastModified: 'Dernière modification'
+Thumbnail: Miniature
+HeroImage: Image
+SeoDescription: 'Description SEO'
+'Collapsed View': 'Vue réduite'
+'Prévisions financières': 'Prévisions financières'
+'Provider Order State': 'État commande fournisseur'
+'Compaign Type': 'Type compaign'
+Reset: Réinitialiser
+'Reservation Paiement Added waiting for validation': 'Paiement réservation ajouté en attente de validation'
+'Reservation Paiement Added': 'Paiement réservation ajouté'
+'Reservation Paiement Updated': 'Paiement réservation modifié'
+'This reservation is valid until': "Cette réservation est valide jusqu 'au"
+'Formats disponibles': '__Formats disponibles'
+'Livraison prévue': '__Livraison prévue'
+'Prix a partir de': '__Prix a partir de'
+Adresse: __Adresse
+"État d'avancement": "__État d'avancement"
+'Photos du projet': '__Photos du projet'
+Description: __Description
+Commoditées: __Commoditées
+'Télécharger la brochure': '__Télécharger la brochure'
+'Nos biens immobilier par Format': '__Nos biens immobilier par Format'
+'Voir les': '__Voir les'
+Blog: __Blog
+'Job Application': '__Job Application'
+Apply: __Apply
+'Send contact request and we will reach you back': '__Send contact request and we will reach you back'
+'Job Description': '__Job Description'
+'Edit Bank': '__Edit Bank'
+Bank: __Bank
+Agency: __Agency
+'Add new bank': '__Add new bank'
+Récépissé: __Récépissé
+Code: __Code
+Color: __Color
+'New State': '__New State'
+Enregistrer: __Enregistrer
+'LOGO PRINT': '__LOGO PRINT'
+'Filtered By project': '__Filtered By project'
+Ordre: __Ordre
+'Nbr Biens': '__Nbr Biens'
+'All Buildings': '__All Buildings'
+'Ceate your first project': '__Ceate your first project'
+Numerotation: __Numerotation
+Unassign: __Unassign
+'Parking & Boxes': '__Parking & Boxes'
+Filters: __Filters
+Numero: __Numero
+'Nothing here': '__Nothing here'
+'Générer Parking et Box': '__Générer Parking et Box'
+Générer: __Générer
+'Générer Blocs': '__Générer Blocs'
+'Actual project state': '__Actual project state'
+Progression: __Progression
+'Internal State': '__Internal State'
+'Is published': '__Is published'
+'Add new Building': '__Add new Building'
+'Add new format': '__Add new format'
+'Project State histories': '__Project State histories'
+'New project state history': '__New project state history'
+submit: __submit
+'Add Additional Biens': '__Add Additional Biens'
+'Numerotation:': '__Numerotation:'
+'Surface total:': '__Surface total:'
+'Surface utile:': '__Surface utile:'
+'Prix TTC:': '__Prix TTC:'
+'Revenue principal': '__Revenue principal'
+'Revenue Secondaire': '__Revenue Secondaire'
+'Format de bien': '__Format de bien'
+'Numero de telephone': '__Numero de telephone'
+Bonification: __Bonification
+'Date de naissance': '__Date de naissance'
+'Apport initial avant simulation': '__Apport initial avant simulation'
+'Date de simulation': '__Date de simulation'
+'Apport initial aprés simulation': '__Apport initial aprés simulation'
+'Duré de remboursement': '__Duré de remboursement'
+Mois: __Mois
+'Remboursements mensuels': '__Remboursements mensuels'
+'Possibilité de bonification': '__Possibilité de bonification'
+"Taux d'interet": "__Taux d'interet"
+Profession: __Profession
+'Transforme to lead': '__Transforme to lead'
+'Nouvelle interaction': '__Nouvelle interaction'
+simulation: __simulation
+Lead: __Lead
+'Reservation paiement': '__Reservation paiement'
+'New Document': '__New Document'
+'Créer Attestation de reservation': '__Créer Attestation de reservation'
+'État des paiements:': '__État des paiements:'
+'Prix du bien': '__Prix du bien'
+'Prestations suplementaires': '__Prestations suplementaires'
+'Frais de notaire': '__Frais de notaire'
+'Frais de co-propriété': '__Frais de co-propriété'
+Reduction: __Reduction
+Approved: __Approved
+'En attente': '__En attente'
+'Pas de reduction': '__Pas de reduction'
+'Ajouter une réduction': '__Ajouter une réduction'
+Crédit: __Crédit
+Annulation: __Annulation
+Desistement: __Desistement
+'print recap': '__print recap'
+"Veuillez verifier l'écheancier les echeances sont supérieur au montant a payer": "__Veuillez verifier l'écheancier les echeances sont supérieur au montant a payer"
+"Veuillez verifier l'écheancier est supérieur au montant a payer": "__Veuillez verifier l'écheancier est supérieur au montant a payer"
+'Nouvelle personnalisation': '__Nouvelle personnalisation'
+Produit: __Produit
+Prix: __Prix
+Voir: __Voir
+By: __By
+'Aproved By': '__Aproved By'
+Approve: __Approve
+Reject: __Reject
+'Credit State': '__Credit State'
+'Add History': '__Add History'
+'Edit Schudle': '__Edit Schudle'
+'Aucune interaction': '__Aucune interaction'
+Personnalisations: __Personnalisations
+Apprové: __Apprové
+Blocks: __Blocks
+Stocks: __Stocks
+'Parking & Box': '__Parking & Box'
+Personnalisation: __Personnalisation
+'Produits Additionnel': '__Produits Additionnel'
+'Category de produits': '__Category de produits'
+'Additional Bien State': '__Additional Bien State'
+'Additional Bien Type': '__Additional Bien Type'
+'Bank Credit State': '__Bank Credit State'
+Simulations: __Simulations
+Reductions: __Reductions
+Crédits: __Crédits
+'New Job Offer': '__New Job Offer'
+'No offers for the moment create one ?': '__No offers for the moment create one ?'
+'Validate Registration account': '__Validate Registration account'
+'Registration form': '__Registration form'
+Acquisitions: __Acquisitions
+Acquisition: __Acquisition
+'Paiement type': '__Paiement type'
+Echeanciers: __Echeanciers
+'Customer dashboard': '__Customer dashboard'
+Messages: __Messages

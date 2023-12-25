@@ -1,0 +1,22 @@
+<table style="width: 100%;">
+    <tr>
+        <td style=" width:70%">
+            Document produit le : {{ data.paiementHistory.mouvementComptes.dateAdd | date('d-m-Y-H-i-s')}} <br>
+            Signature : {{ data.paiementHistory.uid }} <br>
+            Paiement N° {{ data.paiementHistory.id }} / Commande N° {{ data.orderId }} / Acquéreur N° {{ data.customer.id}} <br>
+            Projet : {{ data.order.bien.project.publicName }} <br>
+            <hr>
+            <p style="font-size: 9px">
+                <strong>{{ globalVariables.TheCompany.raisonSocial }} :</strong> {{ globalVariables.TheCompany.address }},RC N° {{ globalVariables.TheCompany.nfgcmpi}}, Tel :{{globalVariables.TheCompany.phone1 }} , Email : {{globalVariables.TheCompany.email1 }} <br>
+
+            </p>
+
+
+        </td>
+        <td style="width: 30%;text-align: right;">
+            <div style="">
+                <img style=" width: 150px; display: block; margin: auto;" src="{{ data.qr }}" alt="">
+            </div>
+        </td>
+    </tr>
+</table>

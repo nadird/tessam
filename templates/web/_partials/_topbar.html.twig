@@ -1,0 +1,14 @@
+<div id="top-bar" class=" container-fluid site-header">
+    <div class="topbar-container d-flex align-content-around">
+
+        <ul class="nav me-auto mb-2 mb-lg-0 ml-0 ">
+            {{ render(controller('App\\Controller\\Web\\UtilsController::phonesMails')) }}
+
+
+        </ul>
+        <ul class="nav mb-2 mb-lg-0 mr-20  d-flex " style="flex-direction: row;margin-left: auto;">
+            {{ render(controller('App\\Controller\\Web\\UtilsController::socialMedia')) }}
+        </ul>
+    </div>
+
+</div>

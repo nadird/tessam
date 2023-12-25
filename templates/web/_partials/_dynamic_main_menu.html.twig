@@ -1,0 +1,38 @@
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle lh-1" href="#!" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+        <span class="uil fs-0 me-2 uil-chart-pie"></span>{{ 'Projects' | trans }}
+    </a>
+    <ul class="dropdown-menu navbar-dropdown-caret">
+        {% for project in projects %}
+            <li>
+                <a class="dropdown-item" href="{{ path('app_product_project_page',{'slug':project.slug}) }}">
+                    <div class="dropdown-item-wrapper">
+                        {{ project.name }}
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+</li>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle lh-1" href="#!" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+        <span class="uil fs-0 me-2 uil-chart-pie"></span>Types
+    </a>
+    <ul class="dropdown-menu navbar-dropdown-caret">
+        {% for type in types %}
+            <li>
+                <a class="dropdown-item" href="{{ path('app_product_type_page',{'slug':type.slug}) }}">
+                    <div class="dropdown-item-wrapper">
+
+                        {{ type.name }}
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+</li>
+
+

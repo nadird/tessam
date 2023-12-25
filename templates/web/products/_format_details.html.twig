@@ -1,0 +1,26 @@
+<div id="details">
+    <ul class="list-group">
+        <li class="list-group-item bg-light-secondary"> <h3> {{ format.name }} </h3></li>
+        <li class="list-group-item p-0"><img src="{{ asset('uploads/public/') }}{{ format.thumb }}" alt="" class="w-100"></li>
+        <li class="list-group-item"> <span class="fa fa-bed"></span> {{ 'Rooms' |trans }} :  {{ format.nbrbedrooms }}</li>
+        <li class="list-group-item"><span class="fa fa-bath"></span> {{ 'Bathrooms' |trans }} : {{ format.nbrbathrooms }}</li>
+        <li class="list-group-item"><span class="fa fa-ruler-combined"></span> {{ 'Area' |trans }} :{{ format.area }} M <sup>2</sup></li>
+        {% if  format.isPiscine %}
+        <li class="list-group-item"><span class="fa fa-swimming-pool"></span> {{ format.isPiscine }}</li>
+        {% endif %}
+        {% if  format.isGarden %}
+        <li class="list-group-item"> <span class="fa fa-tree"></span>{{ format.isGarden }}</li>
+        {% endif %}
+        {% if  format.isGarage %}
+        <li class="list-group-item"><span class="fa fa-parking"></span> {{ format.isGarage }}</li>
+        {% endif %}
+        {% if  globalVariables.TheCompany.diplayPrices == 'true' %}
+        {% if format.project.isProjectPricePublished == 'true' %}
+            <li class="list-group-item"> <span class="fa fa-money-check-alt"></span> {{ 'Starting at:' | trans}} {{ format.price | format_currency('DZD') }}</li>
+        {% endif %}
+        {% endif %}
+        {# Refactoring Momentané
+        <li class="list-group-item"> <span class="fa fa-money-check-alt"></span> {{ 'Starting at:' | trans}} {{ format.price | format_currency('DZD') }}</li>
+        #}
+    </ul>
+</div>

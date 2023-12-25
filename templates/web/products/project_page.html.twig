@@ -1,0 +1,363 @@
+{% extends '/web/base_web.html.twig' %}
+
+{% block body  %}
+    <style>
+        .owl-carousel .owl-wrapper-outer {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+        .title_container{
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 350px;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            text-align: right;
+            padding: 20px;
+            z-index: 1040;
+            color: #FFF;
+            font-size: 16px;
+        }
+
+        .owl-carousel .owl-item {
+            float: left;
+        }
+        .open-program-slider img {
+            opacity: 0.7;
+        }
+        .owl-carousel .owl-wrapper {
+            position: relative;
+            -webkit-transform: translate3d(0,0,0);
+        }
+        #program-header .header_container .title_container .btn-retour {
+            position: absolute;
+            left: 0;
+            bottom: 50px;
+            width: 350px;
+            padding: 10px 15px;
+            text-align: center;
+            text-transform: uppercase;
+            background-color: rgba(156,134,122,0.8);
+            text-decoration: underline;
+        }
+        #program-header .header_container .title_container .sub {
+            font-size: 16px;
+        }
+        .title_container .sub {
+            font-size: 20px;
+        }
+        .title_container h1, .title_container .sub, .title_container_s h1, .title_container_s .sub {
+            color: #FFF;
+            padding: 0 20px 0 0;
+            font-family: "Playfair Display",serif;
+        }
+        .title_container h1, .title_container .sub, .title_container_s h1, .title_container_s .sub {
+            color: #FFF;
+            padding: 0 20px 0 0;
+            font-family: "Playfair Display",serif;
+        }
+        .title_container .metadata {
+            height: 75%;
+        }
+        .ps-container {
+            -ms-touch-action: none;
+            overflow: hidden !important;
+        }
+        #program-header .header_container .title_container {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 350px;
+            height: 600px;
+        }
+        .title_container {
+            position: absolute;
+            background-color: rgba(0,0,0,0.7);
+            /*height: 500px;*/
+            text-align: right;
+            padding: 20px;
+            z-index: 1040;
+            color: #FFF;
+            font-size: 16px;
+        }
+        #program-header .header_container {
+            position: relative;
+        }
+         .header_container .title_container .btn-retour {
+            position: absolute;
+            left: 0;
+            bottom: 50px;
+            width: 350px;
+            padding: 10px 15px;
+            text-align: center;
+            text-transform: uppercase;
+            background-color: rgba(156,134,122,0.8);
+            text-decoration: underline;
+        }
+        #program-slider{
+            display: block; opacity: 1;position: absolute;
+            bottom: 0;
+            left: 350px;
+            height: 190px;
+            width: 524px;
+            border: 2px solid #ffffff;
+            overflow: hidden;
+        }
+        .owl-item{
+            width: 260px;
+            overflow: hidden;
+        }
+        .title_slider{
+            text-align: center;
+            padding: 1em 0;
+            background: #ededed;
+            margin: 0;
+        }
+        h1.project_name {
+            font-size: 1.5em;
+            background: darkgoldenrod;
+            padding: .2em .4em;
+            display: inline-block;
+            color: #fff;
+            width: 100%;
+            margin-bottom: 1em;
+            font-family: "Playfair Display",serif;
+            white-space: nowrap;
+        }
+        #brochure{
+            padding: 1em;
+            background: #ededed;
+        }
+        #brochure img{
+            max-width: 100%;
+        }
+        @media (max-width: 1200px){
+            #program-slider {
+                display: block;
+                opacity: 1;
+                position: absolute;
+                left: 350px;
+                height: 125px;
+                width: 301px;
+                border: 2px solid #ffffff;
+                overflow: hidden;
+            }
+            .owl-item{
+                width: 150px;
+                overflow: hidden;
+            }
+            h1.project_name {
+                font-size: 1.5em;
+                background: darkgoldenrod;
+                padding: .2em .4em;
+                display: inline-block;
+                color: #fff;
+                width: 100%;
+                margin-bottom: 1em;
+                font-family: "Playfair Display",serif;
+                white-space: nowrap;
+            }
+
+        }
+
+
+        @media (max-width: 992px)
+        {
+            #program-slider {
+                display: none;
+            }
+            .title_container {
+                position: relative;
+                width: 100%;
+                text-align: left;
+            }
+            .header_container .title_container .btn-retour {
+                position: unset;
+                left: 0;
+                bottom: 50px;
+                width: 100%;
+                padding: 10px 15px;
+
+            }
+            .descrip-project{
+                padding: .4em;
+            }
+            h1.project_name {
+                font-size: 1.5em;
+                background: darkgoldenrod;
+                padding: .2em .4em;
+                display: inline-block;
+                color: #fff;
+                width: 100%;
+                margin-bottom: 1em;
+                font-family: "Playfair Display",serif;
+                white-space: nowrap;
+            }
+
+        }
+
+    </style>
+    <!-- END section -->
+    <section class="py-0 ">
+        <div id="presentation" class="container-fluid mb-md-3" style="padding: 0">
+                    <div class=" header_container">
+                        <img src="{{asset('uploads/public/') }}{{ project.image }}" alt="" style="width: 100%">
+
+                    <div class="title_container hidden-print" style="">
+                        <div class="metadata scrollbar-container ps-container" data-ps-id="b2bb18bd-9f5a-6391-f226-9638e143cd3f">
+                            <h1 class="project_name">{{ project.publicName }}</h1>
+                            <div class="sub">
+                                <p>{{ 'Formats disponibles' | trans }} :
+                                {% for format in project.cFormatBiens %}
+                                    <a href="{{ path('app_product_format_page',{'slug':format.slug}) }}">
+                                        <span class="badge bg-black"> {{ format.name }}</span>
+                                    </a>
+                                {% endfor %}</p>
+                                <p>{{'Livraison prévue ' | trans}}: {{ project.dateLivraison  |date("M/Y") }}</p>
+                                {% if  globalVariables.TheCompany.diplayPrices == 'true' %}
+                                {% if project.isProjectPricePublished == 'true' %}
+                                  <p>{{ "Prix a partir de" | trans }} : <small> {{ lowestPrice | format_currency('DZD') }} </small></p>
+                                {% endif %}
+                                {% endif %}
+                                <p>{{ 'Adresse' | trans }} : {{ project.address }}</p>
+                                <p>{{"État d'avancement" | trans}} : {{ project.state.name }} ({{ project.state.percentage }}%) </p>
+                            </div>
+
+                        <div class="btn-retour">
+                            <a href="#typesDispo"
+                            style="display: block;color: #fff;font-weight: bold;font-size: 1.2em;">
+                                {{ 'Voir les types disponibles' | trans }}
+                            </a>
+                        </div>
+
+                    </div>
+                        <div id="program-slider" class="slider owl-carousel owl-theme">
+                            <div class="owl-wrapper-outer">
+                                <div class="owl-wrapper" style="display: block; width: 1040px; left: 0px; transition: all 0ms ease 0s; transform: translate3d(0px, 0px, 0px);">
+                                    {% for album in project.albums %}
+                                        {% for image in album.albumImages %}
+                                            <div class="owl-item">
+                                                <a href="#" class="open-program-slider" rel-loop="1" data-target="#lightbox" data-toggle="modal">
+                                                    <div style="background-color: #9C8679;">
+                                                        <img src="{{ asset('/uploads/albums/') }}{{ album.slug }}/{{ image.image }}" alt="{{ project.name }}" style="max-width: 350px;">
+                                                    </div>
+                                                </a>
+                                            </div>
+
+                                            {% endfor %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div id="gallery" class="container " style="padding: 0">
+            <h3 class="title_slider">{{ 'Photos du projet' | trans }}</h3>
+            {% include('web/products/_project_galery.html.twig') %}
+        </div>
+        <div class="container" style="padding: 0">
+
+            <h3 class="title_slider">{{ 'Description' | trans }}</h3>
+            <div class="row">
+
+                <div  id="description" class="col-12 {{ project.brochure?'col-md-9':'col-md-12' }}">
+                    <div class="descrip-project mt-3">
+                        {{ project.text |raw }}
+                    </div>
+                </div>
+                {% if project.brochure %}
+                <div id="comodity" class=" col-12 col-md-3 border-start mt-3">
+                    <h4>{{ 'Commoditées' | trans }}</h4>
+                    <div>
+                        {{ project.prestations|raw }}
+                    </div>
+                    <hr>
+                    <h4 class="border-bottom mb-3">{{ 'Télécharger la brochure' | trans }}</h4>
+                    <div id="brochure">
+                        <img src="{{ asset('uploads/public/') }}{{ project.coverBrochure }}" style="max-width: 100%" alt="Brochure">
+                        <a href="{{ asset('uploads/public/') }}{{ project.brochure }}" class="btn btn-primary btn-block mt-3"  target="_blank">Télécharger</a>
+                    </div>
+                    
+                </div>
+                {% endif %}
+                <div class="col-12">
+                   <p> <span class="text-600"> {{ 'Date de livraison prévue' | trans}} : </span>{{ project.dateLivraison  |date("M Y") }}</p>
+                </div>
+            </div>
+        </div>
+        {% if project.video %}
+        <div id="video" class="container" style="padding: 0">
+            <h3 class="title_slider">{{ 'Discover' | trans}} {{ project.publicName }}</h3>
+                <div class="video w-100">
+                    <video width="100%" autoplay controls muted>
+                        <source src="{{ asset('uploads/public/') }}{{ project.video }}" type="video/mp4" />
+                    </video>
+                </div>
+        </div>
+        {% endif %}
+        <div id="typesDispo" class="container" style="padding: 0">
+            <h3 class="title_slider">Types disponible</h3>
+            <div class="row cards-row  gx-0 gx-md-3 mt-3">
+            {% for format in project.cFormatBiens %}
+                {% include('web/_partials/_format_bien_card.html.twig') %}
+            {% endfor %}
+            </div>
+        </div>
+
+        <div id="location" class="container" style="padding: 0">
+            <h3 class="title_slider">{{ 'Localisation' | trans }}</h3>
+            <iframe
+                    src="{{ project.gps }}"
+                    width="100%"
+                    height="450"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+        <div class="container">
+            <div class="row" style="
+            background: #0093E9;
+            background: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+            color: #fff;
+            min-height: 30px; ">
+                <div class="col-12 col-md-6 border-end">
+                    {%include('web/_partials/_social_media_links.html.twig') %}
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="row">
+                        <div class="col-12 ">
+                            <div class="p-2 d-flex justify-content-center align-items-center btn-group" >
+                                <a href="#" class="btn btn-warning ">
+                                    <i class="fa fa-phone-alt"></i>
+                                    {{'etre rappelé' | trans}}
+                                </a>
+                                <a href="#" class="btn btn-danger ">
+                                    <i class="fa fa-calendar-alt"></i>
+                                    {{ 'prendre un rendez-vous' | trans }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    <section>
+
+
+    </section>
+{% endblock %}

@@ -1,0 +1,380 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+    <div class="container">
+        {{ form_start(form) }}
+            <div class="row">
+                <div class="col-12">
+                    {{ form_row(form.name) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    {{ form_row(form.shortDescription) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    {{ form_row(form.secondText) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    {{ form_row(form.longDescription) }}
+                </div>
+            </div><div class="row">
+                <div class="col-12">
+                    {{ form_row(form.indexTitle) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    {{ form_row(form.indexSubtitle) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    {{ form_row(form.raisonSocial) }}
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-12">
+                {{ form_row(form.address) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                {{ form_row(form.localisation) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                {{ form_row(form.diplayPrices) }}
+            </div>
+        </div>
+            <div class="row border-top mt-3 pt-3">
+                <div class="col-12 col-md-6">
+                    {{ form_row(form.logoMainLight) }}
+                </div>
+                <div class="col-12 col-md-6" style="font-size: smaller">
+                    <div class="row">
+                        <div class="col-6">
+                            <h5>{{ 'LOGO MAIN LIGHT' | trans }}</h5>
+                            <ul>
+                                <li>{{ 'Aspect Ratio' | trans }} : 15:10</li>
+                                <li>{{ 'min height' | trans}} : 35px</li>
+                                <li>{{ 'max height' | trans}} : 55px</li>
+                                <li>{{ 'Formats Accepted' | trans}} :
+                                    <ul>
+                                        <li>png</li>
+                                        <li>svg ({{ 'Recommended' | trans }})</li>
+                                        <li>jpeg({{ 'Not Recommended' | trans }})</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <h5>{{ 'Image preview' | trans }}</h5>
+                            <img
+                                    src="{{ asset('/uploads/the_company') }}/{{ the_company.logoMainLight }}"
+                                    alt=""
+                                    height="55px"
+                            >
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row border-top mt-3 pt-3">
+            <div class="col-12 col-md-6">
+                {{ form_row(form.logoPrint) }}
+            </div>
+            <div class="col-12 col-md-6" style="font-size: smaller">
+                <div class="row">
+                    <div class="col-6">
+                        <h5>{{ 'LOGO PRINT' | trans }}</h5>
+                        <ul>
+                            <li>{{ 'Aspect Ratio' | trans }} : 15:10</li>
+                            <li>{{ 'min height' | trans}} : 35px</li>
+                            <li>{{ 'max height' | trans}} : 55px</li>
+                            <li>{{ 'Formats Accepted' | trans}} :
+                                <ul>
+                                    <li>png</li>
+                                    <li>svg ({{ 'Recommended' | trans }})</li>
+                                    <li>jpeg({{ 'Not Recommended' | trans }})</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-6">
+                        <h5>{{ 'Image preview' | trans }}</h5>
+                        <img
+                                src="{{ asset('/uploads/the_company') }}/{{ the_company.logoPrint }}"
+                                alt=""
+                                height="55px"
+                        >
+                    </div>
+                </div>
+
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    {{ form_row(form.logoMainDark) }}
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <h5>{{ 'LOGO MAIN DARK' | trans }}</h5>
+                            <ul>
+                                <li>{{ 'Aspect Ratio' | trans }} : 15:10</li>
+                                <li>{{ 'min height' | trans}} : 35px</li>
+                                <li>{{ 'max height' | trans}} : 55px</li>
+                                <li>{{ 'Formats Accepted' | trans}} :
+                                    <ul>
+                                        <li>png</li>
+                                        <li>svg ({{ 'Recommended' | trans }})</li>
+                                        <li>jpeg({{ 'Not Recommended' | trans }})</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <h5>{{ 'Image preview' | trans }}</h5>
+                            <img
+                                    src="{{ asset('/uploads/the_company') }}/{{ the_company.logoMainDark }}"
+                                    alt=""
+                                    height="55px"
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    {{ form_row(form.logoMobileLight) }}
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <h5>{{ 'LOGO MOBILE LIGHT' | trans }}</h5>
+                            <ul>
+                                <li>{{ 'Aspect Ratio' | trans }} : 15:10</li>
+                                <li>{{ 'min height' | trans}} : 35px</li>
+                                <li>{{ 'max height' | trans}} : 55px</li>
+                                <li>{{ 'Formats Accepted' | trans}} :
+                                    <ul>
+                                        <li>png</li>
+                                        <li>svg ({{ 'Recommended' | trans }})</li>
+                                        <li>jpeg({{ 'Not Recommended' | trans }})</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <h5>{{ 'Image preview' | trans }}</h5>
+                            <img
+                                    src="{{ asset('/uploads/the_company') }}/{{ the_company.logoMobileLight }}"
+                                    alt=""
+                                    height="55px"
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    {{ form_row(form.logoMobileDark) }}
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <h5>{{ 'LOGO MOBILE DARK' | trans }}</h5>
+                            <ul>
+                                <li>{{ 'Aspect Ratio' | trans }} : 15:10</li>
+                                <li>{{ 'min height' | trans}} : 35px</li>
+                                <li>{{ 'max height' | trans}} : 55px</li>
+                                <li>{{ 'Formats Accepted' | trans}} :
+                                    <ul>
+                                        <li>png</li>
+                                        <li>svg ({{ 'Recommended' | trans }})</li>
+                                        <li>jpeg({{ 'Not Recommended' | trans }})</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <h5>{{ 'Image preview' | trans }}</h5>
+                            <img
+                                    src="{{ asset('/uploads/the_company') }}/{{ the_company.logoMobileDark }}"
+                                    alt=""
+                                    height="55px"
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    {{ form_row(form.favicon) }}
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <h5>{{ 'FAVICON' | trans }}</h5>
+                            <ul>
+                                <li>{{ 'Aspect Ratio' | trans }} : 15:10</li>
+                                <li>{{ 'min height' | trans}} : 35px</li>
+                                <li>{{ 'max height' | trans}} : 55px</li>
+                                <li>{{ 'Formats Accepted' | trans}} :
+                                    <ul>
+                                        <li>png</li>
+                                        <li>svg ({{ 'Recommended' | trans }})</li>
+                                        <li>jpeg({{ 'Not Recommended' | trans }})</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <h5>{{ 'Image preview' | trans }}</h5>
+                            <img
+                                    src="{{ asset('/uploads/the_company') }}/{{ the_company.favicon }}"
+                                    alt=""
+                                    height="55px"
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    {{ form_row(form.ogImage) }}
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <h5>{{ 'OPENGRAPH IMAGE' | trans }}</h5>
+                            <ul>
+                                <li>{{ 'Aspect Ratio' | trans }} : 15:10</li>
+                                <li>{{ 'min height' | trans}} : 35px</li>
+                                <li>{{ 'max height' | trans}} : 55px</li>
+                                <li>{{ 'Formats Accepted' | trans}} :
+                                    <ul>
+                                        <li>png</li>
+                                        <li>svg ({{ 'Recommended' | trans }})</li>
+                                        <li>jpeg({{ 'Not Recommended' | trans }})</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <h5>{{ 'Image preview' | trans }}</h5>
+                            <img
+                                    src="{{ asset('/uploads/the_company') }}/{{ the_company.ogImage }}"
+                                    alt=""
+                                    width="300"
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    {{ form_row(form.imageHome) }}
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <h5>{{ 'HOME IMAGE' | trans }}</h5>
+                            <ul>
+                                <li>{{ 'Aspect Ratio' | trans }} : 15:10</li>
+                                <li>{{ 'min height' | trans}} : 35px</li>
+                                <li>{{ 'max height' | trans}} : 55px</li>
+                                <li>{{ 'Formats Accepted' | trans}} :
+                                    <ul>
+                                        <li>png</li>
+                                        <li>svg ({{ 'Recommended' | trans }})</li>
+                                        <li>jpeg({{ 'Not Recommended' | trans }})</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <h5>{{ 'Image preview' | trans }}</h5>
+                            <img
+                                    src="{{ asset('/uploads/the_company') }}/{{ the_company.imageHome }}"
+                                    alt=""
+                                    width="300"
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    {{ form_row(form.secondImage) }}
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <h5>{{ 'SECOND HOME IMAGE' | trans }}</h5>
+                            <ul>
+                                <li>{{ 'Aspect Ratio' | trans }} : 15:10</li>
+                                <li>{{ 'min height' | trans}} : 35px</li>
+                                <li>{{ 'max height' | trans}} : 55px</li>
+                                <li>{{ 'Formats Accepted' | trans}} :
+                                    <ul>
+                                        <li>png</li>
+                                        <li>svg ({{ 'Recommended' | trans }})</li>
+                                        <li>jpeg({{ 'Not Recommended' | trans }})</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <h5>{{ 'Image preview' | trans }}</h5>
+                            <img
+                                    src="{{ asset('/uploads/the_company') }}/{{ the_company.secondImage }}"
+                                    alt=""
+                                    width="300"
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                {{ form_row(form.videoHome) }}
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="row">
+                    <div class="col-6">
+                        <h5>{{ 'HOME IMAGE' | trans }}</h5>
+                        <ul>
+                            <li>{{ 'Aspect Ratio' | trans }} : 15:10</li>
+                            <li>{{ 'min height' | trans}} : 35px</li>
+                            <li>{{ 'max height' | trans}} : 55px</li>
+                            <li>{{ 'Formats Accepted' | trans}} :
+                                <ul>
+                                    <li>png</li>
+                                    <li>svg ({{ 'Recommended' | trans }})</li>
+                                    <li>jpeg({{ 'Not Recommended' | trans }})</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-6">
+                        <h5>{{ 'Video preview' | trans }}</h5>
+                            <video id="background--vid" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" width="300">
+                                <source src="{{ asset('/uploads/the_company') }}/{{ the_company.videoHome }}" type="video/mp4">
+                            </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

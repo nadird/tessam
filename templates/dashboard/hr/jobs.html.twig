@@ -1,0 +1,58 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+
+{% block body %}
+    <div class="page-header">
+        <h1 class="page-title">{{ controller_name }}</h1>
+        <div>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">{{ 'HR' | trans }}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ controller_name }}</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row row-cards">
+        <div class="col-lg-12 col-xl-12">
+            <div class="card">
+                <div class="card-header border-bottom-0">
+                    <h2 class="card-title">Jobs</h2>
+                    <div class="card-options">
+                        <a href="{{ path('app_dashboard_hr_job_new') }}" class="btn btn-primary btn-sm">{{ 'New Job' | trans }}</a>
+
+                    </div>
+                </div>
+                <div class="e-table p-2">
+                    <div class="table-responsive table-lg">
+                        <table class="table border-top table-bordered mb-0">
+                            <thead>
+                            <tr>
+                                <th class="align-middle text-center"><span class="text-muted">{{ 'ID' | trans }}</span></th>
+                                <th class="align-middle text-center"><span class="text-muted">{{ 'Name' | trans }}</span></th>
+                                <th class="align-middle text-center"><span class="text-muted">{{ 'Actions' | trans }}</span></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for job in jobs %}
+
+                                <tr>
+                                    <td class="align-middle text-center">{{ job.id }}</td>
+                                    <td class="align-middle text-center">{{ job.name }}</td>
+                                    <td class="align-middle text-center">
+                                        <div class="btn-group">
+                                            <a class="btn btn-red btn-sm" href="{{ path('app_dashboard_hr_job_edit',{'id':job.id}) }}">{{ 'edit' | trans }}</a>
+                                        </div>
+
+                                    </td>
+                                </tr>
+
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

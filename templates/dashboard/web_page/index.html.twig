@@ -1,0 +1,53 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block title %}WebPage index{% endblock %}
+
+{% block body %}
+    <h1>WebPage index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>{{ 'Id' | trans }}</th>
+                <th>{{ 'Name' | trans }}</th>
+                <th>{{ 'Title' | trans }}</th>
+                <th>{{ 'Slug' | trans }}</th>
+                <th>{{ 'Content' | trans }}</th>
+                <th>{{ 'IsActive' | trans }}</th>
+                <th>{{ 'CreatedAt' | trans }}</th>
+                <th>{{ 'LastModified' | trans }}</th>
+                <th>{{ 'Thumbnail' | trans }}</th>
+                <th>{{ 'HeroImage' | trans }}</th>
+                <th>{{ 'SeoDescription' | trans }}</th>
+                <th>{{ 'actions' | trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for web_page in web_pages %}
+            <tr>
+                <td>{{ web_page.id }}</td>
+                <td>{{ web_page.name }}</td>
+                <td>{{ web_page.title }}</td>
+                <td>{{ web_page.slug }}</td>
+                <td>{{ web_page.content }}</td>
+                <td>{{ web_page.isActive ? 'Yes' : 'No' }}</td>
+                <td>{{ web_page.createdAt ? web_page.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ web_page.lastModified ? web_page.lastModified|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ web_page.thumbnail }}</td>
+                <td>{{ web_page.heroImage }}</td>
+                <td>{{ web_page.seoDescription }}</td>
+                <td>
+                    <a href="{{ path('app_dashboard_web_page_index', {'id': web_page.id}) }}">show</a>
+                    <a href="{{ path('app_dashboard_web_page_edit', {'id': web_page.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">{{ 'no records found' | trans }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_dashboard_web_page_new') }}">Create new</a>
+{% endblock %}

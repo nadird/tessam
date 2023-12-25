@@ -1,0 +1,49 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="row-table-header row">
+                <div class="col-3 col-md-1 ">#</div>
+                <div class="col-3 col-md-2 ">Name</div>
+                <div class="col-3 col-md-2 ">Code</div>
+                <div class="col-3 col-md-2">Code</div>
+                <div class="col-12 col-md-4 ">Actions</div>
+            </div>
+            {% for cbien_state in cbien_states %}
+                <div class="row-table-data row">
+                    <div class="col-3 col-md-1 ">{{ cbien_state.id }}</div>
+                    <div class="col-3 col-md-2 ">{{ cbien_state.name }}</div>
+                    <div class="col-3 col-md-2 ">{{ cbien_state.color }}</div>
+                    <div class="col-3 col-md-2 ">{{ cbien_state.code }}</div>
+                    <div class="col-12 col-md-5 ">
+
+                        <div class="btn-group">
+                            <a href="{{ path('app_dashboard_config_cbienState_show', {'id': cbien_state.id}) }}" class="btn btn-phoenix-primary">show</a>
+                            <a href="{{ path('app_dashboard_config_cbienState_edit', {'id': cbien_state.id}) }}" class="btn btn-phoenix-primary">edit</a>
+                            <a href="{{ path('app_dashboard_config_cbienState_delete', {'id': cbien_state.id}) }}" class="btn btn-phoenix-primary">delete</a>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="row-table-data row">
+                    <div class="col-12 ">No Records </div>
+                </div>
+            {% endfor %}
+
+        </div>
+        <div id="form" class="col-12 col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>New Paiement type</h5>
+                </div>
+                <div class="card-body">
+                    {{ include('dashboard/config/cbien_state/_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,45 @@
+{% extends '/web/base_web.html.twig' %}
+
+{% block body %}
+
+    <header class="header-bg header-bg-one position-relative my-3">
+        <div class="bottom-frame"></div>
+            <div class="item">
+                <div class="container-fluid d-flex align-items-center justify-content-center">
+                    <div class="header-content header-content-white">
+                        <h1>{{ 'Job Application' | trans }}</h1>
+                        <p>{{ "Postulez a l'une de nos offres d'emplois et nous vous contacterons"}} </p>
+                    </div>
+                </div>
+            </div>
+
+    </header>
+    <div class="container my-5">
+        <div class="row">
+
+
+     {% for job in jobOffers %}
+         <div class="col-12 col-md-6">
+         <div class="card">
+             <div class="card-header">{{ job.publicTitle }}</div>
+             <div class="card-body">
+                 {{ job.text | raw  }}
+                 <hr>
+                 <p>{{ 'Fin de l\'offre'}}: {{ job.enddate | date('d-m-Y') }}</p>
+             </div>
+             <div class="card-footer">
+                 <a href="{{ path('app_web_jobs_offer', {'id': job.id}) }}" class="btn btn-primary">{{ 'Apply' | trans }}</a>
+             </div>
+
+         </div>
+         </div>
+        {% endfor %}
+        </div>
+
+
+    </div>
+
+
+
+{% endblock %}
+

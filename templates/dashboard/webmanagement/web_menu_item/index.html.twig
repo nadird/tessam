@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}WebMenuItem index{% endblock %}
+
+{% block body %}
+    <h1>WebMenuItem index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Url</th>
+                <th>SortOrder</th>
+                <th>IsActive</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for web_menu_item in web_menu_items %}
+            <tr>
+                <td>{{ web_menu_item.id }}</td>
+                <td>{{ web_menu_item.name }}</td>
+                <td>{{ web_menu_item.url }}</td>
+                <td>{{ web_menu_item.sortOrder }}</td>
+                <td>{{ web_menu_item.isActive ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_dashboard_webmanagement_menu_item_show', {'id': web_menu_item.id}) }}">show</a>
+                    <a href="{{ path('app_dashboard_webmanagement_menu_item_edit', {'id': web_menu_item.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_dashboard_webmanagement_menu_item_new') }}">Create new</a>
+{% endblock %}

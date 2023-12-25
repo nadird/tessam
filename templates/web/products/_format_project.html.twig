@@ -1,0 +1,11 @@
+<div id="project">
+    <h2>{{ 'Discover' | trans}} {{ format.project.publicName }}</h2>
+    {% if format.project.video %}
+        <div class="video w-100">
+            <video width="100%" autoplay controls muted>
+                <source src="{{ asset('uploads/public/') }}{{ format.project.video }}" type="video/mp4" />
+            </video>
+        </div>
+    {% endif %}
+    {{ format.project.text | raw }}
+</div>

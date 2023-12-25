@@ -1,0 +1,30 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block title %}WebMenu{% endblock %}
+
+{% block body %}
+    <h1>WebMenu</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ web_menu.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ web_menu.name }}</td>
+            </tr>
+            <tr>
+                <th>IsActive</th>
+                <td>{{ web_menu.isActive ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_dashboard_web_menu_index') }}">back to list</a>
+
+    <a href="{{ path('app_dashboard_web_menu_edit', {'id': web_menu.id}) }}">edit</a>
+
+    {{ include('dashboard/webmanagement/web_menu/_delete_form.html.twig') }}
+{% endblock %}

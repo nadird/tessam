@@ -1,0 +1,22 @@
+{{ form_start(interactionForm) }}
+{{ form_errors(interactionForm) }}
+<div class="row">
+    <div class="col-12">
+        {{ form_row(interactionForm.text) }}
+    </div>
+    <div class="col-12 col-md-4">
+        {{ form_row(interactionForm.source) }}
+    </div>
+    <div class="col-12 col-md-4">
+        {{ form_row(interactionForm.type) }}
+    </div>
+    <div class="col-12 col-md-4">
+        {{ form_row(interactionForm.customerState) }}
+    </div>
+
+    <div class="col-12 ">
+        <button name="submit" role="button" type="submit" class="btn btn-outline-phoenix-secondary btn-block">{{ 'Save' | trans }}</button>
+    </div>
+</div>
+
+{{ form_end(interactionForm) }}

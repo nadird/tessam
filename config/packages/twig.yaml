@@ -1,0 +1,13 @@
+twig:
+    default_path: '%kernel.project_dir%/templates'
+    form_themes: ['dashboard/_partials/_form_template.html.twig']
+    paths:
+        'assets/images/': images
+        '%kernel.project_dir%/assets/images': images
+    globals:
+        website_name: '%env(WEBSITE_NAME)%'
+
+
+when@test:
+    twig:
+        strict_variables: true

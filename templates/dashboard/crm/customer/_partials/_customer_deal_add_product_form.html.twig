@@ -1,0 +1,9 @@
+<div class="card mb-3">
+    <div class="card-body">
+        <h4 class="mb-5">{{ 'New Order' | trans }}</h4>
+        <div {{ stimulus_controller('orderBien') }}>
+            {{ form_start(orderForm) }}
+            {{ form_end(orderForm) }}
+        </div>
+    </div>
+</div>

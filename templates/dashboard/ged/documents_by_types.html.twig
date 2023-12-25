@@ -1,0 +1,57 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+
+
+    <div class="row row-cards">
+        <div id="filter-zone">
+            <a href="{{ path('app_dashboard_ged_index') }}" class="link-danger">
+                <i class="fa fa-arrow-left-long"></i>
+                {{ 'back to list' | trans }}
+            </a>
+        </div>
+        <div class="col-12">
+
+            <div class="d-none d-md-block">
+                <div class="row-table-header row ">
+
+                    <div class="col-12 col-md-2 col-lg-2  ">{{ 'Name' | trans }}</div>
+                    <div class="col-6 col-md-2 col-lg-2 ">{{ 'type' | trans }}</div>
+                    <div class="col-6 col-md-2 col-lg-2 ">{{ 'url' | trans }}</div>
+                    <div class="col-6 col-md-2 col-lg-2 ">{{ 'Date' | trans }}</div>
+                    <div class="col-12 col-md-1 col-lg-1">{{ 'Customer' }}</div>
+                    <div class="col-6 col-md-2 col-lg-2">{{ 'Employee' | trans }}</div>
+                </div>
+            </div>
+
+            {% for document in documents %}
+                <div class="row-table-data row ">
+                    <div class="col-12 col-md-2 col-lg-2  ">{{ document.name }}</div>
+                    <div class="col-12 col-md-2 col-lg-2  ">{{ document.type.name }}</div>
+                    <div class="col-6 col-md-2 col-lg-2 ">{{ document.url }}</div>
+                    <div class="col-6 col-md-2 col-lg-2 ">{{ document.dateAdd |format_date }}</div>
+                    <div class="col-12 col-md-1 col-lg-1">
+                        {% if document.customer %}
+                            {{ document.customer }}
+                        {% elseif document.lead %}
+                            {{ document.lead }}
+                        {% endif %}
+                    </div>
+                    <div class="col-6 col-md-2 col-lg-2">{{ document.employee.fullname }}</div>
+                </div>
+
+            {% else %}
+                {{ 'No Docs here !' }}
+            {% endfor %}
+            <div class="navigation">
+                {{ knp_pagination_render(documents) }}
+            </div>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}

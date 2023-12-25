@@ -1,0 +1,39 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="d-flex flex-between-center">
+            <h1>BlogPost index</h1>
+            <a href="{{ path('app_dashboard_web_blog_post_new') }}" class="btn btn-primary">Create new</a>
+        </div>
+
+    <div class="row-table-header row">
+        <div class="col-md-4">Id | Title</div>
+        <div class="col-md-2">Created at</div>
+        <div class="col-md-2">Last modified</div>
+        <div class="col-md-1">Is active</div>
+        <div class="col-md-3">Actions</div>
+    </div>
+        {% for blog_post in blog_posts %}
+            <div class="row-table-data row ">
+                <div class="col-md-4">{{ blog_post.id }} | {{ blog_post.publicTitle }}</div>
+                <div class="col-md-2">{{ blog_post.createdAt ? blog_post.createdAt|date('Y-m-d H:i:s') : '' }}</div>
+                <div class="col-md-2">{{ blog_post.lastModified ? blog_post.lastModified|date('Y-m-d H:i:s') : '' }}</div>
+                <div class=" col-md-1">{{ blog_post.isActive ? 'Yes' : 'No' }}</div>
+                <div class="col-md-3">
+                    <a href="{{ path('app_dashboard_web_blog_post_show', {'id': blog_post.id}) }}">show</a>
+                    <a href="{{ path('app_dashboard_web_blog_post_edit', {'id': blog_post.id}) }}">edit</a>
+                </div>
+            </div>
+        {% else %}
+        <div class="row-table-data">
+              <div class="col-md-12">
+                  <div class="alert alert-warning">
+                      No blog posts found.
+                  </div>
+              </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

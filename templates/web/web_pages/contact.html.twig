@@ -1,0 +1,34 @@
+{% extends '/web/base_web.html.twig' %}
+
+{%block body%}
+    <div class="container mt-6">
+        <div class="">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="title">{{ "Contactez-nous"|trans }}</h2>
+                        </div>
+                        <div class="card-body">
+
+                            {{form(form, {'attr':{'id': 'contact_form'}})}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <img src="{{asset('/images/questions.svg')}}" alt="Question" style="max-width: 100%">
+                        <h2>Une Question ?</h2>
+                        <p>
+                            Vous avez une question ou une demande ? <br/>
+                            Contactez nous en renseignant le formulaire de contact <br/>
+                            et nous prendrons contact avec vous via email ou via téléphone.<br/>
+                        <hr/>
+                        Vous pouvez aussi prendre contact avec nous sur les reseaux sociaux.<br/>
+                        Ou nous appeler directement au téléphpne.
+                        </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{%endblock%}

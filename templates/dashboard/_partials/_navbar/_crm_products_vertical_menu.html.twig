@@ -1,0 +1,88 @@
+<div class="nav-item-wrapper"><a class="nav-link dropdown-indicator label-1" href="#nv-products" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="nv-e-commerce">
+        <div class="d-flex align-items-center">
+            <div class="dropdown-indicator-icon">
+                <span class="fas fa-caret-right"></span></div>
+            <span class="nav-link-icon">
+                <span class="fa-solid fa-city"></span>
+            </span>
+            <span class="nav-link-text">{{ 'Products' | trans }}</span>
+        </div>
+    </a>
+    <div class="parent-wrapper label-1">
+        <ul class="nav collapse parent" data-bs-parent="#navbarVerticalCollapse" id="nv-products">
+            <li class="collapsed-nav-item-title d-none">{{ 'E-commerce' | trans }}
+            </li>
+            <li class="nav-item"><a class="nav-link" href="{{ path('app_dashboard_crm_project_index') }}" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center"><span class="nav-link-text">{{ 'Projects' | trans }}</span>
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="{{ path('dashboard_crm_product_building_index') }}" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center"><span class="nav-link-text">{{ 'Blocks' | trans }}</span>
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="{{ path('app_dashboard_crm_product_format_index') }}" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center"><span class="nav-link-text">{{ 'Format' | trans }}</span>
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="{{ path('app_dashboard_crm_product_type_index') }}" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center"><span class="nav-link-text">{{ 'Type' | trans }}</span>
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link dropdown-indicator collapsed" href="#nv-stocks" data-bs-toggle="collapse" aria-expanded="false" aria-controls="nv-stocks">
+                    <div class="d-flex align-items-center">
+                        <div class="dropdown-indicator-icon">
+                            <svg class="svg-inline--fa fa-caret-right" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg=""><path fill="currentColor" d="M118.6 105.4l128 127.1C252.9 239.6 256 247.8 256 255.1s-3.125 16.38-9.375 22.63l-128 127.1c-9.156 9.156-22.91 11.9-34.88 6.943S64 396.9 64 383.1V128c0-12.94 7.781-24.62 19.75-29.58S109.5 96.23 118.6 105.4z"></path></svg>
+                            <!-- <span class="fas fa-caret-right"></span> Font Awesome fontawesome.com -->
+                        </div>
+                        <span class="nav-link-text">{{ 'Stocks' | trans }}</span>
+                    </div>
+                </a>
+                <div class="parent-wrapper">
+                    <ul class="nav collapse parent" data-bs-parent="#level-three" id="nv-stocks">
+                        <li class="nav-item"><a class="nav-link" href="{{ path('app_dashboard_crm_product_bien_index') }}" data-bs-toggle="" aria-expanded="false">
+                                <div class="d-flex align-items-center"><span class="nav-link-text">{{ 'Bien' | trans }}</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="{{ path('app_dashboard_crm_product_bien_additional_index') }}" data-bs-toggle="" aria-expanded="false">
+                                <div class="d-flex align-items-center"><span class="nav-link-text">{{ 'Parking & Box' | trans }}</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link dropdown-indicator collapsed" href="#nv-item-4" data-bs-toggle="collapse" aria-expanded="false" aria-controls="nv-item-4">
+                    <div class="d-flex align-items-center">
+                        <div class="dropdown-indicator-icon">
+                            <svg class="svg-inline--fa fa-caret-right" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg=""><path fill="currentColor" d="M118.6 105.4l128 127.1C252.9 239.6 256 247.8 256 255.1s-3.125 16.38-9.375 22.63l-128 127.1c-9.156 9.156-22.91 11.9-34.88 6.943S64 396.9 64 383.1V128c0-12.94 7.781-24.62 19.75-29.58S109.5 96.23 118.6 105.4z"></path></svg>
+                            <!-- <span class="fas fa-caret-right"></span> Font Awesome fontawesome.com -->
+                        </div>
+                        <span class="nav-link-text">{{ 'Personnalisation' | trans }}</span>
+                    </div>
+                </a>
+                <div class="parent-wrapper">
+                    <ul class="nav collapse parent" data-bs-parent="#level-three" id="nv-item-4">
+                        <li class="nav-item"><a class="nav-link" href="{{ path('app_dashboard_crm_product_additionnal_index') }}" data-bs-toggle="" aria-expanded="false">
+                                <div class="d-flex align-items-center"><span class="nav-link-text">{{ 'Produits Additionnel' | trans }}</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="{{ path('app_dashboard_crm_product_additionnal_category_index') }}" data-bs-toggle="" aria-expanded="false">
+                                <div class="d-flex align-items-center"><span class="nav-link-text">{{ 'Category de produits' | trans }}</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</div>

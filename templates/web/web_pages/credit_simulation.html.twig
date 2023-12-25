@@ -1,0 +1,60 @@
+
+{% extends '/web/base_web.html.twig' %}
+
+{%block body%}
+<div class="container mt-6">
+<div class="row">
+    <div class="col-12 col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Simulation de crédit</h3>
+            </div>
+            <div class="card-body">
+                <h4>{{ simulation.firstname }} {{ simulation.lastname }}</h4>
+                <ul>
+                    <li>Valeur du bien : <strong> {{ simulation.formatBien.price |format_currency('DZD') }} </strong>({{ simulation.formatBien.name }} - {{ simulation.formatBien.area }} M<sup>2</sup>)</li>
+                    <li>Vos revenues vous permettent un crédit de : <strong> {{ (simulation.formatBien.price- simulation.simInitialDownPaiement ) |format_currency('DZD') }} </strong> <small>(Sous reserve d'acceptation de la banque)</small></li>
+                    <li>Montant à financer hors prét : <strong> {{ simulation.simInitialDownPaiement |format_currency('DZD') }}</strong> Vous avez mis comme apport initial : <strong>  {{ simulation.firstDownPaiement | format_currency('DZD') }}</strong></li>
+                    <li>Difference entre votre apport et la simulation  : <strong> {{ (simulation.simInitialDownPaiement - simulation.firstDownPaiement) |format_currency('DZD') }} </strong>Ce montant peut étre payé en 4 fois sans frais <strong>({{ ((simulation.simInitialDownPaiement - simulation.firstDownPaiement) /4) | format_currency('DZD') }} X 4)</strong></li>
+                    <li>Durée du remboursement : {{ simulation.simNumberMonths }} Mois / {{ simulation.simNumberMonths /12 }} Ans</li>
+                    <li>Tau d'interet : {{ simulation.simInterestRate }} % {{ simulation.simIsBonified?'Bonifié': 'Non bonifié' }}</li>
+                    <li>Mensualités : <strong> {{ simulation.simMonthlyInstallement |format_currency('DZD') }}</strong></li>
+                </ul>
+
+                <ol>
+                    <li>
+                        <small>
+                            Cette simulation est donnée à titre indicatif et ne constitue en aucun cas un engagement contractuel de la part du promoteur.
+                        </small>
+                    </li>
+                    <li>
+                        <small>
+                            Cette simulation ne tiens pas compte des taxes, assurances, frais de notaire, frais de gestion de la cité...
+                        </small>
+                    </li>
+                </ol>
+
+
+            </div>
+            <div class="card-footer d-flex gap-2">
+                <a href="#" class="btn btn-primary btn-block">Faire une autre simulation</a>
+                <a href="#" class="btn btn-success btn-block">Demander plus d'informations</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h3>Bien immobilier</h3>
+            </div>
+            <div class="card-body">
+                {% set format = simulation.formatBien %}
+                {% include('web/_partials/_format_bien_card_single.html.twig') %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+{%endblock%}

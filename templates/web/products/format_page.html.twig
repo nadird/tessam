@@ -1,0 +1,51 @@
+{% extends '/web/base_web.html.twig' %}
+
+{% block body  %}
+    <section class="site-hero site-hero-innerpage overlay" data-stellar-background-ratio="0.5" style="background-image: url({{ asset('uploads/public/') }}{{ format.image }}); background-position: -25px -25px;">
+        <div class="container">
+            <div class="row align-items-center site-hero-inner justify-content-center">
+                <div class="col-md-12 text-center">
+
+                    <div class="mb-5 element-animate fadeInUp element-animated">
+                        <h1 class="text-white">{{ format.name }}</h1>
+                        <p>{{ format.project.publicName }}</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END section -->
+    <section>
+      <div class="container">
+          <div class="row">
+              <div class="col-12 col-md-4">
+                  {% include('web/products/_format_details.html.twig') %}
+                  {% include('web/products/_lead_form.html.twig') %}
+                  {% include('web/products/_format_floor_plan.html.twig') %}
+
+              </div>
+              <div class="col-12 col-md-8">
+                  {% include('web/products/_format_galery.html.twig') %}
+                  {% include('web/products/_format_text.html.twig') %}
+                  {#  Next Refactoring
+                  <div id="icones" class="d-flex">
+                      <div class="element">
+                        <i class="icone-web icone-cycling"></i>
+                        <p>{{ 'Chemin cyclable' | trans }}</p>
+                      </div>
+                      <div class="element">
+                        <i class="icone-web icone-restaurent-2"></i>
+                        <p>Restaurents</p>
+                      </div>
+                      <div class="element">
+                        <i class="icone-web icone-park"></i>
+                        <p>Park</p>
+                      </div>
+                  </div> #}
+                  {% include('web/products/_format_project.html.twig') %}
+              </div>
+          </div>
+      </div>
+    </section>
+{% endblock %}

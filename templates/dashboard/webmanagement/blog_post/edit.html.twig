@@ -1,0 +1,93 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block title %}Edit BlogPost{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="card">
+            {{ form_start(form) }}
+            <div class="card-header">
+                <h3 class="card-title">{{ title|default('Create') }}</h3>
+            </div>
+            <div class="card-body">
+                {{ form_row(form.publicTitle) }}
+                {{ form_row(form.seoTitle) }}
+                {{ form_row(form.slug) }}
+                {{ form_row(form.body) }}
+                {{ form_row(form.seoDescription) }}
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form_row(form.imgOg) }}
+                        <p>Specs</p>
+                        <ul>
+                            <li>Formats : jpeg, png, webp</li>
+                            <li>Size : 1200 x 630 pixels</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <img class="card-img-top" src="{{ asset('/uploads/blog/') }}{{blog_post.imgOg  }}" alt="..." style="width: 200px; height: auto" />
+                    </div>
+                    <hr>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form_row(form.thumbnail) }}
+                        <p>Specs</p>
+                        <ul>
+                            <li>Formats : jpeg, png, webp</li>
+                            <li>Size : 800 x 800 pixels</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <img class="card-img-top" src="{{ asset('/uploads/blog/') }}{{blog_post.thumbnail  }}" alt="..." style="width: 200px; height: auto" />
+                    </div>
+                    <hr>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form_row(form.image) }}
+                        <p>Specs</p>
+                        <ul>
+                            <li>Formats : jpeg, png, webp</li>
+                            <li>Size : 800 x 800 pixels</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <img class="card-img-top" src="{{ asset('/uploads/blog/') }}{{blog_post.image  }}" alt="..." style="width: 200px; height: auto" />
+                    </div>
+                    <hr>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form_row(form.isActive) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.isFeatured) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form_row(form.categories) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.relatedPosts) }}
+                    </div>
+                </div>
+                {{ form_row(form.author) }}
+            </div>
+            <div class="card-footer">
+                <div class="btn-group d-flex">
+                    <a href="{{ path('app_dashboard_web_blog_post_index') }}" class="btn btn-phoenix-danger">
+                        <i class="fa fa-arrow-left"></i>
+                        {{ 'back to list' | trans }}
+                    </a>
+                    {{ form_widget(form.submit) }}
+                    {{ include('dashboard/webmanagement/blog_post/_delete_form.html.twig') }}
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+
+{% endblock %}

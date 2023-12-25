@@ -1,0 +1,55 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+
+    <div class="container">
+
+        <div class="header d-flex flex-between-end mb-3">
+            <h3 class="card-title">{{ 'Offers' | trans }}</h3>
+            <a class="btn btn-phoenix-success" href="{{ path('app_dashboard_hr_job_offer_new') }}">
+                <i class="fa fa-plus"></i>
+                {{ 'Create new' | trans }}</a>
+        </div>
+        <hr>
+
+
+        <div class="row-table-header row">
+            <div class="col-md-2">{{ 'Name' | trans }}</div>
+            <div class="col-md-2">{{ 'CreatedAt' | trans }}</div>
+            <div class="col-md-2">{{ 'Enddate' | trans }}</div>
+            <div class="col-md-2">{{ 'IsActive' | trans }}</div>
+            <div class="col-md-2">{{ 'actions' | trans }}</div>
+        </div>
+            {% for web_job_offer in web_job_offers %}
+                <div class="row-table-data row">
+                    <div class="col-md-2">{{ web_job_offer.name }}</div>
+                    <div class="col-md-2">{{ web_job_offer.createdAt ? web_job_offer.createdAt|date('Y-m-d H:i:s') : '' }}</div>
+                    <div class="col-md-2">{{ web_job_offer.enddate ? web_job_offer.enddate|date('Y-m-d H:i:s') : '' }}</div>
+                    <div class="col-md-2">{{ web_job_offer.isActive ? 'Yes' : 'No' }}</div>
+                    <div class="col-md-2">
+                    <div class="btn-group btn-group-sm">
+                        <a href="{{ path('app_dashboard_hr_job_offer_show', {'id': web_job_offer.id}) }}" class="btn btn-outline-phoenix-success">
+                            <i class="fa fa-eye"></i>
+                        </a>
+                        <a href="{{ path('app_dashboard_hr_job_offer_edit', {'id': web_job_offer.id}) }}" class="btn btn-outline-phoenix-warning">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a href="{{ path('app_dashboard_hr_job_offer_show_applications', {'id': web_job_offer.id}) }}" class="btn btn-outline-phoenix-info">
+                            <i class="fa fa-list"></i>
+                        </a>
+                    </div>
+                    </div>
+                </div>
+
+            {% else %}
+                <div class="col-12"><div class="info">
+                        {{ 'No offers for the moment create one ?' | trans }}
+                    </div></div>
+            {% endfor %}
+
+
+    </div>
+
+
+{% endblock %}

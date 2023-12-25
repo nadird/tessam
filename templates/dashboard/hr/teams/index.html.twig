@@ -1,0 +1,53 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+
+    <div class="row">
+        <div class="col-12 col-md-8">
+            <div class="row-table-header row">
+                <div class="col-3 col-md-1 d-none d-md-block">#</div>
+                <div class="col-3 col-md-3 ">Name</div>
+                <div class="col-3 col-md-4 ">Manager</div>
+                <div class="col-12 col-md-4 ">Actions</div>
+            </div>
+            {% for team in teams %}
+                <div class="row-table-data row">
+                    <div class=" col-md-1 d-none d-md-block ">{{ team.id }}</div>
+                    <div class="col-6 col-md-3 ">{{ team.name }}</div>
+                    <div class="col-6 col-md-4 ">{{ team.manager.fullname }}</div>
+                    <div class="col-12 col-md-3 ">
+                        <div class="btn-group">
+                            {#
+                            <a href="{{ path('app_dashboard_hr_teams_index', {'id': team.id}) }}" class="btn btn-outline-phoenix-primary">
+                                <i class="fa fa-eye"></i>
+                            </a> #}
+                            <a href="{{ path('app_dashboard_hr_teams_edit', {'id': team.id}) }}" class="btn btn-outline-phoenix-secondary">
+                                <i class="fa fa-pencil"></i>
+                            </a>
+                            <a href="{{ path('app_dashboard_hr_teams_index', {'id': team.id}) }}" class="btn btn-outline-phoenix-danger">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="row-table-data row">
+                    <div class="col-12 ">No Records </div>
+                </div>
+            {% endfor %}
+
+        </div>
+        <div id="form" class="col-12 col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>New Paiement type</h5>
+                </div>
+                <div class="card-body">
+                    {{ form(newTeamForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('dashboard_config_users_roles_delete', {'id': empl_role.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ empl_role.id) }}">
+    <button class="btn btn-outline-phoenix-warning"> <span class="fa fa-trash-can"></span> Delete</button>
+</form>

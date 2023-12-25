@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ContactJob{% endblock %}
+
+{% block body %}
+    <h1>ContactJob</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contact_job.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ contact_job.name }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ contact_job.code }}</td>
+            </tr>
+            <tr>
+                <th>Color</th>
+                <td>{{ contact_job.color }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ contact_job.type }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_dashboard_config_contactJob_index') }}">back to list</a>
+
+    <a href="{{ path('app_dashboard_config_contactJob_edit', {'id': contact_job.id}) }}">edit</a>
+
+    {{ include('contact_job/_delete_form.html.twig') }}
+{% endblock %}

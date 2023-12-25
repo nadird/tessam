@@ -1,0 +1,12 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+
+{% block body %}
+    <h1>Create new PaiementType</h1>
+
+    {{ include('dashboard/config/paiement_type/_form.html.twig') }}
+
+    <a href="{{ path('app_dashboar_config_paiementType_index') }}">back to list</a>
+{% endblock %}

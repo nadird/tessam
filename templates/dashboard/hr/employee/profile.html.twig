@@ -1,0 +1,46 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block title %}Hello DashboardHomeController!{% endblock %}
+
+{% block body %}
+    <h1>{{ 'Hello' | trans }} {{employee.firstname}}</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">{{ 'Update My Profile' | trans }}</h3>
+                    <div class="card-options">
+                        <a type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse" href="{{ path('app_dashboard_hr_employee_change_password',{'id':app.user.id}) }}">
+                            <i class="fas fa-minus"></i>{{' Change Password' | trans }}
+                        </a>
+                    </div>
+
+                </div>
+                <div class="card-body">
+                    {{ form_start(employeeForm) }}
+                    {{ form_row(employeeForm.email) }}
+                    {{ form_row(employeeForm.FirstName) }}
+                    {{ form_row(employeeForm.LastName) }}
+                    {{ form_row(employeeForm.dob) }}
+                    {% if employee.picture %}
+                        <div class="row">
+                            <div class="col-3">
+                                <img src="{{ asset('uploads/employee') }}/{{ employee.picture }}" alt="employee picture" class="img-fluid">
+                            </div>
+                            <div class="col-9">
+                                {{ form_row(employeeForm.picture) }}
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if employee.picture is empty %}
+                        {{ form_row(employeeForm.picture) }}
+                    {% endif %}
+
+
+                    {{ form_end(employeeForm) }}
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,119 @@
+{% set suplementDetails = 0 %}
+{% for details in order.orderDetails %}
+    {% set suplementDetails = suplementDetails + details.price %}
+{% endfor %}
+{% set total = 0 %}
+
+<div class="mb-4" id="todo">
+
+
+    <div class="row gx-4 gy-6 g-xl-7 justify-content-sm-center justify-content-xl-start">
+        <div class="col-12 col-md-6">
+            <h2 class="mb-4">{{ 'Order Details' | trans }}</h2>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item active">
+                    {{ order.bien }}
+                    <a href="#" class="btn btn-sm btn-outline-success">
+                        <i class="fa fa-eye"></i>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <span class="fa fa-money-bill-1 px-2"></span>
+                    {{' Modalité de paiement' | trans}} : {{ order.orderType }}
+                </li>
+                <li class="list-group-item">
+                    <span class="badge badge-phoenix" style="background-color: {{ order.orderState.color }}; color: #ffffff;"> {{ order.orderState }}</span>
+                    <div class="collapse" id="orderStateForm">
+
+                    </div>
+                </li>
+                <li class="list-group-item">{{ 'Prix du bien' |trans }} :{{ order.bienPrice | format_currency('DZD') }}</li> {% set total = total + order.bienPrice %}
+                <li class="list-group-item">{{ 'Prestations suplementaires' |trans }} : {{ suplementDetails | format_currency('DZD') }}</li> {% set total = total + suplementDetails %}
+                <li class="list-group-item">{{ 'Frais de notaire' |trans }} : {{ order.notaireFees | format_currency('DZD') }}</li> {% set total = total + order.notaireFees %}
+                <li class="list-group-item">{{ 'Frais de co-propriété' |trans }} : {{ order.coProprityFees | format_currency('DZD') }}</li> {% set total = total + order.coProprityFees %}
+                {% if reduction is not null and reduction.total >0 %}
+                    <li class="list-group-item">{{ 'Reduction' |trans }} :
+
+                        {% if reduction.isApproved %}
+                            <span style="color:#0acf83 ">{{ reduction.total | format_currency('DZD') }} | {{ 'Approved' | trans }}</span>
+                            {% set total = total - reduction.total %}
+
+                        {% else %}
+                            <span style="color:#e03e2d ">{{ reduction.total | format_currency('DZD') }} | {{ 'En attente' |trans }}</span>
+
+                        {% endif %}
+
+
+                    </li>
+                {% endif %}
+                <li class="list-group-item">{{ 'Total' |trans }} :{{ total | format_currency('DZD') }}</li>
+                <li class="list-group-item">{{ 'Date Add'| trans }} : {{ order.dateAdd | format_date('short') }}</li>
+                <li class="list-group-item">{{ 'Is Valid' | trans }} : {{ order.isValid ? 'Oui' : 'Non' }}</li>
+                {% if is_granted('ROLE_CAN_DELETE_ORDER') %}
+                    <li class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center btn-group">
+
+
+                            <a href="{{ path('app_dashboard_crm_orders_order_delete',{'id':order.id}) }}"
+                               class="btn btn-phoenix-warning ">
+                                <i class="fa fa-trash"></i>
+                                {{ 'Delete Order' | trans }}
+                            </a>
+                            <a href="{{ path('app_dashboard_crm_orders_update_order',{'id':order.id}) }}"
+                               class="btn btn-phoenix-info ">
+                                <i class="fa fa-edit"></i>
+                                {{ 'Update Order' | trans }}
+                            </a>
+                        </div>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="col-12 col-md-6">
+            <h2 class="mb-4">{{ 'Paiements' | trans }}</h2>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item active">
+                    <div class=" row">
+                        <div class="col-12 col-md-3">
+                            T/P | Date
+                        </div>
+                        <div class="col-12 col-md-3">
+                            Montant | Validé
+                        </div>
+                        <div class="col-12 col-md-3">
+                            Acquisition
+                        </div>
+                        <div class="col-12 col-md-3">
+                            Opt
+                        </div>
+                    </div>
+                </li>
+                {% set totalpaiements = 0 %}
+
+                {% for paiement in order.paiementHistories %}
+                    {% set totalpaiements = totalpaiements + paiement.total %}
+                    <div class="row-table-data row">
+                        <div class="col-12 col-md-3">
+                            {{ paiement.type }} | {{ paiement.dateAdd | date('d/m/Y') }}
+                        </div>
+                        <div class="col-12 col-md-3">
+                            {{ paiement.total | number_format(2, ',', ' ') }} DZD | <i class="fa fa-{{ paiement.isValid?'check':'xmark' }}"></i>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            {{ paiement.orderPaiement.bien.name }}
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <a href="{{ path('app_customer_paiement', {'id': paiement.id}) }}" class="btn btn-primary">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+                <li class="list-group-item bg-html5 text-white py-3">
+                       <b>{{ 'Total' | trans }} :</b>  {{ totalpaiements | format_currency('DZD') }}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+

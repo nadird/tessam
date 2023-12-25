@@ -1,0 +1,41 @@
+{% extends '/web/base_web.html.twig' %}
+
+{% block body %}
+    <!-- preloader -->
+
+    <!-- .end preloader -->
+    <!-- navbar -->
+    {% include('/web/_partials/_header/_header.html.twig') %}
+    <!-- .end navbar -->
+    <!-- header -->
+    <header class="header-bg header-bg-one position-relative">
+        <div class="bottom-frame"></div>
+        <div class="header-carousel owl-carousel owl-theme">
+            <div class="item">
+                <div class="container-fluid d-flex align-items-center justify-content-center">
+                    <div class="header-content header-content-white">
+                        <h1>Contact Us</h1>
+                        <p>Send contact request and we will reach you back  </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container mt-5">
+        <h1> {{ post.publicTitle }}</h1>
+        <img src="{{ post.image|imagine_filter('my_thumb') }}" alt="{{ post.title }}" class="img-fluid">
+        <p>{{ post.content | raw }}</p>
+        <p> posted by {{ post.author }} on {{ post.publishedAt|date('F j, Y') }}</p>
+
+
+    </div>
+
+
+    {% include('/web/_partials/_footer.html.twig') %}
+
+
+{% endblock %}
+
+{% block footerscripts %}
+
+{% endblock %}

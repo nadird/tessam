@@ -1,0 +1,6 @@
+<form method="post" action="{{ path('app_dashboard_hr_job_offer_delete', {'id': web_job_offer.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ web_job_offer.id) }}">
+    <button class="btn btn-outline-phoenix-warning">
+        <i class="fa fa-trash"></i>
+        {{ 'Delete' | trans }}</button>
+</form>

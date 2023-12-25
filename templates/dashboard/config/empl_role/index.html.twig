@@ -1,0 +1,46 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="row-table-header row">
+                <div class="col-3 col-md-1 ">#</div>
+                <div class="col-3 col-md-2 ">Name</div>
+            </div>
+            {% for empl_role in empl_roles %}
+                <div class="row-table-data row">
+                    <div class="col-3 col-md-1 ">{{ empl_role.id }}</div>
+                    <div class="col-3 col-md-4 ">{{ empl_role.role }}</div>
+                    <div class="col-12 col-md-7 ">
+
+                        <div class="btn-group btn-group-sm">
+                            <a href="{{ path('dashboard_config_users_roles_edit', {'id': empl_role.id}) }}" class="btn btn-outline-phoenix-primary">
+                                <span class="fa fa-pencil"></span>
+                                edit</a>
+                            <a href="{{ path('dashboard_config_users_roles_delete', {'id': empl_role.id}) }}" class="btn btn-outline-phoenix-warning">
+                                <span class="fa fa-trash-can"></span>
+                                delete</a>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="row-table-data row">
+                    <div class="col-12 ">No Records </div>
+                </div>
+            {% endfor %}
+
+        </div>
+        <div id="form" class="col-12 col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>New Role</h5>
+                </div>
+                <div class="card-body">
+                    {{ include('dashboard/config/empl_role/_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

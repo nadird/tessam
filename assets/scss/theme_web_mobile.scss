@@ -1,0 +1,9 @@
+@media screen and (max-width: 767px) {
+  #top-bar{
+    display: none;
+  }
+  .navbar-collapse{
+    background: linear-gradient(to top, rgb(59, 164, 135) 0%, rgba(30, 207, 208, 0.5) 100%);
+    width: 100%;
+  }
+}

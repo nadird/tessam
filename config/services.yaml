@@ -1,0 +1,53 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+    employee_directory: '%kernel.project_dir%/public/uploads/employee'
+    customer_directory: '%kernel.project_dir%/public/uploads/customer'
+    blog_directory: '%kernel.project_dir%/public/uploads/blog'
+    resumes_directory: '%kernel.project_dir%/public/uploads/resumes'
+    project_directory: '%kernel.project_dir%/public/uploads/project'
+    attestations_directory: '%kernel.project_dir%/public/uploads/documents/attestations'
+    albums_directory: '%kernel.project_dir%/public/uploads/albums'
+    public_directory: '%kernel.project_dir%/public/uploads/public'
+    qr_directory: '%kernel.project_dir%/public/uploads/qr'
+    the_company_directory: '%kernel.project_dir%/public/uploads/the_company'
+    documents_directory: '%kernel.project_dir%/public/uploads/documents'
+    accounting_documents_directory: '%kernel.project_dir%/public/uploads/accounting_documents'
+    google_recaptcha_site_key: '%env(GOOGLE_RECAPTCHA_SITE_KEY)%'
+    app.maintenance_mode: '%env(APP_MAINTENANCE)%'
+    #app.maintenance_message: '%env(APP_MAINTENANCE_MESSAGE)%'
+    app.website_name: '%env(WEBSITE_NAME)%'
+    timezone: '%env(TIMEZONE)%'
+    app.website_url: '%env(WEBSITE_URL)%'
+    app.https: '%env(HTTPS)%'
+    app.version: '1.21.3-Stable'
+
+
+
+services:
+    App\Command\FakeDataLeadsCommand:
+        arguments:
+            $params: '@parameter_bag'
+
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+    #twig.extension.globals:
+        #class: App\Twigextensions\GlobalTwigVariables
+        #tags:
+            #- { name: twig.extension }
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones

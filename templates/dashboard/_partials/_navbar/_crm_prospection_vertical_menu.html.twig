@@ -1,0 +1,41 @@
+<div class="nav-item-wrapper"><a class="nav-link dropdown-indicator label-1" href="#nv-prospection" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="nv-e-commerce">
+        <div class="d-flex align-items-center">
+            <div class="dropdown-indicator-icon">
+                <span class="fas fa-caret-right"></span>
+            </div>
+            <span class="nav-link-icon">
+                <span class="fa-solid fa-headset"></span></span><span class="nav-link-text">{{ 'Prospection'| trans }}</span>
+        </div>
+    </a>
+    <div class="parent-wrapper label-1">
+        <ul class="nav collapse parent" data-bs-parent="#navbarVerticalCollapse" id="nv-prospection">
+            <li class="collapsed-nav-item-title d-none">
+                {{ 'Prospection' | trans  }}
+            </li>
+            {# <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_dashboard_crm_contact_index') }}" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center"><span class="nav-link-text">{{ 'My Contacts'| trans }}</span>
+                    </div>
+                </a>
+            </li> #}
+           {#  <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_dashboard_crm_leads_index') }}" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center">
+                        <span class="nav-link-text">{{ 'My Leads' | trans }}</span>
+                    </div>
+                </a>
+            </li>#}
+            <li class="nav-item"><a class="nav-link" href="{{ path('app_dashboard_crm_customer_index') }}" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center"><span class="nav-link-text">{{ 'My customers' | trans }}</span>
+                    </div>
+                </a>
+            </li>
+            {#
+            <li class="nav-item"><a class="nav-link" href="{{ path('app_dashboard_crm_credit_index') }}" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center"><span class="nav-link-text">{{ 'Simulations' | trans }}</span>
+                    </div>
+                </a>
+            </li>#}
+        </ul>
+    </div>
+</div>

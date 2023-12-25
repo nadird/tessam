@@ -1,0 +1,22 @@
+
+<div class="container ">
+    <div class="row">
+        {% for type in types  %}
+            {% if type.cFormatBiens | length > 0 %}
+            <h3 class="mt-3">{{ type.name }}</h3>
+                {% set counter = 0 %}
+                {%for format in type.cFormatBiens %}
+                    {% set counter = counter + 1 %}
+                    {% if counter < 4 %}
+                        {% include('web/_partials/_format_bien_card.html.twig') %}
+                    {% endif %}
+                {% endfor %}
+                <a href="{{ path('app_product_type_page',{'slug':type.slug}) }}" class="mb-4 text-black" style="text-align: right; font-size: large; font-weight: bold">
+                    {{ 'Voir les ' | trans }} {{ type.name }} ({{ type.cFormatBiens | length }})
+                <i class="fa fa-angle-right"></i>
+                </a>
+                <hr>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

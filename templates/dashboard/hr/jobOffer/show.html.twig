@@ -1,0 +1,46 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block title %}WebJobOffer{% endblock %}
+
+{% block body %}
+    <h1>WebJobOffer</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ web_job_offer.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ web_job_offer.name }}</td>
+            </tr>
+            <tr>
+                <th>PublicTitle</th>
+                <td>{{ web_job_offer.publicTitle }}</td>
+            </tr>
+            <tr>
+                <th>Text</th>
+                <td>{{ web_job_offer.text }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ web_job_offer.createdAt ? web_job_offer.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Enddate</th>
+                <td>{{ web_job_offer.enddate ? web_job_offer.enddate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>IsActive</th>
+                <td>{{ web_job_offer.isActive ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_dashboard_hr_job_offer_index') }}">back to list</a>
+
+    <a href="{{ path('app_dashboard_hr_job_offer_edit', {'id': web_job_offer.id}) }}">edit</a>
+
+    {{ include('dashboard/hr/jobOffer/_delete_form.html.twig') }}
+{% endblock %}

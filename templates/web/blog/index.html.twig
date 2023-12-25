@@ -1,0 +1,90 @@
+{% extends '/web/base_web.html.twig' %}
+
+{% block body %}
+    <style>
+        .mask {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-attachment: fixed;
+        }
+        .bg-image {
+            position: relative;
+            overflow: hidden;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+    </style>
+
+    <div class="p-5 text-center bg-image rounded-3" style="
+    background-image: url({{ asset('/uploads/blog') }}/{{ acceuil.image }});
+    height: 400px;
+  ">
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-white">
+                    <h1 class="mb-3 text-white">{{ acceuil.name }}</h1>
+                    <h4 class="mb-3 text-white">{{ acceuil.description | raw }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <section>
+            <h3> Blog Categories</h3>
+            <div class="card-group">
+                {% for category in blogCategories %}
+                    <div class="card text-white overflow-hidden" style="max-width:30rem; height: 20rem;">
+                        <a href="">
+                            <img class="card-img-top" src="{{ asset('/uploads/blog/') }}{{category.thumbnail  }}" alt="..." />
+                            <div class="card-img-overlay d-flex align-items-end">
+                                <div>
+                                    <h4 class="card-text-white" style="color: #0a0f13; font-weight: bolder; font-size: large">
+                                        {{ category.name }}
+                                    </h4>
+                                    <p class="card-text">
+                                        {{ category.description| raw }}
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                {% endfor %}
+            </div>
+
+        </section>
+        <section>
+            <h3>
+                Blog Posts
+            </h3>
+            <div class="row">
+                {% for post in blogPosts %}
+                    <div class="col-12 col-md-2 col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>{{ post.publicTitle }}</h4>
+                            </div>
+                            <div class="card-body">
+                                <a href="#">
+                                    <img src="#" alt="{{ post.publicTitle }}" class="img-fluid">
+                                </a>
+                                <p>
+                                    {{ post.author }} Le {{ post.createdAt|date('d-m-Y') }}
+                                </p>
+                                <a href="#" class="btn btn-primary">View</a>
+                            </div>
+
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+
+
+    </div>
+
+{% endblock %}
+

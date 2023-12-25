@@ -1,0 +1,447 @@
+@import './icones_web';
+$primary: #0093E9;
+$secondary: #80D0C7;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #343a40;
+$white: #fff;
+$black: #000;
+$blue-soft: #e6f1f7;
+$blue-100: #d0e6f0;
+
+
+
+
+
+#top-bar {
+  //background: #f531bf;
+  //background-image: linear-gradient(111.2deg,#e80505 1.7%,#f531bf 98.7%);
+  background: #0093E9;
+  background: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+  color: #fff;
+  min-height: 30px;
+}
+#top-bar a {
+  color: #fff;
+}
+.overlay-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(to top,
+          rgba(51, 8, 103, 1) 0%,
+          rgba(30, 207, 208, 0) 80%);
+
+  z-index: 1; /* Put this below the text but above the image */
+  pointer-events: none; /* So that it won't interfere with clickable elements underneath */
+  transition: background 0.5s ease-in-out; /* Adding transition here */
+}
+.card-img-overlay {
+
+  z-index: 2; /* Put this text above the gradient */
+}
+
+.card:hover .overlay-gradient {
+  background-image: linear-gradient(to top,
+          rgba(51, 8, 103, 1) 0%,
+          rgba(30, 207, 208, 0.1) 100%);
+
+}
+.site-hero.overlay {
+  position: relative;
+}
+.site-hero-innerpage, .site-hero-innerpage .site-hero-inner {
+  min-height: 550px;
+  height: 50vh;
+}
+.site-hero {
+  background-size: cover;
+  background-position: center center;
+  min-height: 750px;
+  height: 100vh;
+}
+.site-hero.overlay:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.site-hero > .container {
+  position: relative;
+  z-index: 2;
+}
+.site-hero-innerpage, .site-hero-innerpage .site-hero-inner {
+  min-height: 550px;
+  height: 50vh;
+}
+.card-warper {
+  position: relative;
+  overflow: hidden;
+}
+
+.type-img-warper {
+  position: relative;
+}
+
+.property-details {
+  position: absolute;
+  bottom: -107px; /* Initially hidden */
+  left: 0;
+  width: 100%;
+  background-color: rgb(244 67 54 / 73%); /* Semi-transparent black */
+  color: white;
+  padding: 15px;
+  box-sizing: border-box;
+  transition: bottom 0.3s; /* Animation effect */
+}
+
+.type-img-warper:hover .property-details {
+  bottom: 0; /* Show the details on hover */
+}
+.property-details a{
+  color: white;
+}
+.swiper-mega-container{
+  width: 100%;
+  max-height: 100vw;
+  overflow: hidden;
+
+}
+/* Container styling */
+.swiper-container {
+  width: 100%;
+  //height: 400px; /* Adjust as needed */
+  position: relative;
+}
+
+/* Slide image styling */
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* This ensures the images cover the slide without distortion */
+}
+
+/* Navigation buttons styling */
+.swiper-button-next, .swiper-button-prev {
+  color: #FFFFFF;
+ // background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+  width: 30px;
+  height: 30px;
+  border-radius: 50%; /* circular buttons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Pagination dots styling */
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background-color: #FFFFFF;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
+.swiper-slide{
+  //width: 200px;
+}
+.btn-custom-primary{
+    background-color: #0093E9;
+    background: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    border-color: #0093E9;
+    transition: all 0.3s ease-in-out;
+    color: white;
+}
+.btn-custom-primary:hover{
+    background-color: #0093E9;
+    background: linear-gradient(290deg, #0093E9 0%, #80D0C7 100%);
+    border-color: #0093E9;
+}
+.btn-block{
+    display: block;
+    width: 100%;
+}
+.info-in-form li{
+  font-size: smaller;
+    color: #999;
+}
+@import "theme_web_mobile";
+
+/* === HEADING STYLE #3 === */
+h3 {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.5em;
+  padding-bottom: 15px;
+  position: relative;
+  margin-bottom: 2em;
+
+}
+h3:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 5px;
+  width: 55px;
+  background-color: #111;
+}
+h3:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  height: 1px;
+  width: 95%;
+  max-width: 255px;
+  background-color: #333;
+}
+//@import "designia.css";
+h1, h2, h3, h4, h5, h6 {
+  color: #07003b;
+  font-family: Dosis,Arial,Helvetica,sans-serif;
+  font-weight: 400;
+}
+
+
+h1 {
+  font-size:28px;
+  margin:0;
+  text-align:center;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  font-weight:300;
+}
+
+h1 .small-border{
+  margin-top:30px;
+}
+
+
+h1.ultra-big{
+  font-size: 120px;
+}
+
+h2 {
+  display:inline-block;
+  font-weight:500;
+  margin-bottom:30px;
+  line-height:1.2em;
+}
+h2 .small-border{
+  margin-left:0;
+  margin-bottom:15px;
+  width:40px;
+}
+h3 {
+  margin-top: 0;
+  font-size:18px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:15px;
+}
+h3.size-2{
+  font-size:24px;
+}
+h4{
+  font-size:18px;
+}
+h1.slogan_big {
+  font-weight: 300;
+  font-size: 64px;
+  line-height: 64px;
+  letter-spacing: -2px;
+  padding: 0;
+  margin: 0px 0 30px 0;
+}
+h1.title{
+  font-size:64px;
+  letter-spacing:10px;
+}
+h1.title.s2{
+  font-size:64px;
+  letter-spacing:0px;
+}
+h1.title.s3{
+  text-align: left;
+  font-weight: 500;
+  font-size:64px;
+  letter-spacing:-1px;
+}
+h1.title strong{
+  font-family:"Allura";
+  text-transform:none;
+  letter-spacing:0;
+  font-weight:normal;
+}
+h1.title-2{
+  letter-spacing:20px;
+  text-transform:uppercase;
+  line-height:50px;
+}
+h1.title-3{
+  font-size:72px;
+}
+h1.title-3 strong{
+  font-family:"Allura";
+  text-transform:none;
+  letter-spacing:0;
+  font-weight:normal;
+}
+h1.title-4{
+  font-size: 72px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color:rgba(0,0,0,0);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgba(255,255,255,1);
+}
+h1.title-5{
+  text-transform: uppercase;
+  font-size: 24px;
+  letter-spacing: 24px;
+  font-weight: normal;
+}
+
+h1.title-6 strong{
+  font-size: 100px;
+  font-family:"Allura";
+  text-transform:none;
+  letter-spacing:0;
+  font-weight:normal;
+  line-height: 90px;
+}
+h1.title-7{
+  font-size: 40px;
+}
+h2.subtitle{
+  margin-top:0;
+}
+h2.hero{
+  font-size:32px;
+  font-weight:400;
+  text-transform:uppercase;
+  letter-spacing:32px;
+}
+h2.style-2{
+  font-size:12px;
+  font-weight:bold;
+  text-transform:uppercase;
+  letter-spacing:10px;
+}
+h2.style-3{
+  font-size:64px;
+  font-weight:400;
+  text-transform:uppercase;
+  letter-spacing:20px;
+}
+h2.style-4{
+  font-size:60px;
+  font-weight:400;
+  text-transform:normal;
+  letter-spacing:-2px;
+}
+h2.style-5{
+  margin-top:0;
+  line-height:1.2em;
+  font-size:48px;
+  font-weight:400;
+  text-transform:normal;
+}
+h2.style-6{
+  margin-top:0;
+  line-height:1.2em;
+  font-size:32px;
+  text-transform:normal;
+}
+.de_light .text-light h2{
+  color:#fff;
+}
+h3.title {
+  border-bottom: solid 1px #ddd;
+  margin-bottom: 20px;
+}
+h4.title {
+  border-bottom: solid 1px #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+form h4{
+  margin-bottom: 20px;
+}
+form h4 i{
+  margin-right: 10px;
+  background: rgba(var(--primary-color-1-rgb),.2);
+  padding: 9px;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 30px;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+}
+h5 {
+  font-weight: bold;
+}
+h5.s2{
+  font-weight:500;
+  text-transform:uppercase;
+  font-size:12px;
+  letter-spacing:2px;
+}
+h3.s2 span{
+  font-family:"Allura";
+  text-transform:none;
+  letter-spacing:0;
+  font-size:40px;
+  display:block;
+}
+
+h3.s2{
+  font-size:30px;
+}
+
+h3.style-1{
+  font-family:"Roboto";
+  letter-spacing:0;
+  text-transform:none;
+  margin-bottom:20px;
+}
+
+h6.style-2{
+  font-weight: lighter;
+}
+
+.typing-wrap{
+  font-family:"Dosis";
+  font-size:30px;
+  margin:0;
+  line-height:60px;
+}
+@media (min-width: 993px) {
+  // small Computer CSS here
+  #presentation{
+    max-height: 550px;
+    overflow: hidden;
+  }
+}
+@media (max-width: 767px) {
+    //Mobile CSS here
+  #presentation{
+    max-height: 100%;
+    overflow: hidden;
+  }
+}

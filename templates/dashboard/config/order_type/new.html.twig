@@ -1,0 +1,23 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">New OrderType</h4>
+        </div>
+        <div class="card-body">
+            {{ include('order_type/_form.html.twig', {'button_label': 'Update'}) }}
+        </div>
+        <div class="card-footer">
+            <div class="btn-group btn-group-sm">
+                <a href="{{ path('app_order_type_index') }}" class="btn btn-phoenix-secondary btn-sm">back to list</a>
+                {{ include('order_type/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

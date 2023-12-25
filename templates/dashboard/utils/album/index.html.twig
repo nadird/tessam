@@ -1,0 +1,45 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="row-table-header row">
+                <div class="col-3 col-md-1 ">#</div>
+                <div class="col-3 col-md-6 ">{{ 'Name' | trans }}</div>
+                <div class="col-3 col-md-5 ">{{ 'Actions' | trans }}</div>
+            </div>
+            {% for album in albums %}
+                <div class="row-table-data row">
+                    <div class="col-3 col-md-1 ">{{ album.id }}</div>
+                    <div class="col-9 col-md-6 ">{{ album.name }}</div>
+                    <div class="col-12 col-md-5 ">
+
+                        <div class="btn-group btn-group-sm">
+                            <a href="{{ path('dashboard_utils_album_edit', {'id': album.id}) }}" class="btn btn-phoenix-primary btn-sm">{{ 'show' | trans }}</a>
+                            <a href="{{ path('dashboard_utils_album_delete', {'id': album.id}) }}" class="btn btn-soft-danger fa-delete-left btn-sm">{{ 'delete' | trans }}</a>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="row-table-data row">
+                    <div class="col-12 ">{{ 'No Records' | trans }} </div>
+                </div>
+            {% endfor %}
+
+        </div>
+        <div id="form" class="col-12 col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>{{ 'New Album' | trans }}</h5>
+                </div>
+                <div class="card-body">
+                    {{ include('dashboard/utils/album/_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

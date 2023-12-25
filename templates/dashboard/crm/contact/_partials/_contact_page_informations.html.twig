@@ -1,0 +1,55 @@
+<div class="card mb-3">
+    <div class="card-body">
+        <div class="d-flex align-items-center mb-5">
+            <h3>{{ 'About lead'|trans }}</h3>
+            <a href="{{ path('app_dashboard_crm_contact_contact_edit',{'id':contact.id}) }}" class="btn btn-link px-3" type="button">{{ 'Edit' | trans }}</a>
+        </div>
+        <div class="mb-4">
+            <div class="d-flex align-items-center mb-1">
+                <span class="me-2 uil uil-envelope-alt">  </span>
+                <h5 class="text-1000 mb-0">{{ 'Email'|trans }}</h5>
+            </div>
+            <ol>
+                <li>
+                    <a href="mailto:{{contact.email1}}:">{{contact.email1}}</a>
+                </li>
+                <li>
+                    <a href="mailto:{{contact.email2}}:">{{contact.email2}}</a>
+                </li>
+            </ol>
+
+        </div>
+        <div class="mb-4">
+            <div class="d-flex align-items-center mb-1"><span class="me-2 uil uil-phone"> </span>
+                <h5 class="text-1000 mb-0">{{ 'Phone' |trans }}</h5>
+            </div>
+            <ol>
+                <li><a href="tel:{{ contact.phone1 }}">{{ contact.phone1 }} </a></li>
+                <li><a href="tel:{{ contact.phone2 }}">{{ contact.phone2 }} </a></li>
+            </ol>
+        </div>
+        <div class="mb-4">
+            <div class="d-flex align-items-center mb-1"><span class="me-2 uil uil-globe"></span>
+                <h5 class="text-1000 mb-0">{{ 'Source'|trans }}</h5>
+            </div><a href="#!">{{ contact.contactSource.name }} </a>
+        </div>
+        <div class="mb-4">
+            <div class="d-flex align-items-center mb-1"><span class="me-2 uil uil-building"></span>
+                <h5 class="text-1000 mb-0">{{ 'Address' |trans}}</h5>
+            </div>
+            <p class="mb-0 text-800">{{ contact.address }}</p>
+        </div>
+        <div class="mb-4">
+            <div class="d-flex align-items-center mb-1"><span class="me-2 uil uil-postcard"></span>
+                <h5 class="text-1000 mb-0">{{ 'Last contacted' |trans }}</h5>
+            </div>
+            <p class="mb-0 text-800">{{ contact.dateUpdated | format_datetime('full', 'short', locale='fr') }}</p>
+        </div>
+        <div class="mb-4">
+            <div class="d-flex align-items-center mb-1"><span class="me-2 uil uil-dollar-alt"></span>
+                <h5 class="text-1000 mb-0">{{ 'First Contact' |trans }}</h5>
+            </div>
+            <p class="mb-0 text-800">{{ contact.dateAdd | format_datetime('full', 'short', locale='fr') }}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block title %}WebMenu index{% endblock %}
+
+{% block body %}
+    <h1>WebMenu index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>IsActive</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for web_menu in web_menus %}
+            <tr>
+                <td>{{ web_menu.id }}</td>
+                <td>{{ web_menu.name }}</td>
+                <td>{{ web_menu.isActive ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_dashboard_web_menu_show', {'id': web_menu.id}) }}">show</a>
+                    <a href="{{ path('app_dashboard_web_menu_edit', {'id': web_menu.id}) }}">edit</a>
+                    <a href="{{ path('app_dashboard_webmanagement_menu_item_menu_index', {'id': web_menu.id}) }}">items</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_dashboard_web_menu_new') }}">Create new</a>
+{% endblock %}

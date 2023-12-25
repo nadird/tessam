@@ -1,0 +1,11 @@
+<div class="card" style="max-width:20rem;">
+    <img class="card-img-top" src="{{ asset('/uploads/albums/') }}{{ album.slug }}/{{ image.image }}" alt="..." />
+    <div class="card-body">
+        <h5 class="card-title">Album {{ album.name }}</h5>
+        <p class="card-text">{{ image.image}} </p>
+        <a href="{{path('dashboard_utils_album_delete_image_album',{'id':image.id})}}" class="btn btn-primary">
+            {{'Delete it' }}
+
+        </a>
+    </div>
+</div>
