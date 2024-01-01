@@ -1,6 +1,6 @@
 <div>
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="javascript:void(0)">{{ parentController }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ path(parentControllerRoute,{parentControllerRouteParams}) }}">{{ parentController }}</a></li>
         <li class="breadcrumb-item active" aria-current="page">{{ controller_name }}</li>
     </ol>
 </div>

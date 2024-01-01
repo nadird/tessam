@@ -1,0 +1,31 @@
+app:
+    dashboard:
+        catalog:
+            product:
+                index:
+                    controller_name: Produits
+                    parent_controller_name: Catalogue
+                    title: Produits
+                show:
+                    controller_name: Explorer le produit
+                    parent_controller_name: Tous les produits
+                new:
+                    controller_name: Nouveau produit
+                    parent_controller_name: Tous les produits
+                edit:
+                    controller_name: Modifier le produit
+                    parent_controller_name: Tous les produits
+            category:
+                index:
+                    controller_name: Catégories
+                    parent_controller_name: Catalogue
+                show:
+                    controller_name: Explorer la catégorie
+                    parent_controller_name: Toutes les catégories
+                new:
+                    controller_name: Nouvelle catégorie
+                    parent_controller_name: Toutes les catégories
+                edit:
+                    controller_name: Modifier la catégorie
+                    parent_controller_name: Toutes les catégories
+

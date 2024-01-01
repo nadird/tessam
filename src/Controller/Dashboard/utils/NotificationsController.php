@@ -37,7 +37,7 @@
 			$notifications = $this->notificationRepository->findLastUnread($this->getUser());
 			$notificationsPast = $this->notificationRepository->findLastRed($this->getUser());
 			
-			return $this->render('dashboard/_partials/_navbar/_notifications.html.twig', [
+			return $this->render('dashboard/_partials/_navbar/_parts/horizontal/_notifications.html.twig', [
 				'notifications' => $notifications,
 				'notificationsPast' => $notificationsPast
 			]);

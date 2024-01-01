@@ -65,6 +65,9 @@ class Employee implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\OneToMany(mappedBy: 'employee', targetEntity: Customer::class)]
     private Collection $customers;
+
+    #[ORM\OneToMany(mappedBy: 'employee', targetEntity: StockMovement::class)]
+    private Collection $stockMovements;
 	
 
    
@@ -75,6 +78,7 @@ class Employee implements UserInterface, PasswordAuthenticatedUserInterface
         $this->notifications = new ArrayCollection();
         $this->documents = new ArrayCollection();
         $this->customers = new ArrayCollection();
+        $this->stockMovements = new ArrayCollection();
     }
 
 
@@ -266,9 +270,9 @@ class Employee implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 	public function __toString(): string
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 	{
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 		return $this->getFirstName().' '.$this->getLastName();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 	}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                	{
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                		return $this->getFirstName().' '.$this->getLastName();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                	}
 
     /**
      * @return Collection<int, BlogPost>
@@ -393,8 +397,38 @@ class Employee implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 	public function __getFullname():string
-	{
-		return $this->getFirstName().' '.$this->getLastName();
-	}
+               	{
+               		return $this->getFirstName().' '.$this->getLastName();
+               	}
+
+    /**
+     * @return Collection<int, StockMovement>
+     */
+    public function getStockMovements(): Collection
+    {
+        return $this->stockMovements;
+    }
+
+    public function addStockMovement(StockMovement $stockMovement): static
+    {
+        if (!$this->stockMovements->contains($stockMovement)) {
+            $this->stockMovements->add($stockMovement);
+            $stockMovement->setEmployee($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStockMovement(StockMovement $stockMovement): static
+    {
+        if ($this->stockMovements->removeElement($stockMovement)) {
+            // set the owning side to null (unless already changed)
+            if ($stockMovement->getEmployee() === $this) {
+                $stockMovement->setEmployee(null);
+            }
+        }
+
+        return $this;
+    }
 	
 }

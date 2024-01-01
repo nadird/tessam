@@ -391,6 +391,105 @@ app:
             text: "Résumé de l'interaction"
         select_project_placeholder: 'Choisir projet'
         project: Projet
-    web:
-        credit_simulator:
-            form: { firstname: Prénom, lastname: Nom, email: Email, phone: Téléphone, amount: Montant, revenue_frist: 'Revenu mensuel', revenue_second: 'Revenu mensuel conjoint', dob: 'Date de naissance', submit: Envoyer, first_down_paiement: 'Apport initial', first_down_paiement_placeholder: 'Entrez l apport initial', second: Co-emprunteur, is_bonified: Bonifié, job: Profession, format_bien: 'Format du bien' }
+        catalog:
+            product:
+                name_placeholder: 'Entrez le nom'
+                category_placeholder: Category
+                isActive_true: Actif
+                isActive_false: Inactif
+                isDeleted_true: Supprimé
+                isDeleted_false: 'Non supprimé'
+                sku_placeholder: 'Entrez le SKU'
+                barCode_placeholder: 'Code barre'
+                brand_placeholder: Marque
+                product_name_label: 'Nom du produit'
+                product_name_placeholder: 'Entrez le nom du produit'
+                sku_label: SKU
+                bar_code_label: 'Code barre'
+                bar_code_placeholder: 'Scannez le code barre'
+                short_description_label: 'Description courte'
+                long_description_label: 'Description longue'
+                seo_title_label: 'Titre SEO'
+                seo_title_placeholder: 'Entrez le titre SEO Maximum 70 caractères'
+                seo_description_label: 'Description SEO'
+                seo_description_placeholder: 'Entrez la description SEO Maximum 160 caractères'
+                is_active_label: Actif
+                is_featured_label: 'Produit à la une'
+                is_on_sale_label: 'Produit en solde'
+                weight_label: Poids
+                weight_placeholder: 'Entrez le poids'
+                brand_label: Marque
+                categories_label: Catégories
+                main_category_label: 'Catégorie principale'
+                shops_label: Boutiques
+                tags_label: Tags
+                supplier_label: Fournisseur
+                product_related_to_label: 'Produit lié à'
+                tax_label: Taxe
+                supply_price_ht_label: 'Prix d achat HT'
+                supply_price_ht_placeholder: 'Entrez le prix d achat HT'
+                supply_price_ttc_label: 'Prix d achat TTC'
+                supply_price_ttc_placeholder: 'Entrez le prix d achat TTC'
+                price_ht_label: 'Prix de vente HT'
+                price_ht_placeholder: 'Entrez le prix de vente HT'
+                price_ttc_label: 'Prix de vente TTC'
+                price_ttc_placeholder: 'Entrez le prix de vente TTC'
+                whole_sale_price_ht_label: 'Prix de vente en gros HT'
+                whole_sale_price_ht_placeholder: 'Entrez le prix de vente en gros HT'
+                whole_sale_price_ttc_label: 'Prix de vente en gros TTC'
+                whole_sale_price_ttc_placeholder: 'Entrez le prix de vente en gros TTC'
+                whole_sale_moq_label: 'Quantité minimum de vente en gros'
+                whole_sale_moq_placeholder: 'Entrez la quantité minimum de vente en gros'
+                type_label: Type
+                type_placeholder: 'Choisir type'
+                images_placeholder: 'Choisir images'
+                tax_placeholder: 'Choisir taxe'
+                family_placeholder: 'Choisir famille'
+                family_label: Famille
+            category:
+                submit: Enregistrer
+                name_placeholder: 'Entrez le nom'
+                public_title_placeholder: 'Entrez le titre public'
+                description_placeholder: 'Entrez la description'
+                thumb_placeholder: 'Choisir miniature'
+                image_placeholder: 'Choisir image'
+                parent_category_placeholder: 'Choisir catégorie parente'
+                parent_category: 'Catégorie parente'
+                parent_category_label: 'Catégorie parente'
+                seoDescription_placeholder: 'Entrez la description SEO'
+                seoDescription: 'Description SEO'
+                seoTitle_placeholder: 'Entrez le titre SEO'
+                seoTitle: 'Titre SEO'
+                parent: 'Catégorie parente'
+                longDescription_placeholder: 'Entrez la description longue'
+                longDescription: 'Description longue'
+                shortDescription_placeholder: 'Entrez la description courte'
+                shortDescription: 'Description courte'
+                name: Nom
+                isActive: Actif
+                isActive_true: Actif
+                isActive_false: Inactif
+                isDeleted_placeholder: 'Suprimé ?'
+                isActive_placeholder: 'Actif ?'
+                isDeleted_true: Supprimé
+                isDeleted_false: 'Non supprimé'
+                tax_label: Taxe
+                supply_price_ht_label: 'Prix d achat HT'
+                supply_price_ht_placeholder: 'Entrez le prix d achat HT'
+                supply_price_ttc_label: 'Prix d achat TTC'
+                supply_price_ttc_placeholder: 'Entrez le prix d achat TTC'
+                price_ht_label: 'Prix de vente HT'
+                price_ht_placeholder: 'Entrez le prix de vente HT'
+                price_ttc_label: 'Prix de vente TTC'
+                price_ttc_placeholder: 'Entrez le prix de vente TTC'
+                whole_sale_price_ht_label: 'Prix de vente en gros HT'
+                whole_sale_price_ht_placeholder: 'Entrez le prix de vente en gros HT'
+                whole_sale_price_ttc_label: 'Prix de vente en gros TTC'
+                whole_sale_price_ttc_placeholder: 'Entrez le prix de vente en gros TTC'
+                whole_sale_moq_label: 'Quantité minimum de vente en gros'
+                whole_sale_moq_placeholder: 'Entrez la quantité minimum de vente en gros'
+
+
+
+# Path: tessam/translations/forms%2Bintl-icu.en.yml
+

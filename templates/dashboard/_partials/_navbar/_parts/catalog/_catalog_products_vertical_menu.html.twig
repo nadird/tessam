@@ -1,0 +1,59 @@
+<div class="nav-item-wrapper">
+    <a class="nav-link dropdown-indicator label-1" href="#nv-products" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="nv-products">
+        <div class="d-flex align-items-center">
+            <div class="dropdown-indicator-icon"><span class="fas fa-caret-right"></span></div>
+            <span class="nav-link-icon"><span class="fa-solid fa-boxes-stacked"></span></span>
+            <span class="nav-link-text">{{ 'Products'| trans }}</span>
+        </div>
+    </a>
+    <div class="parent-wrapper label-1">
+        <ul class="nav collapse parent" data-bs-parent="#navbarVerticalCollapse" id="nv-products">
+            <li class="collapsed-nav-item-title d-none">
+                {{ 'Products' | trans  }}
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_dashboard_catalog_Product_index') }}" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center">
+                        <span class="nav-link-text">{{ 'Products' | trans }}</span>
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_dashboard_catalog_Category_index') }}" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center">
+                        <span class="nav-link-text">{{ 'Category' | trans }}</span>
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center">
+                        <span class="nav-link-text">{{ 'Brands' | trans }}</span>
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center">
+                        <span class="nav-link-text">{{ 'Attributs' | trans }}</span>
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center">
+                        <span class="nav-link-text">{{ 'Caractéristiques' | trans }}</span>
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center">
+                        <span class="nav-link-text">{{ 'Réductions' | trans }}</span>
+                    </div>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>

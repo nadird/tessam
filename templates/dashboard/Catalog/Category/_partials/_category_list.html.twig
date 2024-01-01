@@ -1,0 +1,51 @@
+<div class="row-table-header row">
+    <div class="col-1 col-md-1 col-lg-1">{{ 'Id' | trans }}</div>
+    <div class="col-3 col-md-3 col-lg-2 ">{{ 'Category' | trans }}</div>
+    <div class="col-4 col-md-3 col-lg-2">{{ 'Parent' | trans }}</div>
+    <div class="col-4 col-md-1 col-lg-2 ">{{ 'Active' | trans }}</div>
+    <div class="col-12 col-md-4 col-lg-2 ">{{ 'Opt' | trans }}</div>
+</div>
+{% for category in categories %}
+    {% if category.id == 1 %}
+
+    {% else %}
+    <div class="row-table-data row">
+        <div class="col-1 col-md-1 col-lg-1 ">{{ category.id }}</div>
+        <div class="col-3 col-md-3 col-lg-2">{{ category.name }}</div>
+        <div class="col-4 col-md-3 col-lg-2 ">
+                {{ category.parent}}
+        </div>
+        <div class="col-4 col-md-1 col-lg-2  ">
+            <i class="fa fa-{{ category.isActive?'check-circle':'xmark-circle' }} text-{{ category.isActive?'success':'danger' }}"></i>
+        </div>
+        <div class="col-12 col-md-4 col-lg-5">
+            <div class="d-flex justify-content-between">
+                <div class="btn-group btn-group-sm">
+                    <a href="" class="btn btn-phoenix-primary">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    <a href="" class="btn btn-phoenix-primary">
+                        <i class="fa fa-eye"></i>
+                    </a>
+                    <a href="" class="btn btn-phoenix-primary">
+                        <i class="fa fa-list"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% else %}
+    <div class="row">
+        <div class="col-12">
+            <div class="alert alert-danger d-flex justify-content-between">
+                {{ 'No categories yet, Add new category ?' | trans }}
+                <a href="#" class="btn btn-phoenix-secondary">
+                    <i class="fa fa-plus-circle"></i>
+                    {{ 'Add new category' | trans }}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endfor %}

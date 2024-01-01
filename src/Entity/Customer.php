@@ -2,7 +2,18 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Doctrine\Orm\Filter\BooleanFilter;
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Metadata\ApiFilter;
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Put;
 use App\Repository\CustomerRepository;
+use Carbon\Carbon;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -10,21 +21,40 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Uid\Uuid;
 
 #[ORM\Entity(repositoryClass: CustomerRepository::class)]
-#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
+#[UniqueEntity(fields: ['phone'], message: 'There is already an account with this phone')]
+#[ApiResource(
+	description: 'All Customers B2C of the company',
+	operations: [
+		new get(),
+		new getCollection(),
+		new post(),
+		new put(),
+	],
+	normalizationContext: [
+		'groups' => ['customer:read'],
+	],
+	denormalizationContext: [
+		'groups' => ['customer:write'],
+	],
+)]
 class Customer implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['customer:read'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
+    #[Groups(['customer:read', 'customer:write'])]
     private ?string $email = null;
 
     #[ORM\Column]
+    #[Groups(['customer:read'])]
     private array $roles = [];
 
     /**
@@ -34,15 +64,20 @@ class Customer implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\Column(type: 'boolean')]
+    #[ApiFilter(BooleanFilter::class)]
     private $isVerified = false;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['customer:read', 'customer:write'])]
+    #[ApiFilter(SearchFilter::class,strategy: 'partial')]
     private ?string $firstname = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['customer:read', 'customer:write'])]
     private ?string $lastname = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['customer:read', 'customer:write'])]
     private ?string $phone = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -52,21 +87,27 @@ class Customer implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $picture = null;
 
     #[ORM\Column]
-    private ?bool $isActive = null;
+    #[Groups(['customer:read', 'customer:write'])]
+    #[ApiFilter(BooleanFilter::class)]
+    private ?bool $isActive = false;
     #[ORM\ManyToOne(inversedBy: 'customers')]
+    #[Groups(['customer:read', 'customer:write'])]
     private ?CustomerState $state = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[Groups(['customer:read', 'customer:write'])]
     private ?\DateTimeInterface $dateAdd = null;
-
-   
+	
     #[ORM\Column]
-    private ?bool $isDeleted = null;
+    #[Groups(['customer:read', 'customer:write'])]
+    #[ApiFilter(BooleanFilter::class)]
+    private ?bool $isDeleted = false;
 
     #[ORM\ManyToOne(inversedBy: 'customers')]
     private ?Employee $employee = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[Groups(['customer:read', 'customer:write'])]
     private ?\DateTimeInterface $dateUpdated = null;
 
     #[ORM\OneToMany(mappedBy: 'customer', targetEntity: Document::class)]
@@ -75,14 +116,10 @@ class Customer implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dob = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $actNaissance = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $pi = null;
+	
 
     #[ORM\Column(type: 'uuid')]
+    #[Groups(['customer:read', 'customer:write'])]
     private ?Uuid $uuid = null;
 
     public function __construct()
@@ -299,7 +336,10 @@ class Customer implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->dateUpdated;
     }
-
+	public function getDateUpdatedAgo(): string
+	{
+		return Carbon::instance($this->dateUpdated)->diffForHumans();
+	}
     public function setDateUpdated(\DateTimeInterface $dateUpdated): static
     {
         $this->dateUpdated = $dateUpdated;
@@ -336,16 +376,6 @@ class Customer implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-	
-	public function __toString(): string
-                                                      	{
-                                                      		return $this->getFirstname().' '.$this->getLastname();
-                                                      	}
-	public function getFullname():string
-                                                      	{
-                                                      		return $this->getFirstname().' '.$this->getLastname();
-                                                      	}
-														  
 
     public function getDob(): ?\DateTimeInterface
     {
@@ -355,30 +385,6 @@ class Customer implements UserInterface, PasswordAuthenticatedUserInterface
     public function setDob(?\DateTimeInterface $dob): static
     {
         $this->dob = $dob;
-
-        return $this;
-    }
-
-    public function getActNaissance(): ?string
-    {
-        return $this->actNaissance;
-    }
-
-    public function setActNaissance(?string $actNaissance): static
-    {
-        $this->actNaissance = $actNaissance;
-
-        return $this;
-    }
-
-    public function getPi(): ?string
-    {
-        return $this->pi;
-    }
-
-    public function setPi(?string $pi): static
-    {
-        $this->pi = $pi;
 
         return $this;
     }
@@ -394,4 +400,35 @@ class Customer implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+	public function __toString(): string
+	{
+		return $this->getFirstname().' '.$this->getLastname();
+	}
+	public function getFullname():string
+	{
+		return $this->getFirstname().' '.$this->getLastname();
+	}
+	public function __serialize(): array
+	{
+		return [
+			'id' => $this->id,
+			'email' => $this->email,
+			'roles' => $this->roles,
+			'isVerified' => $this->isVerified,
+			'firstname' => $this->firstname,
+			'lastname' => $this->lastname,
+			'phone' => $this->phone,
+			'Address' => $this->Address,
+			'picture' => $this->picture,
+			'isActive' => $this->isActive,
+			'state' => $this->state->getId(),
+			'dateAdd' => $this->dateAdd,
+			'isDeleted' => $this->isDeleted,
+			'employee' => $this->employee->getId(),
+			'dateUpdated' => $this->dateUpdated,
+			'dob' => $this->dob,
+			'uuid' => $this->uuid,
+		];
+	}
+	
 }

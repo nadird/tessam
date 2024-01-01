@@ -1,0 +1,21 @@
+<div class="tab-pane" role="tabpanel"
+     aria-labelledby="bootstrap-wizard-tab6"
+     id="bootstrap-wizard-tab6"
+     data-product-wizard-target="pane">
+  <div class="my-3">
+    <h4>{{ 'Caracteristiques' | trans }}</h4>
+    <form action="#">
+      {% for featureType in product.family.features %}
+        <div class="form-group">
+          <label for="featureType_{{ featureType.id }}">{{ featureType.name }}</label>
+          <select class="form-control" id="featureType_{{ featureType.id }}">
+            <option value="">{{'Choose value' | trans}}</option>
+            {% for value in featureType.featureValues %}
+              <option value="{{ value.id }}">{{ value.value }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      {% endfor %}
+    </form>
+  </div>
+</div>

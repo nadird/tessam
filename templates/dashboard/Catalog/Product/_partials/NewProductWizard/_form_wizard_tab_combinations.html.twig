@@ -1,0 +1,30 @@
+<div class="tab-pane" role="tabpanel" aria-labelledby="bootstrap-wizard-tab5" id="bootstrap-wizard-tab5" data-product-wizard-target="pane">
+    <div class="main">
+
+        <div id="combinations-generator" class="border border-facebook p-3 my-3">
+            <h3>{{ 'Generate combinations' | trans }}</h3>
+            <form action="{{ path('app_dashboard_catalog_Product_generate_combinations',{'id':product.id}) }}">
+                {% for attributeType in product.family.attributes %}
+                    <h6 class="mb-0">{{ attributeType.name }}</h6>
+                    <div class="d-flex flex-wrap m-2">
+                        {% for value in attributeType.attributeValues %}
+                            <div class="form-check form-switch">
+                                <input type="checkbox" class="form-check-input" id="attributeValue{{ value.id }}" name="attributeValue{{ value.id }}">
+                                <label class="form-check-label" for="attributeValue{{ value.id }}">{{ value.value }}</label>
+                            </div>
+                        {% else %}
+                        {% endfor %}
+                    </div>
+
+                {% else %}
+                    No attributes in this family
+                {% endfor %}
+                <a name="submit" value="submit" class="btn btn-phoenix-primary btn-block" role="button">{{ 'Generate Combinations' }}</a>
+            </form>
+        </div>
+
+        <h3>{{ 'Combinations' | trans }}</h3>
+
+    </div>
+
+</div>

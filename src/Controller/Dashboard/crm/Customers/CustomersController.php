@@ -58,165 +58,20 @@
 		#[Route('/', name: 'index')]
 		public function index():Response
 		{
-			$customers = $this->customerRepository->findAll();
-			$q = $this->requestStack->getCurrentRequest()->query->get('q');
-			
-			
-			if($this->isGranted('ROLE_CAN_VIEW_ALL_LEADS')){
-				$query = $this->customerRepository->createQueryBuilder('c')
-					->orderBy('c.id', 'DESC');
-			}
-			else{
-				$query = $this->customerRepository->createQueryBuilder('c')
-					->andWhere('c.employee = :val')
-					->setParameter('val', $this->getUser())
-					->andWhere('c.isDeleted = :val2')
-					->setParameter('val2', false)
-					->orderBy('c.id', 'DESC');
-			}
 			$pagination = $this->paginator->paginate(
-				$query, /* query NOT result */
-				$this->requestStack->getCurrentRequest()->query->getInt('page', 1), /*page number*/
-				50 /* limit per page */
+				$this->customerRepository->findByIsDeleted(false),
+				$this->requestStack->getCurrentRequest()->query->getInt('page', 1),
+				50
 			);
-			if($q){
-				$pagination = $this->paginator->paginate(
-					$this->search($q),
-					$this->requestStack->getCurrentRequest()->query->getInt('page', 1),
-					50
-				);
-			}
 			
-			$filtersForm = $this->createFormBuilder();
-			$filtersForm
-				->add('state', \Symfony\Component\Form\Extension\Core\Type\ChoiceType::class, [
-				'choices' => $this->entityManager->getRepository(\App\Entity\CustomerState::class)->findAll(),
-				'choice_label' => 'name',
-				'choice_value' => 'id',
-				'placeholder' => 'Select a state',
-				'required' => false,
-			])
-			->add('employee', \Symfony\Component\Form\Extension\Core\Type\ChoiceType::class, [
-				'choices' => $this->entityManager->getRepository(\App\Entity\Employee::class)->findAll(),
-				'choice_label' => 'firstname',
-				'choice_value' => 'id',
-				'placeholder' => 'Select an employee',
-				'required' => false,
-			])
-			->add('project', EntityType::class, [
-				'class' => \App\Entity\CProject::class,
-				'choice_label' => 'name',
-				'choice_value' => 'id',
-				'placeholder' => 'Select a project',
-				'required' => false,
-				'label' => 'Project',
-			]);
-			$filtersForm = $filtersForm->getForm();
-			$filtersForm->handleRequest($this->requestStack->getCurrentRequest());
-			if($filtersForm->isSubmitted() && $filtersForm->isValid()){
-				$state = $filtersForm['state']->getData();
-				$employee = $filtersForm['employee']->getData();
-				$project = $filtersForm['project']->getData();
-				$queryBuilder = $this->customerRepository->createQueryBuilder('c');
-				if($state){
-					$queryBuilder->andWhere('c.state = :stateId')
-						->setParameter('stateId', $state->getId());
-				}
-				if($employee){
-					$queryBuilder->andWhere('c.employee = :employeeId')
-						->setParameter('employeeId', $employee->getId());
-				}
-				if($project){
-					$queryBuilder
-						->join('c.orders', 'o')
-						->join('o.bien', 'b')
-						->andWhere('b.project = :projectId')
-						->setParameter('projectId', $project->getId());
-				}
-				if (!$this->isGranted('ROLE_CAN_VIEW_ALL_LEADS')) {
-					$queryBuilder->andWhere('c.employee = :employee')
-						->setParameter('employee', $this->getUser())
-						->andWhere('c.isDeleted = false');
-				}
-				$queryBuilder->orderBy('c.id', 'DESC');
-				$pagination = $this->paginator->paginate(
-					$queryBuilder,
-					$this->requestStack->getCurrentRequest()->query->getInt('page', 1),
-					50
-				);
-			}
 			
-			$statsStates = $this->stateStats($query->getQuery()->getResult());
+			
 			return $this->render('dashboard/crm/customer/index.html.twig', [
 				'controller_name' => 'Sales',
 				'customers' => $pagination,
 				'parentController'=>'Customers Index',
 				'pageSubTitle' => 'All Customers',
-				'stateStats'=>$statsStates,
-				'filters'=>true,
-				'filtersForm'=>$filtersForm->createView(),
 			]);
-		}
-		#[Route('/search', name: 'search')]
-		public function search($q):array
-		{
-			$leads = $this->customerRepository->createQueryBuilder('a');
-			$leads->andWhere('a.firstname LIKE :val')
-				->setParameter('val', '%'.$q.'%')
-				->orWhere('a.lastname LIKE :val2')
-				->setParameter('val2', '%'.$q.'%')
-				->orWhere('a.email LIKE :val3')
-				->setParameter('val3', '%'.$q.'%')
-				->orWhere('a.phone LIKE :val4')
-				->setParameter('val4', '%'.$q.'%');
-			
-			if($this->isGranted('ROLE_CAN_VIEW_ALL_LEADS')){
-				$leads->orderBy('a.id', 'DESC')->getQuery()->getResult();
-			}
-			else{
-				$leads->andWhere('a.employee = :val8')
-					->setParameter('val8', $this->getUser())
-					->andWhere('a.isDeleted = :val7')
-					->setParameter('val7', false)
-					->orderBy('a.id', 'DESC');
-			}
-			return $leads->getQuery()->getResult();
-		}
-		#[Route('/filtred/{id}', name: 'filtred')]
-		public function filterCustomersByState($id):Response
-		{
-		
-			$queryBuilder = $this->customerRepository->createQueryBuilder('c');
-			
-			$queryBuilder->andWhere('c.state = :stateId')
-				->setParameter('stateId', $id);
-			
-			if (!$this->isGranted('ROLE_CAN_VIEW_ALL_LEADS')) {
-				$queryBuilder->andWhere('c.employee = :employee')
-					->setParameter('employee', $this->getUser())
-					->andWhere('c.isDeleted = false');
-			}
-			
-			$queryBuilder->orderBy('c.id', 'DESC');
-			
-			$pagination = $this->paginator->paginate(
-				$queryBuilder,
-				$this->requestStack->getCurrentRequest()->query->getInt('page', 1),
-				50
-			);
-			$state = $this->entityManager->getRepository(\App\Entity\CustomerState::class)->findOneById($id);
-			$statsStates = $this->stateStats($queryBuilder->getQuery()->getResult());
-			$controller_name= $this->translator->trans('app.dashboard.crm.customer.index.filtred.controller_name').' '.$state->getName();
-			$parent_controller_name = $this->translator->trans('app.dashboard.crm.customer.index.filtred.parent_controller_name');
-			return $this->render('dashboard/crm/customer/index.html.twig', [
-				'controller_name' => $controller_name,
-				'customers' => $pagination,
-				'parentController' => $parent_controller_name,
-				'pageSubTitle' => 'Filtered Customers by State',
-				'stateStats' => $statsStates,
-				'filters' => true,
-			]);
-			
 		}
 		#[Route('/page/{id}', name: 'customer_page')]
 		public function page($id):Response

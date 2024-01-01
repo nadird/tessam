@@ -1,0 +1,25 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+    <ul class="nav nav-underline" id="CategoryTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#tab-details" role="tab" aria-controls="tab-details" aria-selected="true">Details</a></li>
+        <li class="nav-item"><a class="nav-link" id="profile-seo" data-bs-toggle="tab" href="#tab-seo" role="tab" aria-controls="tab-seo" aria-selected="false">SEO</a></li>
+    </ul>
+    {{ form_start(form) }}
+    <div class="tab-content mt-3" id="CategoryTabContent">
+        <div class="tab-pane fade show active" id="tab-details" role="tabpanel" aria-labelledby="home-details">
+            {{ form_row(form.name) }}
+            {{ form_row(form.shortDescription) }}
+            {{ form_row(form.longDescription) }}
+            {{ form_row(form.parent) }}
+
+        </div>
+        <div class="tab-pane fade" id="tab-seo" role="tabpanel" aria-labelledby="profile-seo">
+            {{ form_row(form.seoTitle) }}
+            {{ form_row(form.seoDescription) }}
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}

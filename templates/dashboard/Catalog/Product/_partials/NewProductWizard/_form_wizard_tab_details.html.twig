@@ -1,0 +1,88 @@
+<div class="tab-pane active show" role="tabpanel" aria-labelledby="bootstrap-wizard-tab1" id="bootstrap-wizard-tab1" data-product-wizard-target="pane">
+
+    <div class="row">
+        <div class="col-12">
+            {{ form_row(form.name) }}
+        </div>
+        <div class="col-12 col-md-4">
+            {{ form_row(form.family) }}
+        </div>
+        <div class="col-12 col-md-4">
+            {{ form_row(form.type) }}
+        </div>
+        <div class="col-12 col-md-4">
+            {{ form_row(form.mainCategory) }}
+        </div>
+    </div>
+
+
+    <div class="row gy-2 gx-3 align-items-center">
+        <div class="form-check form-switch col-auto">
+            {{ form_widget(form.isActive) }}
+            {{ form_label(form.isActive) }}
+        </div>
+        <div class="form-check form-switch col-auto">
+            {{ form_widget(form.isFeatured) }}
+            {{ form_label(form.isFeatured) }}
+        </div>
+        <div class="form-check form-switch col-auto">
+            {{ form_widget(form.isOnSale) }}
+            {{ form_label(form.isOnSale) }}
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="row align-items-center">
+                <div class="col-9 ">
+                    {{ form_row(form.brand) }}
+                </div>
+                <div class="col-3 ">
+                    <a href="#" class="btn btn-phoenix-primary">
+                        <i class="fas fa-plus"></i>
+                        new
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="row align-items-center">
+                <div class="col-9 ">
+                    {{ form_row(form.categories) }}
+                </div>
+                <div class="col-3 ">
+                    <a href="#" class="btn btn-phoenix-primary">
+                        <i class="fas fa-plus"></i>
+                        new
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            {{ form_row(form.relatedProducts) }}
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="row align-items-center">
+                <div class="col-9 ">
+                    {{ form_row(form.tags) }}
+                </div>
+                <div class="col-3 ">
+                    <a href="#" class="btn btn-phoenix-primary">
+                        <i class="fas fa-plus"></i>
+                        new
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form.sku) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form.barCode) }}
+        </div>
+    </div>
+
+
+</div>
+

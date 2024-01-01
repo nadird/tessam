@@ -1,0 +1,25 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-around mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Produits</h1>
+                    <a href="{{ path('app_dashboard_catalog_Product_new') }}" class="btn btn-phoenix-primary">
+                        <i class="fas fa-plus-circle"></i> {{ 'New product' | trans }}
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-12">
+                {% include('dashboard/Catalog/Product/_partials/_filter_form.html.twig') %}
+            </div>
+            <div class="col-md-12">
+                {% include('dashboard/Catalog/Product/_partials/_product_list.html.twig') %}
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

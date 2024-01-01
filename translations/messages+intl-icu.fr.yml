@@ -62,8 +62,7 @@ Attachments: 'Piéces jointes'
 'New Building': 'Nouveau immeuble'
 show: Afficher
 edit: Modifier
-'No Building found':
-    '': 'Aucun immeuble trouvé.'
+'No Building found.': 'Aucun immeuble trouvé.'
 'Create new': 'Créer nouveau'
 'Edit Project': 'Modifier projet'
 'Drop your files here': 'Déposez vos fichiers ici'
@@ -79,8 +78,7 @@ album: Album
 Type: Type
 Album: Album
 'New Category': 'Nouvelle catégorie'
-'No Categtory found':
-    '': 'Aucune catégorie trouvée.'
+'No Categtory found.': 'Aucune catégorie trouvée.'
 'New Bien': 'Nouveau bien'
 Format: Format
 Project: Projet
@@ -97,8 +95,7 @@ delete: Supprimer
 'This is image is the big image presented in Type page': 'Cette image est la grande image presentée dans la page Type'
 'This is the floor plan presented in Type page': 'Ceci est le plan d\étage présenté dans la page Type'
 "Drop\n                        your files here": 'Déposez vos fichiers ici'
-'No product found':
-    '': 'Aucun produit trouvé.'
+'No product found.': 'Aucun produit trouvé.'
 Update: Modifier
 User: Utilisateur
 Interests: Interets
@@ -260,8 +257,7 @@ Cheers!: Merci!
 'You are logged in as': 'Vous êtes connecté en tant que'
 "Don't have an account yet ?": "Vous n'avez pas encore de compte ?"
 'Create an account': 'Créer un compte'
-'Avec The Heaven, découvrez une vie où chaque jour est un pas de plus vers le paradis sur terre':
-    '': 'Avec The Heaven, découvrez une vie où chaque jour est un pas de plus vers le paradis sur terre.'
+'Avec The Heaven, découvrez une vie où chaque jour est un pas de plus vers le paradis sur terre.': 'Avec The Heaven, découvrez une vie où chaque jour est un pas de plus vers le paradis sur terre.'
 Contactez-nous: Contactez-nous
 'Starts at': 'à partir de'
 'En Maintenance': 'En Maintenance'
@@ -382,16 +378,6 @@ Providers: 'Fournisseurs & Sous-traitants'
 'Provider State': 'Etat fournisseur'
 'Provider Type': 'Type fournisseur'
 'Providers Orders': 'Commandes fournisseur'
-app:
-    dashboard:
-        crm:
-            customer: { interaction: { added_successfully: 'Interaction ajoutée avec succès' }, document: { added_successfully: 'Document ajouté avec succès' }, interest: { added_successfully: 'Intérêt ajouté avec succès' }, order: { added_successfully: 'Commande ajoutée avec succès' }, employee_changed_successfully: 'Employé changé avec succès', index: { filtred: { controller_name: Filtre, parent_controller_name: Clients } }, controller_name: Client, sales_controller_name: Ventes }
-    product:
-        type:
-            controller_name: 'Type de logements'
-        format:
-            controller_name: 'Format de logement'
-            thankyou: { controller_name: Merci }
 'Provider Order': 'Commande fournisseur'
 'Contact Messages': 'Messages de contact'
 'Contact Message': 'Messages de contact'
@@ -659,3 +645,49 @@ Acquisition: __Acquisition
 Echeanciers: __Echeanciers
 'Customer dashboard': '__Customer dashboard'
 Messages: __Messages
+Brand: __Brand
+'No products yet, Add new products ?': '__No products yet, Add new products ?'
+'Add new product': '__Add new product'
+Warehouses: __Warehouses
+Shops: __Shops
+Brands: __Brands
+Attributs: __Attributs
+Caractéristiques: __Caractéristiques
+Réductions: __Réductions
+Suppliers: __Suppliers
+'Suppliers Orders': '__Suppliers Orders'
+'Suppliers stats': '__Suppliers stats'
+app:
+    dashboard:
+        crm:
+            customer:
+                interaction:
+                    added_successfully: 'Interaction ajoutée avec succès'
+                document:
+                    added_successfully: 'Document ajouté avec succès'
+                interest:
+                    added_successfully: 'Intérêt ajouté avec succès'
+                order:
+                    added_successfully: 'Commande ajoutée avec succès'
+                employee_changed_successfully: 'Employé changé avec succès'
+                index:
+                    filtred:
+                        controller_name: Filtre
+                        parent_controller_name: Clients
+                controller_name: Client
+                sales_controller_name: Ventes
+        catalog:
+            product:
+                index:
+                    controller_name: Produits
+                    parent_controller_name: Catalogue
+    product:
+        type:
+            controller_name: 'Type de logements'
+        format:
+            controller_name: 'Format de logement'
+            thankyou:
+                controller_name: Merci
+Parent: __Parent
+'No categories yet, Add new category ?': '__No categories yet, Add new category ?'
+'Add new category': '__Add new category'

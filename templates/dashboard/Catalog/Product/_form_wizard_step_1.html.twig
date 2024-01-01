@@ -1,0 +1,49 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+    <div id="main-content">
+        {{ form_start(form) }}
+            <div class="card theme-wizard mb-5">
+                <div class="card-header bg-100 pt-3 pb-2 border-bottom-0">
+                    {% include('dashboard/Catalog/Product/_partials/NewProductWizard/_form_wizard_menu.html.twig') %}
+                </div>
+
+                <div class="card-body pt-4 pb-0">
+                    <div class="tab-content">
+
+                        {% include('dashboard/Catalog/Product/_partials/NewProductWizard/_form_wizard_tab_details_step_1.html.twig') %}
+                        {# Futur me mad, present me happy :) #}
+
+                        {#
+                        {% include('dashboard/Catalog/Product/_partials/_form_wizard_tab_image.html.twig') %}
+                        {% include('dashboard/Catalog/Product/_partials/_form_wizard_tab_price.html.twig') %}
+                        {% include('dashboard/Catalog/Product/_partials/_form_wizard_tab_seo.html.twig') %}
+                        #}
+                    </div>
+                </div>
+
+                <div class="card-footer border-top-1 ">
+                    <div class="d-flex pager wizard list-inline mb-0">
+                        {#
+                        <button class="btn btn-phoenix-secondary px-6 px-sm-6 d-none" type="button" data-product-wizard-target="prevButton"  data-action="click->product-wizard#prevStep">
+                            <span class="fas fa-chevron-left me-1" data-fa-transform="shrink-3"></span>
+                            Previous
+                        </button>
+                        #}
+                        <div class="flex-1 text-end">
+                            <button class="btn btn-phoenix-primary px-6 px-sm-6" type="submit">
+                                {{ 'Next' | trans }}
+                                <span class="fas fa-chevron-right ms-1" data-fa-transform="shrink-3"> </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{ form_end(form) }}
+
+    </div>
+
+
+
+{% endblock %}

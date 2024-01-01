@@ -1,0 +1,12 @@
+<div class="tab-pane" role="tabpanel" aria-labelledby="bootstrap-wizard-tab4" id="bootstrap-wizard-tab4" data-product-wizard-target="pane">
+    <div class="my-3">
+        <form>
+            {% for warehous in warehouses %}
+                <div class="form-group">
+                    <label class="form-label" for="warehouse-{{ warehous.id }}">{{ warehous.name }}</label>
+                    <input type="number" class="form-control" id="warehouse-{{ warehous.id }}" placeholder="0" min="0">
+                </div>
+            {% endfor %}
+          </form>
+    </div>
+</div>

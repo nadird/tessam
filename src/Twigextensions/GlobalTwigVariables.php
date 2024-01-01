@@ -15,9 +15,9 @@
 	{
 		public function __construct(
 			private EntityManagerInterface $em,
-			ParameterBagInterface $params,
+			private ParameterBagInterface $params,
 			){
-			$this->paramettersBag = $params;
+			
 		}
 		
 		public function getFunctions(): array
@@ -32,7 +32,7 @@
 			
 			$globalVariables = [
 				'TheCompany' => $this->em->getRepository(TheCompany::class)->findOneBy(['id' => 1]),
-				'version' => $this->paramettersBag->get('app.version'),
+				'version' => $this->params->get('app.version'),
 			];
 			return $globalVariables;
 		}

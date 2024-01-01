@@ -1,14 +1,8 @@
-<nav class="navbar navbar-vertical navbar-expand-lg">
-    <script>
-        var navbarStyle = window.config.config.phoenixNavbarStyle;
-        if (navbarStyle && navbarStyle !== 'transparent') {
-            document.querySelector('body').classList.add(`navbar-${navbarStyle}`);
-        }
-    </script>
+<nav class="navbar navbar-vertical navbar-expand-lg" data-controller="navbar">
     <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
         <!-- scrollbar removed-->
         <div class="navbar-vertical-content">
-            <ul class="navbar-nav flex-column" id="navbarVerticalNav">
+            <ul class="navbar-nav flex-column" id="navbarVerticalNav" data-navbar-target="navbarVerticalCollapse">
                 <li class="nav-item">
                     <!-- parent pages-->
                     <div class="nav-item-wrapper">
@@ -25,6 +19,7 @@
                     </div>
                 </li>
                 {% include('dashboard/_partials/_navbar/_crm_vertical_menu.html.twig') %}
+                {% include('dashboard/_partials/_navbar/_catalog_vertical_menu.html.twig') %}
                {#  {% include('dashboard/_partials/_navbar/_accounting_vertical_menu.html.twig') %}#}
                 {% include('dashboard/_partials/_navbar/_hr_vertical_menu.html.twig') %}
                 {% include('dashboard/_partials/_navbar/_ged_vertical_menu.html.twig') %}
@@ -37,7 +32,7 @@
         </div>
     </div>
     <div class="navbar-vertical-footer">
-        <button class="btn navbar-vertical-toggle border-0 fw-semi-bold w-100 white-space-nowrap d-flex align-items-center">
+        <button class="btn navbar-vertical-toggle border-0 fw-semi-bold w-100 white-space-nowrap d-flex align-items-center" data-action="click->navbar#toggleCollapse" data-navbar-target="navbarVerticalToggle">
             <span class="fa fa-arrow-left fs-0"></span>
             <span class="fa fa-arrow-right fs-0"></span>
             <span class="navbar-vertical-footer-text ms-2">{{ 'Collapsed View' | trans }}</span></button>

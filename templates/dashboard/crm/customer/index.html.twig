@@ -7,7 +7,7 @@
 
     <div class="row row-cards">
         <div id="filter-zone">
-            {% include('dashboard/crm/customer/_partials/_customer_index_filters.html.twig') %}
+          {#   {% include('dashboard/crm/customer/_partials/_customer_index_filters.html.twig') %}#}
         </div>
         <div class="col-12">
 
@@ -31,32 +31,21 @@
                         </b>
                     </div>
                     <div class="col-6 col-md-4 col-lg-2 col-xl-2 ">
-                        {% set totalOrder = 0  %}
-                            {% for order in customer.orders %}
-                                {% set totalOrder = totalOrder + order.totalHt %}
-                            {% endfor %}
+
                         <div class="overflow-hidden">
-                        <p class=" white-space-nowrap fw-thick fs--1"> {{ totalOrder | format_currency('dzd') }}
+                        <p class=" white-space-nowrap fw-thick fs--1">
                         </p>
                         </div>
 
                     </div>
                     <div class="col-6 col-md-4 col-lg-2 col-xl-2">
-                        {% set totalPaiement = 0 %}
-                        {% for paiement in customer.paiementHistories %}
-                            {% set totalPaiement = totalPaiement + paiement.total %}
-                        {% endfor %}
+
                         <div class="overflow-hidden">
-                            <p class=" white-space-nowrap fw-thick fs--1"> {{ totalPaiement | format_currency('dzd') }}
+                            <p class=" white-space-nowrap fw-thick fs--1">
                             </p>
                         </div>
                     </div>
                     <div class="col-12 col-md-4 col-lg-1 col-xl-1">
-                        {% if totalOrder > 0  %}
-                            {% set percentage = ((totalPaiement/totalOrder)*100) |round %}
-                        {% else %}
-                            {% set percentage = 0 %}
-                        {% endif %}
 
                         <div class="progress mb-2 bg-light" style="height:15px">
                             <div class="progress-bar rounded-3 bg-warning" role="progressbar" style="width: {{ percentage }}%" aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100">{{ percentage }}%</div>

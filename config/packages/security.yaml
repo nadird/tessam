@@ -43,6 +43,14 @@ security:
                 lifetime: 604800 # 1 week in seconds
                 always_remember_me: true
                 signature_properties: [ password ]
+        api:
+            pattern: ^/api/  # Adjust the pattern to match your API path
+            stateless: true
+            provider: admin_users  # or customer_users, depending on your needs
+            # Choose the authentication method you prefer, JWT is a common choice for APIs
+            json_login:
+                check_path: /api/login_check
+
 
 
 

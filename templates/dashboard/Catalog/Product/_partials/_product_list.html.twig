@@ -1,0 +1,31 @@
+<div class="row-table-header row">
+    <div class="col-3 col-md-2 col-lg-1 ">#</div>
+    <div class="col-3 col-md-3 col-lg-2">{{ 'Name' | trans }}</div>
+    <div class="col-3 col-md-3 col-lg-2 ">{{ 'Category' | trans }}</div>
+    <div class="col-12 col-md-4 col-lg-2">{{ 'Brand' | trans }}</div>
+    <div class="col-12 col-md-4 col-lg-2 ">{{ 'Price' | trans }}</div>
+    <div class="col-12 col-md-4 col-lg-1 ">{{ 'isActive' | trans }}</div>
+    <div class="col-12 col-md-4 col-lg-2 ">{{ 'Opt' | trans }}</div>
+</div>
+{% for product in products %}
+    <div class="row-table-data row">
+        <div class="col-3 col-md-2 ">{{ product.id }}</div>
+        <div class="col-3 col-md-3 ">{{ product.name }}</div>
+        <div class="col-3 col-md-3 ">{{ product.category }}</div>
+        <div class="col-12 col-md-4 ">{{ product.brand }}</div>
+        <div class="col-12 col-md-4 "></div>
+        <div class="col-12 col-md-4 ">{{ product.isActive }}</div>
+    </div>
+{% else %}
+    <div class="row">
+        <div class="col-12">
+            <div class="alert alert-danger d-flex justify-content-between">
+                {{ 'No products yet, Add new products ?' | trans }}
+                <a href="#" class="btn btn-phoenix-secondary">
+                    <i class="fa fa-plus-circle"></i>
+                    {{ 'Add new product' | trans }}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endfor %}

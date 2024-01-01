@@ -1,0 +1,7 @@
+<div class="">
+    {#
+    <img src="{{ asset('uploads/product/') }}{{ product.id }}/{{ final.url }}" alt="" class="img-fluid border border-1">
+    #}
+
+    <img src="{{ asset('uploads/product/') }}{{ product.id }}/{{ this.ProductImageBySize(image,size) }}" alt="" class="img-fluid border border-1">
+</div>

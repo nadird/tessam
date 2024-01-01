@@ -1,0 +1,8 @@
+
+{{ form_start(filtersForm,{'attr':{'class':'row gy-2 gx-0 align-items-center'}}) }}
+{% for item in filtersForm %}
+    <div class="col-auto">
+        {{ form_widget(item) }}
+    </div>
+{% endfor %}
+{{ form_end(filtersForm) }}

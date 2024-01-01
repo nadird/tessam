@@ -1,0 +1,53 @@
+<div class="tab-pane" role="tabpanel" aria-labelledby="bootstrap-wizard-tab3" id="bootstrap-wizard-tab3" data-product-wizard-target="pane" >
+    <div {{ stimulus_controller('product_price') }}>
+    {{ form_start(form_Prix) }}
+        <div class="border border-facebook p-2 mt-2">
+            <h5 class=" m-2">Price</h5>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+                <div class="col">
+                    {{ form_row(form_Prix.priceHt) }}
+                </div>
+                <div class="col">
+                    {{ form_row(form_Prix.tax) }}
+                </div>
+                <div class="col">
+                    {{ form_row(form_Prix.priceTtc) }}
+                </div>
+            </div>
+        </div>
+        <div class="border border-facebook p-2 mt-2">
+            <h5 class="m-2">Supply</h5>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+                <div class="col">
+                    {{ form_row(form_Prix.supplyPriceHt) }}
+                </div>
+                <div class="col">
+                    {{ form_row(form_Prix.supplyPriceTtc) }}
+                </div>
+                <div class="col">
+                    {{ form_row(form_Prix.supplier) }}
+                </div>
+            </div>
+        </div>
+        <div class="border border-facebook p-2 mt-2">
+            <h5 class=" m-2">{{ 'Wholesale' | trans }}</h5>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+                <div class="col">
+                    {{ form_row(form_Prix.wholeSalePriceHt) }}
+                </div>
+                <div class="col">
+                    {{ form_row(form_Prix.wholeSalePriceTtc) }}
+                </div>
+                <div class="col">
+                    {{ form_row(form_Prix.wholeSaleMoq) }}
+                </div>
+
+            </div>
+        </div>
+       {#  {{ form_row(form_Prix.shops) }}
+        {{ form_row(form_Prix.weight) }}
+        {{ form_row(form_Prix.availableDate) }}
+       #}
+    {{ form_end(form_Prix) }}
+    </div>
+</div>

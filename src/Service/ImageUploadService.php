@@ -35,6 +35,19 @@
 			
 			return $newFilename;
 		}
+		public function resizeuploadImageProduct($image, $directory,$size)
+		{
+			list($targetWidth, $targetHeight) = $size;
+			
+			$originalFilename = pathinfo($image->getPathname(), PATHINFO_FILENAME);
+			$safeFilename = $this->slugger->slug($originalFilename);
+			$newFilename = $safeFilename.'-'.uniqid().'.'.$image->guessExtension();
+			$temporaryPath = $image->move($directory, $newFilename)->getPathname();
+			
+			$this->resizeAndCropImage($temporaryPath, $directory.'/'.$newFilename, $targetWidth, $targetHeight);
+			
+			return $newFilename;
+		}
 		
 		private function resizeAndCropImage($path, $newPath, $targetWidth, $targetHeight)
 		{

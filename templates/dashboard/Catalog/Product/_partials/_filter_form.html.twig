@@ -1,0 +1,24 @@
+
+{{ form_start(filtersForm,{'attr':{'class':'row gy-2 gx-0 align-items-center'}}) }}
+<div class="col-auto">
+    {{ form_row(filtersForm.barCode) }}
+</div>
+<div class="col-auto">
+    {{ form_row(filtersForm.name) }}
+</div>
+<div class="col-auto">
+    {{ form_row(filtersForm.sku) }}
+</div>
+<div class="col-auto">
+    {{ form_row(filtersForm.category) }}
+</div>
+<div class="col-auto">
+    {{ form_row(filtersForm.brand) }}
+</div>
+<div class="col-auto">
+    {{ form_row(filtersForm.isActive) }}
+</div>
+<div class="col-auto">
+    {{ form_row(filtersForm.isDeleted) }}
+</div>
+{{ form_end(filtersForm) }}

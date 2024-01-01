@@ -1,0 +1,24 @@
+{% extends 'dashboard/base_dashboard.html.twig' %}
+
+{% block body %}
+    {% include('dashboard/_partials/_dashboard_page_header.html.twig') %}
+    <div id="main-content" {{ stimulus_controller('product_dashboard') }}>
+        {% include('dashboard/Catalog/Product/_partials/EditFormProduct/_edit_tabs_menu.html.twig') %}
+        {{ form_start(form) }}
+        <div class="tab-content mt-3" id="CategoryTabContent">
+            {% include('dashboard/Catalog/Product/_partials/EditFormProduct/_edit_tab_details.html.twig') %}
+            {% include('dashboard/Catalog/Product/_partials/EditFormProduct/_edit_tab_image.html.twig') %}
+            {% include('dashboard/Catalog/Product/_partials/EditFormProduct/_edit_tab_attributs.html.twig') %}
+            {% include('dashboard/Catalog/Product/_partials/EditFormProduct/_edit_tab_price.html.twig') %}
+            {% include('dashboard/Catalog/Product/_partials/EditFormProduct/_edit_tab_stock.html.twig') %}
+            {% include('dashboard/Catalog/Product/_partials/EditFormProduct/_edit_tab_combinations.html.twig') %}
+            {% include('dashboard/Catalog/Product/_partials/EditFormProduct/_edit_tab_caracteristiques.html.twig') %}
+            {% include('dashboard/Catalog/Product/_partials/EditFormProduct/_edit_tab_seo.html.twig') %}
+
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+
+
+{% endblock %}

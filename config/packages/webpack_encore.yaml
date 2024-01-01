@@ -6,7 +6,10 @@ webpack_encore:
 
     # Set attributes that will be rendered on all script and link tags
     script_attributes:
-        defer: false
+        defer: true
+        'data-turbo-track': reload
+    link_attributes:
+        'data-turbo-track': reload
         #'data-turbo-track': reload
 
         # Uncomment (also under link_attributes) if using Turbo Drive
